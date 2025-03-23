@@ -1,0 +1,52 @@
+<%= form_with(model: booking_vip_customer_discount) do |form| %>
+  <% if booking_vip_customer_discount.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(booking_vip_customer_discount.errors.count, "error") %> prohibited this booking_vip_customer_discount from being saved:</h2>
+
+      <ul>
+        <% booking_vip_customer_discount.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :booking_id, style: "display: block" %>
+    <%= form.text_field :booking_id %>
+  </div>
+
+  <div>
+    <%= form.label :customer_id, style: "display: block" %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div>
+    <%= form.label :discount_type, style: "display: block" %>
+    <%= form.number_field :discount_type %>
+  </div>
+
+  <div>
+    <%= form.label :discount_percent_on_room_price, style: "display: block" %>
+    <%= form.number_field :discount_percent_on_room_price %>
+  </div>
+
+  <div>
+    <%= form.label :discount_percent_on_additional_services, style: "display: block" %>
+    <%= form.number_field :discount_percent_on_additional_services %>
+  </div>
+
+  <div>
+    <%= form.label :discount_amount_on_room_price, style: "display: block" %>
+    <%= form.text_field :discount_amount_on_room_price %>
+  </div>
+
+  <div>
+    <%= form.label :discount_amount_on_additional_services, style: "display: block" %>
+    <%= form.text_field :discount_amount_on_additional_services %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

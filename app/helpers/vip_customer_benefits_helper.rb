@@ -1,0 +1,2 @@
+module VipCustomerBenefitsHelper
+end

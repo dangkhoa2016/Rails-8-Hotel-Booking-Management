@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  summary: MyString
+  price: 1.5
+  unit: MyString
+  status: 1
+
+two:
+  name: MyString
+  summary: MyString
+  price: 1.5
+  unit: MyString
+  status: 1

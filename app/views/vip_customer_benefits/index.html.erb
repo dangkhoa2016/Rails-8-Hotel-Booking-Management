@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Vip customer benefits" %>
+
+<h1>Vip customer benefits</h1>
+
+<div id="vip_customer_benefits">
+  <% @vip_customer_benefits.each do |vip_customer_benefit| %>
+    <%= render vip_customer_benefit %>
+    <p>
+      <%= link_to "Show this vip customer benefit", vip_customer_benefit %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New vip customer benefit", new_vip_customer_benefit_path %>

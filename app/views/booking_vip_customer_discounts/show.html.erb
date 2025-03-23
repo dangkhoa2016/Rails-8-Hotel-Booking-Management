@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @booking_vip_customer_discount %>
+
+<div>
+  <%= link_to "Edit this booking vip customer discount", edit_booking_vip_customer_discount_path(@booking_vip_customer_discount) %> |
+  <%= link_to "Back to booking vip customer discounts", booking_vip_customer_discounts_path %>
+
+  <%= button_to "Destroy this booking vip customer discount", @booking_vip_customer_discount, method: :delete %>
+</div>

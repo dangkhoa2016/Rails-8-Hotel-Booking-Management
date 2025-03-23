@@ -1,0 +1,2 @@
+class HotelLocation < ApplicationRecord
+end

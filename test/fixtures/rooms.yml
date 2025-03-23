@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  room_type: one
+  hotel_location: one
+  capacity: 1
+  price: 1.5
+  half_day_price_morning: 1.5
+  half_day_price_afternoon: 1.5
+  summary: MyString
+  available: false
+  status: 1
+
+two:
+  name: MyString
+  room_type: two
+  hotel_location: two
+  capacity: 1
+  price: 1.5
+  half_day_price_morning: 1.5
+  half_day_price_afternoon: 1.5
+  summary: MyString
+  available: false
+  status: 1

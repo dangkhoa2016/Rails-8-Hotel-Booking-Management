@@ -225,6 +225,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_23_082302) do
     t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_vip_customers_benefits_on_customer_id"
+    t.index ["customer_id"], name: "index_vip_customer_benefits_on_customer_id"
   end
 end

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @facility %>
+
+<div>
+  <%= link_to "Edit this facility", edit_facility_path(@facility) %> |
+  <%= link_to "Back to facilities", facilities_path %>
+
+  <%= button_to "Destroy this facility", @facility, method: :delete %>
+</div>

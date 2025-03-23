@@ -1,0 +1,11 @@
+<% content_for :title, "New special request" %>
+
+<h1>New special request</h1>
+
+<%= render "form", special_request: @special_request %>
+
+<br>
+
+<div>
+  <%= link_to "Back to special requests", special_requests_path %>
+</div>

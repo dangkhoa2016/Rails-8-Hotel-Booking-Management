@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Hotel locations" %>
+
+<h1>Hotel locations</h1>
+
+<div id="hotel_locations">
+  <% @hotel_locations.each do |hotel_location| %>
+    <%= render hotel_location %>
+    <p>
+      <%= link_to "Show this hotel location", hotel_location %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hotel location", new_hotel_location_path %>

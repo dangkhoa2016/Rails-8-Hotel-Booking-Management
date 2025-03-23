@@ -1,0 +1,1 @@
+json.partial! "booking_vip_customer_discounts/booking_vip_customer_discount", booking_vip_customer_discount: @booking_vip_customer_discount

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  discount_type: 1
+  discount_percent: 1
+  discount_amount: 1.5
+  promotion: one
+  reason_for_discount: MyString
+  note: MyString
+
+two:
+  booking: two
+  discount_type: 1
+  discount_percent: 1
+  discount_amount: 1.5
+  promotion: two
+  reason_for_discount: MyString
+  note: MyString
