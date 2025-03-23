@@ -31,6 +31,7 @@ if email && password
     email: email,
   )
 
+  user.role = :admin
   user.password = password
   user.save!
 
@@ -45,5 +46,24 @@ else
     and either the ADMIN_PASSWORD environment variable or
     config/credentials.yml.enc or config/credentials/#{Rails.env}.yml.enc
     with :admin_password.
+  )
+end
+
+# add some normal users
+5.times do
+  User.create!(
+    email: "user#{rand(1000..9999)}@example.com",
+    password: 'password',
+  )
+end
+
+puts "5 normal users created at #{Time.now}"
+
+# add some manager users
+2.times do
+  User.create!(
+    email: "admin#{rand(1000..9999)}@example.com",
+    password: 'password',
+    role: :manager,
   )
 end

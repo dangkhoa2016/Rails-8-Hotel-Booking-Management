@@ -1,0 +1,36 @@
+room_types = [
+  { name: 'Standard Room', summary: 'Comfortable room with basic amenities' },
+  { name: 'Deluxe Room', summary: 'Spacious room with additional amenities' },
+  { name: 'Suite', summary: 'Luxurious suite with separate living area' },
+  { name: 'Family Room', summary: 'Large room with multiple beds for families' },
+  { name: 'Honeymoon Suite', summary: 'Romantic suite for couples' },
+  { name: 'Presidential Suite', summary: 'Luxury suite with premium amenities' },
+  { name: 'Penthouse Suite', summary: 'Exclusive suite with panoramic views' },
+  { name: 'Villa', summary: 'Private villa with pool and garden' },
+  { name: 'Bungalow', summary: 'Secluded bungalow with ocean views' },
+  { name: 'Cabin', summary: 'Rustic cabin in the woods' },
+  { name: 'Treehouse', summary: 'Unique treehouse accommodation' },
+  { name: 'Yurt', summary: 'Traditional yurt with modern comforts' },
+  { name: 'Tent', summary: 'Spacious tent for camping adventures' },
+  { name: 'Houseboat', summary: 'Floating houseboat on the water' },
+  { name: 'Castle', summary: 'Historic castle with royal charm' },
+  { name: 'Igloo', summary: 'Ice igloo for a winter wonderland experience' },
+  { name: 'Lighthouse', summary: 'Quirky lighthouse accommodation' },
+  { name: 'Windmill', summary: 'Converted windmill with unique architecture' },
+  { name: 'Cave', summary: 'Cozy cave dwelling for a unique stay' },
+  { name: 'Riad', summary: 'Traditional riad with courtyard and pool' },
+  { name: 'Ranch', summary: 'Western-style ranch with horseback riding' },
+  { name: 'Farmstay', summary: 'Farm accommodation with fresh produce' },
+  { name: 'Safari Tent', summary: 'Luxury tent for a safari experience' },
+  { name: 'Boat', summary: 'Houseboat or yacht for a nautical adventure' },
+  { name: 'Train Carriage', summary: 'Converted train carriage for a unique stay' },
+  { name: 'Cottage', summary: 'Quaint cottage in the countryside' },
+  { name: 'Apartment', summary: 'Self-contained apartment for longer stays' },
+  { name: 'Hostel', summary: 'Budget-friendly accommodation with shared facilities' },
+  { name: 'Capsule Hotel', summary: 'Compact sleeping pods for solo travelers' },
+  { name: 'Glamping Tent', summary: 'Luxury tent with hotel-style amenities' },
+]
+
+room_types.each do |room_type|
+  RoomType.find_or_create_by!(room_type)
+end

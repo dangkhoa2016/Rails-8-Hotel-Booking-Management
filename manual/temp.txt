@@ -1,0 +1,58 @@
+
+config/master.key: f3b538b7d95dd62bff2dbd67a1fb2592
+
+config/credentials.yml.enc is encrypted with the master key
+
+
+-----
+
+
+production: RAILS_ENV="production" bin/rails c
+Rails. application. secret_key_base
+
+
+development: RAILS_ENV="development" bin/rails c
+Rails. application. secret_key_base
+
+
+Rails. application. credentials. content_path
+=> #<Pathname:/config/credentials.yml.enc> 
+Rails. application. credentials. key_path
+=> #<Pathname:/config/master.key> 
+
+Rails. application. credentials. config
+{ :secret_key_base=> "zzz" }
+
+Rails. application. credentials. key
+=> "zzz"
+
+
+-----
+
+RAILS_ENV="production" bin/rails credentials:show
+
+VISUAL="code --wait" RAILS_ENV="production" bin/rails credentials:edit
+
+
+-----
+
+
+1 - rails secret (optional)
+zzz
+2 - VISUAL="code --wait" RAILS_ENV="production" bin/rails credentials:edit
+```
+# smtp:
+#   user_name: my-smtp-user
+#   password: my-smtp-password
+#
+# aws:
+#   access_key_id: 123
+#   secret_access_key: 345
+
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: zzz
+```
+3 - verify the credentials: `RAILS_ENV="production" bin/rails credentials:show`
+
+
+-----
