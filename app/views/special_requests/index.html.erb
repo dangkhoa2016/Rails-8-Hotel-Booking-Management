@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Special requests" %>
+
+<h1>Special requests</h1>
+
+<div id="special_requests">
+  <% @special_requests.each do |special_request| %>
+    <%= render special_request %>
+    <p>
+      <%= link_to "Show this special request", special_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New special request", new_special_request_path %>

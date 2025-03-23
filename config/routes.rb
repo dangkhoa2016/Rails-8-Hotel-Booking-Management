@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :users
+  resources :booking_vip_customer_discounts
+  resources :facilities
+  resources :reviews
+  resources :payments
+  resources :booking_additional_services
+  resources :additional_services
+  resources :promotions
+  resources :booking_discounts
+  resources :special_requests
+  resources :bookings
+  resources :reservations
+  resources :rooms
+  resources :hotel_locations
+  resources :room_types
+  resources :vip_customers_benefits
+  resources :customers
+  devise_for :users
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

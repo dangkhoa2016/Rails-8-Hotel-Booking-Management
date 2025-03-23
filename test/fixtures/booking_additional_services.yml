@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  additional_service: one
+  reservation: one
+  note: MyString
+  quantity: 1
+  unit: MyString
+  total_price: 1.5
+
+two:
+  booking: two
+  additional_service: two
+  reservation: two
+  note: MyString
+  quantity: 1
+  unit: MyString
+  total_price: 1.5

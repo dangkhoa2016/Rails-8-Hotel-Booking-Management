@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @vip_customers_benefit %>
+
+<div>
+  <%= link_to "Edit this vip customers benefit", edit_vip_customers_benefit_path(@vip_customers_benefit) %> |
+  <%= link_to "Back to vip customers benefits", vip_customers_benefits_path %>
+
+  <%= button_to "Destroy this vip customers benefit", @vip_customers_benefit, method: :delete %>
+</div>
