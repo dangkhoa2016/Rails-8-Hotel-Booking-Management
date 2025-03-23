@@ -1,0 +1,1 @@
+json.partial! "booking_additional_services/booking_additional_service", booking_additional_service: @booking_additional_service

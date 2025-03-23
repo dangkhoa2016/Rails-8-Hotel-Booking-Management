@@ -1,0 +1,36 @@
+
+rails generate scaffold AdditionalService name:string summary:string price:float unit:string status:integer --no-migration
+
+rails generate scaffold BookingAdditionalService booking:references additional_service:references reservation:references note:string quantity:integer unit:string total_price:float --no-migration
+
+rails generate scaffold BookingDiscount booking:references discount_type:integer discount_percent:integer discount_amount:float promotion:references reason_for_discount:string note:string --no-migration
+
+rails generate scaffold BookingVipCustomerDiscount booking:references customer:references discount_type:integer discount_percent_on_room_price:integer discount_percent_on_additional_services:integer discount_amount_on_room_price:float discount_amount_on_additional_services:float --no-migration
+
+rails generate scaffold Booking customer:references status:integer total_price_before_discount:float total_price:float note:string discount_note:string --no-migration
+
+rails generate scaffold Customer name:string email:string encrypted_password:string phone_number:string address:string note:string status:integer customer_type:integer --no-migration
+
+rails generate scaffold Facility name:string summary:string status:integer --no-migration
+
+rails generate Model FacilitiesRoom room:references facility:references --no-migration
+
+rails generate scaffold HotelLocation name:string address:string manager_name:string status:integer --no-migration
+
+rails generate scaffold Payment booking:references amount:float payment_date:datetime payment_method:string payment_type:string note:string --no-migration
+
+rails generate scaffold Promotion name:string summary:string start_date:date end_date:date discount_type:integer discount_percent:integer discount_amount:float status:integer --no-migration
+
+rails generate scaffold Reservation room:references booking:references check_in_at:datetime check_out_at:datetime status:integer room_price:float note:string room_occupant:string --no-migration
+
+rails generate scaffold Review customer:references room:references room_rating:integer service_rating:integer comment:text status:integer --no-migration
+
+rails generate scaffold RoomType name:string summary:string color:string status:integer --no-migration
+
+rails generate scaffold Room name:string room_type:references hotel_location:references capacity:integer price:float half_day_price_morning:float half_day_price_afternoon:float summary:string available:boolean status:integer --no-migration
+
+rails generate scaffold SpecialRequest booking:references reservation:references request:string price:float --no-migration
+
+rails generate scaffold User full_name:string email:string encrypted_password:string role:integer reset_password_token:string reset_password_sent_at:datetime remember_created_at:datetime status:integer --no-migration
+
+rails generate scaffold VipCustomersBenefit customer:references discount_type:integer discount_percent_on_room_price:integer discount_percent_on_additional_services:integer discount_amount_on_room_price:float discount_amount_on_additional_services:float status:integer --no-migration

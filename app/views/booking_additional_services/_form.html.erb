@@ -1,0 +1,52 @@
+<%= form_with(model: booking_additional_service) do |form| %>
+  <% if booking_additional_service.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(booking_additional_service.errors.count, "error") %> prohibited this booking_additional_service from being saved:</h2>
+
+      <ul>
+        <% booking_additional_service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :booking_id, style: "display: block" %>
+    <%= form.text_field :booking_id %>
+  </div>
+
+  <div>
+    <%= form.label :additional_service_id, style: "display: block" %>
+    <%= form.text_field :additional_service_id %>
+  </div>
+
+  <div>
+    <%= form.label :reservation_id, style: "display: block" %>
+    <%= form.text_field :reservation_id %>
+  </div>
+
+  <div>
+    <%= form.label :note, style: "display: block" %>
+    <%= form.text_field :note %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :unit, style: "display: block" %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <div>
+    <%= form.label :total_price, style: "display: block" %>
+    <%= form.text_field :total_price %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
