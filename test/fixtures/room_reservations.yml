@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: one
+  booking: one
+  check_in_at: 2025-03-25 10:18:02
+  check_out_at: 2025-03-25 10:18:02
+  quantity: 1
+  status: 1
+  total_price: 1.5
+  note: MyString
+
+two:
+  room: two
+  booking: two
+  check_in_at: 2025-03-25 10:18:02
+  check_out_at: 2025-03-25 10:18:02
+  quantity: 1
+  status: 1
+  total_price: 1.5
+  note: MyString

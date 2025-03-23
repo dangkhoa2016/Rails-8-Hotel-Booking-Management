@@ -1,0 +1,2 @@
+module BookingAdditionalServicesHelper
+end

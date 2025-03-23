@@ -1,0 +1,57 @@
+<%= form_with(model: room_reservation) do |form| %>
+  <% if room_reservation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(room_reservation.errors.count, "error") %> prohibited this room_reservation from being saved:</h2>
+
+      <ul>
+        <% room_reservation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :room_id, style: "display: block" %>
+    <%= form.text_field :room_id %>
+  </div>
+
+  <div>
+    <%= form.label :booking_id, style: "display: block" %>
+    <%= form.text_field :booking_id %>
+  </div>
+
+  <div>
+    <%= form.label :check_in_at, style: "display: block" %>
+    <%= form.datetime_field :check_in_at %>
+  </div>
+
+  <div>
+    <%= form.label :check_out_at, style: "display: block" %>
+    <%= form.datetime_field :check_out_at %>
+  </div>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :total_price, style: "display: block" %>
+    <%= form.text_field :total_price %>
+  </div>
+
+  <div>
+    <%= form.label :note, style: "display: block" %>
+    <%= form.text_field :note %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  room_reservation: one
+  request: MyString
+  price: 1.5
+
+two:
+  booking: two
+  room_reservation: two
+  request: MyString
+  price: 1.5
