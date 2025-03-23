@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_23_081904) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_23_082302) do
   create_table "additional_services", force: :cascade do |t|
     t.string "name"
     t.string "summary"
@@ -201,6 +201,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_23_081904) do
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_special_requests_on_booking_id"
     t.index ["room_reservation_id"], name: "index_special_requests_on_room_reservation_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "role", default: 0
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "vip_customers_benefits", force: :cascade do |t|
