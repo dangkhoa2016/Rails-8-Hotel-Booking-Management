@@ -1,0 +1,4 @@
+rails generate devise:install
+rails generate devise users
+rails generate devise:views
+rails generate devise:controllers users
