@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  customer: one
+  discount_type: 1
+  discount_percent_on_room_price: 1
+  discount_percent_on_additional_services: 1
+  discount_amount_on_room_price: 1.5
+  discount_amount_on_additional_services: 1.5
+
+two:
+  booking: two
+  customer: two
+  discount_type: 1
+  discount_percent_on_room_price: 1
+  discount_percent_on_additional_services: 1
+  discount_amount_on_room_price: 1.5
+  discount_amount_on_additional_services: 1.5

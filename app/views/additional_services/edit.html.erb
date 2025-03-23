@@ -1,0 +1,12 @@
+<% content_for :title, "Editing additional service" %>
+
+<h1>Editing additional service</h1>
+
+<%= render "form", additional_service: @additional_service %>
+
+<br>
+
+<div>
+  <%= link_to "Show this additional service", @additional_service %> |
+  <%= link_to "Back to additional services", additional_services_path %>
+</div>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Additional services" %>
+
+<h1>Additional services</h1>
+
+<div id="additional_services">
+  <% @additional_services.each do |additional_service| %>
+    <%= render additional_service %>
+    <p>
+      <%= link_to "Show this additional service", additional_service %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New additional service", new_additional_service_path %>

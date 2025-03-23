@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  status: 1
+  total_price_before_discount: 1.5
+  total_price: 1.5
+  note: MyString
+  discount_note: MyString
+
+two:
+  customer: two
+  status: 1
+  total_price_before_discount: 1.5
+  total_price: 1.5
+  note: MyString
+  discount_note: MyString
