@@ -63,3 +63,5 @@ group :test do
 end
 
 gem "schema_to_scaffold", "~> 0.8.0"
+
+gem "devise", "~> 4.9"
