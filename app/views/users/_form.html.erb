@@ -1,4 +1,6 @@
-<%= form_with(model: user) do |form| %>
+<% url = @user.new_record? ? create_users_path : user_path(@user) %>
+
+<%= form_with(model: user, url: url) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -48,7 +50,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, options_for_select(User.statuses.keys.map { |status| [status.humanize, status] }, user.status) %>
   </div>
 
   <div>

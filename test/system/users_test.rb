@@ -2,7 +2,8 @@ require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
   setup do
-    @user = users(:one)
+    @user = users(:two)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
@@ -17,14 +18,11 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Email", with: @user.email + ".test"
     fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
-    fill_in "Remember created at", with: @user.remember_created_at
-    fill_in "Reset password sent at", with: @user.reset_password_sent_at
-    fill_in "Reset password token", with: @user.reset_password_token
     fill_in "Role", with: @user.role
-    fill_in "Status", with: @user.status
+    find("#user_status").find("option[value='#{@user.status}']").select_option
     click_on "Create User"
 
-    assert_text "User was successfully created"
+    assert_text "User was successfully created."
     click_on "Back"
   end
 
@@ -35,14 +33,11 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Email", with: @user.email + ".test"
     fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
-    fill_in "Remember created at", with: @user.remember_created_at.to_s
-    fill_in "Reset password sent at", with: @user.reset_password_sent_at.to_s
-    fill_in "Reset password token", with: @user.reset_password_token
     fill_in "Role", with: @user.role
-    fill_in "Status", with: @user.status
+    find("#user_status").find("option[value='#{@user.status}']").select_option
     click_on "Update User"
 
-    assert_text "User was successfully updated"
+    assert_text "User was successfully updated."
     click_on "Back"
   end
 

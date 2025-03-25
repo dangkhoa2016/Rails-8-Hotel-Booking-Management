@@ -3,6 +3,7 @@ require "test_helper"
 class RoomsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @room = rooms(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

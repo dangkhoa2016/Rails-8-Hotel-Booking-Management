@@ -3,6 +3,7 @@ require "test_helper"
 class BookingVipCustomerDiscountsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking_vip_customer_discount = booking_vip_customer_discounts(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
