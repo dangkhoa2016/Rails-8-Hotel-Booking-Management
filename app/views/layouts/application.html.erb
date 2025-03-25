@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html data-bs-theme='auto' lang='en'>
-  <%= render 'layouts/head' %>  
+  <%= render 'layouts/head' %>
 
   <body>
-    <%= yield %>
+    <% if controller_name == 'home' %>
+      <%= yield %>
+    <% else %>
+      <%= render 'layouts/sidebar' %>
+      <div class='content'>
+        <div class='container'>
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
   </body>
 </html>
