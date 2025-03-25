@@ -3,6 +3,7 @@ require "test_helper"
 class PromotionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @promotion = promotions(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

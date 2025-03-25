@@ -3,6 +3,7 @@ require "test_helper"
 class PaymentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @payment = payments(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

@@ -3,6 +3,7 @@ require "test_helper"
 class SpecialRequestsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @special_request = special_requests(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

@@ -3,6 +3,7 @@ require "test_helper"
 class BookingAdditionalServicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking_additional_service = booking_additional_services(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

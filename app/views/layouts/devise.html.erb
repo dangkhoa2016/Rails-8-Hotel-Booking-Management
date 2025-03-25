@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html data-bs-theme='auto' lang='en' class='h-100'>
+  <%= render 'layouts/head' %>
+  <style>
+    .devise-locale {
+      right: 0;
+      top: -100px;
+      z-index: 1000;
+    }
+  </style>
+
+  <body class='h-100 bg-body-tertiary'>
+    <div class='d-flex container h-100 align-items-center w-100 justify-content-center'>
+      <div class="row justify-content-center w-100">
+        <div class="position-relative col-md-8 col-lg-6 col-xl-5 my-3">
+          <%= image_tag "/logo.svg", class: "w-50 mx-auto d-block", alt: "Logo" %>
+
+          <%= yield %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
