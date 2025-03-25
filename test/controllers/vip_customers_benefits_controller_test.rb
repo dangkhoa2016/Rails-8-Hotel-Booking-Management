@@ -3,6 +3,7 @@ require "test_helper"
 class VipCustomersBenefitsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @vip_customers_benefit = vip_customers_benefits(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
