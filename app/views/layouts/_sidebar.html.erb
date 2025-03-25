@@ -1,0 +1,31 @@
+<button class="btn btn-primary d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <i class="bi bi-list"></i> Menu
+</button>
+
+<div class="sidebar d-flex flex-column offcanvas-lg offcanvas-start bg-secondary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header d-flex">
+    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Rails 8 Hotel Booking Management</h5>
+    <button type="button" class="d-block d-lg-none btn-close" data-bs-dismiss="offcanvas"
+      data-bs-target="#offcanvasExample" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body px-2 flex-column justify-content-between d-flex py-0 h-100 overflow-auto">
+    <ul class="mt-3 nav nav-pills flex-column w-100">
+      <% nav_list.each do |nav| %>
+        <li class="nav-item">
+          <% if nav[:model].blank? %>
+            <hr />
+          <% else %>
+            <% url = polymorphic_path(nav[:model].to_s.pluralize.underscore) rescue '#' %>
+
+            <%= link_to url, class: "nav-link text-light#{' active' if (current_page?(url) || is_current_page?(nav[:model]))}" do %>
+              <i class="bi bi-<%= nav[:icon] %>"></i> <%= nav[:name] || nav[:model].to_s.titleize %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= render partial: 'layouts/signed_in' if signed_in? %>
+  </div>
+</div>
