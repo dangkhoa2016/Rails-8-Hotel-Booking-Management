@@ -3,3 +3,4 @@ rails generate devise users
 rails generate devise:views
 rails generate devise:controllers users
 bundle add dotenv-rails --group "development, test"
+rails generate controller home index
