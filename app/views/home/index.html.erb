@@ -1,0 +1,107 @@
+<% content_for :head do %>
+  <style>
+    .hero-section {
+      background-image: url('https://img.freepik.com/free-photo/full-shot-man-carrying-baggage_23-2149963942.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-text {
+      text-align: center;
+    }
+    .service-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .service-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+<% end %>
+
+<!-- Header Section -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      Hotel Booking Management
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-text alert alert-dark">
+    <h1>Welcome to Rails 8<br/>Hotel Booking Management</h1>
+    <p>Experience a wonderful stay with 5-star service</p>
+  </div>
+</div>
+
+<!-- About Section -->
+<div id='about' class="container my-5">
+  <h2 class="text-center mb-4">About</h2>
+  <p class="text-center">
+    Rails 8 Hotel Booking Management offers an ideal retreat with high-class service and modern amenities. Located in the heart of the city, our hotel is always ready to welcome you with outstanding services.
+  </p>
+</div>
+
+<!-- Services Section -->
+<div id='services' class="container my-5">
+  <h2 class="text-center mb-4">Our Services</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="service-card">
+        <h4>Luxury Rooms</h4>
+        <p>Comfortable rooms equipped with modern amenities and stunning views.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-card">
+        <h4>Fine Dining</h4>
+        <p>Enjoy exquisite cuisine at our luxurious on-site restaurant.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-card">
+        <h4>Health and Wellness</h4>
+        <p>Relax at our spa or work out in the gym with professional wellness services.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id='contact' class="container my-5">
+  <h2 class="text-center mb-4">Contact Us</h2>
+  <p class="text-center">If you have any questions or need assistance, feel free to contact us using the details below:</p>
+  <div class="text-center">
+    <p><strong>Address:</strong> 123 XYZ Street, ABC City</p>
+    <p><strong>Phone:</strong> +84 123 456 789</p>
+    <p><strong>Email:</strong> info@xyzhotel.com</p>
+  </div>
+</div>
