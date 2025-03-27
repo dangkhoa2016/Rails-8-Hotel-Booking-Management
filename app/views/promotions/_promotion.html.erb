@@ -1,7 +1,10 @@
 <div id="<%= dom_id promotion %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Promotion</strong>
+      <%= link_to promotion do %>
+        <i class="fa fa-link"></i>
+        <strong><%= promotion.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Name:</strong> <%= promotion.name %></p>

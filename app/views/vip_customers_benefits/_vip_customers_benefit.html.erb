@@ -1,7 +1,10 @@
 <div id="<%= dom_id vip_customers_benefit %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>VIP Customer Benefit</strong>
+      <%= link_to vip_customers_benefit do %>
+        <i class="fa fa-link"></i>
+        <strong><%= vip_customers_benefit.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Customer:</strong> <%= vip_customers_benefit.customer_id %></p>
