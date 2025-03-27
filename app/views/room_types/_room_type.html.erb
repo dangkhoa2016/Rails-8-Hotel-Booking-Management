@@ -1,22 +1,11 @@
-<div id="<%= dom_id room_type %>">
-  <p>
-    <strong>Name:</strong>
-    <%= room_type.name %>
-  </p>
-
-  <p>
-    <strong>Summary:</strong>
-    <%= room_type.summary %>
-  </p>
-
-  <p>
-    <strong>Color:</strong>
-    <%= room_type.color %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= room_type.status %>
-  </p>
-
+<div class="card mb-3">
+  <div class="card-header">
+    <strong>Room Type</strong>
+  </div>
+  <div class="card-body">
+    <p><strong>Name:</strong> <%= room_type.name %></p>
+    <p><strong>Summary:</strong> <%= room_type.summary %></p>
+    <p><strong>Color:</strong> <%= room_type.color %></p>
+    <p><strong>Status:</strong> <%= room_type.status %></p>
+  </div>
 </div>
