@@ -1,18 +1,1 @@
-<div id="<%= dom_id payment %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to payment do %>
-        <i class="fa fa-link"></i>
-        <strong><%= payment.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Booking:</strong> <%= payment.booking_id %></p>
-      <p><strong>Amount:</strong> <%= payment.amount %></p>
-      <p><strong>Payment date:</strong> <%= payment.payment_date %></p>
-      <p><strong>Payment method:</strong> <%= payment.payment_method %></p>
-      <p><strong>Payment type:</strong> <%= payment.payment_type %></p>
-      <p><strong>Note:</strong> <%= payment.note %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: payment %>

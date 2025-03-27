@@ -22,4 +22,8 @@ class Promotion < ApplicationRecord
       errors.add(:base, :at_least_one_discount_present)
     end
   end
+
+  def display_at_index_page_columns
+    %w[name summary start_date end_date discount_type discount_percent status]
+  end
 end

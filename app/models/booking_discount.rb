@@ -2,7 +2,6 @@ class BookingDiscount < ApplicationRecord
   belongs_to :booking
   belongs_to :promotion, optional: true
 
-
   enum :discount_type, { percent: 0, amount: 1 }
 
 
@@ -26,5 +25,9 @@ class BookingDiscount < ApplicationRecord
     if discount_percent.blank? && discount_amount.blank?
       errors.add(:base, :at_least_one_discount_present)
     end
+  end
+
+  def display_at_index_page_columns
+    %w[booking_id discount_type discount_percent discount_amount reason_for_discount]
   end
 end

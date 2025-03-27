@@ -40,4 +40,8 @@ class Reservation < ApplicationRecord
       errors.add(:base, "Room must be active for reservation.")
     end
   end
+  
+  def display_at_index_page_columns
+    %w[room_id booking_id check_in_at check_out_at total_price]
+  end
 end
