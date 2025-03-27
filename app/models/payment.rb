@@ -10,12 +10,15 @@ class Payment < ApplicationRecord
   validate :payment_date_cannot_be_in_the_future
 
 
-  def to_s
-    "Payment of #{amount} on #{payment_date&.strftime('%Y-%m-%d')}"
+  class << self
+    def display_at_index_page_columns
+      %w[booking_id amount payment_date payment_method payment_type]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[booking_id amount payment_date payment_method payment_type]
+
+  def to_s
+    "Payment of #{amount} on #{payment_date&.strftime('%Y-%m-%d')}"
   end
 
   private

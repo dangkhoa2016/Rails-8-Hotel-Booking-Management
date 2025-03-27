@@ -19,7 +19,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
     find("#user_role").find("option[value='#{@user.role}']").select_option
-    find("#user_status").find("option[value='#{@user.status}']").select_option
+    chk = find("#user_status")
+    chk.click if chk.value != @user.status && chk.checked?
     click_on "Create User"
 
     assert_text "User was successfully created."
@@ -34,7 +35,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
     find("#user_role").find("option[value='#{@user.role}']").select_option
-    find("#user_status").find("option[value='#{@user.status}']").select_option
+    chk = find("#user_status")
+    chk.click if chk.value != @user.status && chk.checked?
     click_on "Update User"
 
     assert_text "User was successfully updated."

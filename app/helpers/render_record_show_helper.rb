@@ -13,7 +13,7 @@ module RenderRecordShowHelper
   def get_columns(record)
     columns = []
     if action_name == "index"
-      columns = record.display_at_index_page_columns if record.respond_to?(:display_at_index_page_columns)
+      columns = record.class.display_at_index_page_columns if record.class.respond_to?(:display_at_index_page_columns)
     end
 
     if columns.empty?

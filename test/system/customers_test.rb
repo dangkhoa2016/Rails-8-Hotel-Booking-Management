@@ -20,7 +20,8 @@ class CustomersTest < ApplicationSystemTestCase
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note
     fill_in "Phone number", with: @customer.phone_number
-    find("#customer_status").find("option[value='#{@customer.status}']").select_option
+    chk = find("#customer_status")
+    chk.click if chk.value != @customer.status && chk.checked?
     click_on "Create Customer"
 
     assert_text "Customer was successfully created"
@@ -37,7 +38,8 @@ class CustomersTest < ApplicationSystemTestCase
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note
     fill_in "Phone number", with: @customer.phone_number
-    find("#customer_status").find("option[value='#{@customer.status}']").select_option
+    chk = find("#customer_status")
+    chk.click if chk.value != @customer.status && chk.checked?
     click_on "Update Customer"
 
     assert_text "Customer was successfully updated"

@@ -25,12 +25,15 @@ class Reservation < ApplicationRecord
   validate :room_must_be_active
 
 
-  def to_s
-    "Booking ##{booking_id} - Room: #{room&.name}"
+  class << self
+    def display_at_index_page_columns
+      %w[room_id booking_id status check_in_at check_out_at room_price room_occupant]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[room_id booking_id check_in_at check_out_at total_price]
+
+  def to_s
+    "Booking ##{booking_id} - Room: #{room&.name}"
   end
 
   private

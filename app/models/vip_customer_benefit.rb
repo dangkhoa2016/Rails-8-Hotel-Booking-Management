@@ -17,12 +17,15 @@ class VipCustomerBenefit < ApplicationRecord
   validate :customer_is_active
 
 
-  def to_s
-    "Customer: #{customer&.name} <> #{discount_type.humanize}"
+  class << self
+    def display_at_index_page_columns
+      %w[customer_id discount_type discount_percent_on_room_price discount_amount_on_room_price status]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[customer_id discount_type discount_percent_on_room_price discount_amount_on_room_price status]
+
+  def to_s
+    "Customer: #{customer&.name} <> #{discount_type&.humanize}"
   end
 
   private
