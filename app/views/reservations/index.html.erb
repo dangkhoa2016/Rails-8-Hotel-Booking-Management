@@ -4,7 +4,7 @@
 
 <h1>Reservations</h1>
 
-<div id="reservations">
+<div id="reservations" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @reservations.each do |reservation| %>
     <%= render reservation %>
   <% end %>
