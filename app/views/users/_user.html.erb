@@ -1,7 +1,10 @@
 <div id="<%= dom_id user %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>User Details</strong>
+      <%= link_to user_path(user) do %>
+        <i class="fa fa-link"></i>
+        <strong><%= user.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Full name:</strong> <%= user.full_name %></p>
