@@ -34,20 +34,37 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button>``
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#"><%= translate('home.hero.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#about"><%= translate('home.about.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#services"><%= translate('home.services.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#contact"><%= translate('home.contact.nav') %></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <%= image_tag("/locales/#{locale}.png", class: 'flag-icon') %>
+            <%= I18n.locale.to_s.upcase %>
+          </a>
+          <ul class="dropdown-menu locale-dropdown dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <% I18n.available_locales.each do |locale| %>
+              <li>
+                <%= link_to root_path(locale: locale), class: 'dropdown-item d-flex' do %>
+                  <%= image_tag("/locales/#{locale}.png", class: 'flag-icon me-2') %>
+                  <%= locale.to_s.upcase %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         </li>
       </ul>
     </div>
@@ -57,39 +74,39 @@
 <!-- Hero Section -->
 <div class="hero-section">
   <div class="hero-text alert alert-dark">
-    <h1>Welcome to Rails 8<br/>Hotel Booking Management</h1>
-    <p>Experience a wonderful stay with 5-star service</p>
+    <h1><%= translate('home.hero.title').gsub("\n", '<br/>').html_safe %></h1>
+    <p><%= translate('home.hero.subtitle') %></p>
   </div>
 </div>
 
 <!-- About Section -->
 <div id='about' class="container my-5">
-  <h2 class="text-center mb-4">About</h2>
+  <h2 class="text-center mb-4"><%= translate('home.about.title') %></h2>
   <p class="text-center">
-    Rails 8 Hotel Booking Management offers an ideal retreat with high-class service and modern amenities. Located in the heart of the city, our hotel is always ready to welcome you with outstanding services.
+    <%= translate('home.about.description') %>
   </p>
 </div>
 
 <!-- Services Section -->
 <div id='services' class="container my-5">
-  <h2 class="text-center mb-4">Our Services</h2>
+  <h2 class="text-center mb-4"><%= translate('home.services.title') %></h2>
   <div class="row">
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Luxury Rooms</h4>
-        <p>Comfortable rooms equipped with modern amenities and stunning views.</p>
+        <h4><%= translate('home.services.luxury_rooms.title') %></h4>
+        <p><%= translate('home.services.luxury_rooms.description') %></p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Fine Dining</h4>
-        <p>Enjoy exquisite cuisine at our luxurious on-site restaurant.</p>
+        <h4><%= translate('home.services.fine_dining.title') %></h4>
+        <p><%= translate('home.services.fine_dining.description') %></p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Health and Wellness</h4>
-        <p>Relax at our spa or work out in the gym with professional wellness services.</p>
+        <h4><%= translate('home.services.health_wellness.title') %></h4>
+        <p><%= translate('home.services.health_wellness.description') %></p>
       </div>
     </div>
   </div>
@@ -97,11 +114,11 @@
 
 <!-- Contact Section -->
 <div id='contact' class="container my-5">
-  <h2 class="text-center mb-4">Contact Us</h2>
-  <p class="text-center">If you have any questions or need assistance, feel free to contact us using the details below:</p>
+  <h2 class="text-center mb-4"><%= translate('home.contact.title') %></h2>
+  <p class="text-center"><%= translate('home.contact.description') %></p>
   <div class="text-center">
-    <p><strong>Address:</strong> 123 XYZ Street, ABC City</p>
-    <p><strong>Phone:</strong> +84 123 456 789</p>
-    <p><strong>Email:</strong> info@xyzhotel.com</p>
+    <p><%= translate('home.contact.address_label') %>: <strong><%= translate('home.contact.address') %></strong></p>
+    <p><%= translate('home.contact.phone_label') %>: <strong><%= translate('home.contact.phone') %></strong></p>
+    <p><%= translate('home.contact.email_label') %>: <strong><%= translate('home.contact.email') %></strong></p>
   </div>
 </div>
