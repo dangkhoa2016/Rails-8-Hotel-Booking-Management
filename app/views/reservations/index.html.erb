@@ -7,9 +7,6 @@
 <div id="reservations">
   <% @reservations.each do |reservation| %>
     <%= render reservation %>
-    <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p>
   <% end %>
 </div>
 
