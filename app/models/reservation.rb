@@ -27,6 +27,10 @@ class Reservation < ApplicationRecord
     "Booking ##{booking_id} - Room: #{room&.name}"
   end
 
+  def display_at_index_page_columns
+    %w[room_id booking_id check_in_at check_out_at total_price]
+  end
+
   private
 
   def room_must_be_available

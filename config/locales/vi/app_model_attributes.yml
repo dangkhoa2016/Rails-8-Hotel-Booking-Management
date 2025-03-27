@@ -117,6 +117,10 @@ vi:
         note: "Ghi chú"
         customer_type: "Loại khách hàng"
 
+      customer/customer_type:
+        normal: "Khách hàng bình thường"
+        vip: "Khách hàng VIP"
+
       facility:
         name: "Tên"
         summary: "Tóm tắt"
@@ -134,6 +138,18 @@ vi:
         payment_method: "Phương thức thanh toán"
         payment_type: "Loại thanh toán"
         note: "Ghi chú"
+        
+      payment/payment_method:
+        cash: "Tiền mặt"
+        credit_card: "Thẻ tín dụng"
+        bank_transfer: "Chuyển khoản ngân hàng"
+        online_wallet: "Ví điện tử trực tuyến"
+        cryptocurrency: "Tiền điện tử"
+
+      payment/payment_type:
+        one_time_payment: "Thanh toán một lần"
+        installment_payment: "Thanh toán trả góp"
+        subscription: "Thanh toán định kỳ"
 
       promotion:
         name: "Tên"
@@ -212,6 +228,11 @@ vi:
         reset_password_sent_at: "Thời gian gửi mã đặt lại mật khẩu"
         remember_created_at: "Thời gian ghi nhớ"
         password_should_be_at_least_x_characters: "Mật khẩu phải chứa ít nhất %{count} ký tự"
+
+      user/role:
+          normal: "Người dùng bình thường"
+          admin: "Quản trị viên"
+          manager: "Quản lý"
 
       vip_customers_benefit:
         customer_id: "Khách hàng"
