@@ -8,6 +8,10 @@ class SpecialRequest < ApplicationRecord
 
 
   def to_s
-    request || "Special Request ##{id}"
+    "Special Request ##{id} - Booking ##{booking_id}"
+  end
+
+  def display_at_index_page_columns
+    %w[booking_id reservation_id request price]
   end
 end

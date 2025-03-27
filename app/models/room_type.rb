@@ -12,4 +12,8 @@ class RoomType < ApplicationRecord
   def to_s
     name
   end
+
+  def display_at_index_page_columns
+    %w[name summary color status]
+  end
 end

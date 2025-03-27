@@ -2,7 +2,6 @@ class BookingDiscount < ApplicationRecord
   belongs_to :booking
   belongs_to :promotion, optional: true
 
-
   enum :discount_type, { percent: 0, amount: 1 }
 
 
@@ -18,6 +17,10 @@ class BookingDiscount < ApplicationRecord
 
   def to_s
     reason_for_discount || "Discount ##{id}"
+  end
+
+  def display_at_index_page_columns
+    %w[booking_id discount_type discount_percent discount_amount reason_for_discount]
   end
 
   private

@@ -10,4 +10,8 @@ class BookingAdditionalService < ApplicationRecord
   def to_s
     "Reservation ##{reservation_id} - Additional Service ##{additional_service_id}"
   end
+
+  def display_at_index_page_columns
+    %w[booking_id additional_service_id reservation_id quantity total_price]
+  end
 end

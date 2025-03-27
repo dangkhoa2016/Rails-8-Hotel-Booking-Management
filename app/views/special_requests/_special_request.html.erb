@@ -1,15 +1,1 @@
-<div id="<%= dom_id special_request %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to special_request do %>
-        <i class="fa fa-link"></i>
-        <strong><%= special_request.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Reservation:</strong> <%= special_request.reservation_id %></p>
-      <p><strong>Request:</strong> <%= special_request.request %></p>
-      <p><strong>Price:</strong> <%= special_request.price %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: special_request %>
