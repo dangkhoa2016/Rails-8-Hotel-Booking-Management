@@ -1,0 +1,223 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# Vietnamese, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :vi
+#
+# This would use the information in config/locales/vi.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     vi:
+#       "yes": yup
+#       enabled: "ON"
+
+vi:
+  activerecord:
+    models:
+      additional_service: "Dịch Vụ Bổ Sung"
+      booking: "Hóa Đơn Phòng"
+      booking_additional_service: "Dịch Vụ Bổ Sung Cho Đặt Phòng"
+      booking_discount: "Giảm Giá Hóa Đơn"
+      booking_vip_customer_discount: "Giảm Giá Khách Hàng VIP"
+      customer: "Khách Hàng"
+      facility: "Tiện Ích Phòng"
+      hotel_location: "Địa Điểm Khách Sạn"
+      payment: "Thanh Toán"
+      promotion: "Khuyến Mãi"
+      review: "Đánh Giá"
+      reservation: "Đặt Phòng"
+      room: "Phòng"
+      room_type: "Loại Phòng"
+      special_request: "Yêu Cầu Đặc Biệt"
+      user: "Người Dùng"
+      vip_customers_benefit: "Ưu Đãi Khách Hàng VIP"
+
+    attributes:
+      additional_service:
+        name: "Tên"
+        summary: "Tóm tắt"
+        price: "Giá"
+        unit: "Đơn vị"
+
+      booking:
+        customer_id: "Khách hàng"
+        total_price_before_discount: "Tổng giá trước giảm giá"
+        total_price: "Tổng giá"
+        note: "Ghi chú"
+        discount_note: "Ghi chú giảm giá"
+
+      booking/status:
+        pending: "Đang chờ"
+        confirmed: "Đã xác nhận"
+        checked_in: "Đã nhận phòng"
+        checked_out: "Đã trả phòng"
+        canceled: "Đã hủy"
+        no_show: "Không đến"
+        in_progress: "Đang sử dụng"
+        refunded: "Đã hoàn tiền"
+        rescheduled: "Đã lên lịch lại"
+        overdue: "Quá hạn"
+        waiting_for_payment: "Đang chờ thanh toán"
+
+      booking_additional_service:
+        booking_id: "Hóa đơn"
+        additional_service_id: "Dịch vụ bổ sung"
+        reservation_id: "Đặt phòng"
+        note: "Ghi chú"
+        quantity: "Số lượng"
+        unit: "Đơn vị"
+        total_price: "Tổng giá"
+
+      booking_discount:
+        booking_id: "Hóa đơn"
+        discount_type: "Loại giảm giá"
+        discount_percent: "Phần trăm giảm giá"
+        discount_amount: "Số tiền giảm giá"
+        promotion_id: "Khuyến mãi"
+        reason_for_discount: "Lý do giảm giá"
+        note: "Ghi chú"
+
+      booking_vip_customer_discount:
+        booking_id: "Hóa đơn"
+        customer_id: "Khách hàng"
+        discount_type: "Loại giảm giá"
+        discount_percent_on_room_price: "Phần trăm giảm giá giá phòng"
+        discount_percent_on_additional_services: "Phần trăm giảm giá dịch vụ bổ sung"
+        discount_amount_on_room_price: "Số tiền giảm giá giá phòng"
+        discount_amount_on_additional_services: "Số tiền giảm giá dịch vụ bổ sung"
+
+      customer:
+        name: "Tên"
+        email: "Email"
+        encrypted_password: "Mật khẩu mã hóa"
+        phone_number: "Số điện thoại"
+        address: "Địa chỉ"
+        note: "Ghi chú"
+        customer_type: "Loại khách hàng"
+
+      facility:
+        name: "Tên"
+        summary: "Tóm tắt"
+
+      hotel_location:
+        name: "Tên"
+        address: "Địa chỉ"
+        manager_name: "Tên quản lý"
+
+      payment:
+        booking_id: "Hóa đơn"
+        amount: "Số tiền"
+        payment_date: "Ngày thanh toán"
+        payment_method: "Phương thức thanh toán"
+        payment_type: "Loại thanh toán"
+        note: "Ghi chú"
+
+      promotion:
+        name: "Tên"
+        summary: "Tóm tắt"
+        start_date: "Ngày bắt đầu"
+        end_date: "Ngày kết thúc"
+        discount_type: "Loại giảm giá"
+        discount_percent: "Phần trăm giảm giá"
+        discount_amount: "Số tiền giảm giá"
+
+      review:
+        customer_id: "Khách hàng"
+        room_id: "Phòng"
+        room_rating: "Đánh giá phòng"
+        service_rating: "Đánh giá dịch vụ"
+        comment: "Bình luận"
+
+      room:
+        name: "Tên"
+        room_type_id: "Loại phòng"
+        hotel_location_id: "Địa điểm khách sạn"
+        capacity: "Sức chứa"
+        price: "Giá"
+        half_day_price_morning: "Giá nửa ngày buổi sáng"
+        half_day_price_afternoon: "Giá nửa ngày buổi chiều"
+        summary: "Tóm tắt"
+        available: "Đang trống"
+
+      room/available:
+        active: "Đúng"
+        inactive: "Sai"
+
+      reservation:
+        room_id: "Phòng"
+        booking_id: "Hóa đơn"
+        check_in_at: "Thời gian nhận phòng"
+        check_out_at: "Thời gian trả phòng"
+        room_price: "Giá phòng"
+        note: "Ghi chú"
+        room_occupant: "Người sử dụng phòng"
+
+      reservation/status:
+        pending: "Đang chờ"
+        confirmed: "Đã xác nhận"
+        checked_in: "Đã nhận phòng"
+        checked_out: "Đã trả phòng"
+        canceled: "Đã hủy"
+        no_show: "Không đến"
+        in_progress: "Đang sử dụng"
+        overdue: "Quá hạn"
+
+      room_type:
+        name: "Tên"
+        summary: "Tóm tắt"
+        color: "Màu sắc"
+
+      special_request:
+        booking_id: "Hóa đơn"
+        reservation_id: "Đặt phòng"
+        request: "Yêu cầu"
+        price: "Giá"
+
+      user:
+        email: "Email"
+        full_name: "Họ và tên"
+        email: "Địa chỉ Email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        encrypted_password: "Mật khẩu mã hóa"
+        role: "Vai trò"
+        reset_password_token: "Mã đặt lại mật khẩu"
+        reset_password_sent_at: "Thời gian gửi mã đặt lại mật khẩu"
+        remember_created_at: "Thời gian ghi nhớ"
+        password_should_be_at_least_x_characters: "Mật khẩu phải chứa ít nhất %{count} ký tự"
+
+      vip_customers_benefit:
+        customer_id: "Khách hàng"
+        discount_type: "Loại giảm giá"
+        discount_percent_on_room_price: "Phần trăm giảm giá phòng"
+        discount_percent_on_additional_services: "Phần trăm giảm giá dịch vụ bổ sung"
+        discount_amount_on_room_price: "Số tiền giảm giá phòng"
+        discount_amount_on_additional_services: "Số tiền giảm giá dịch vụ bổ sung"
+
+      status:
+        active: "Hoạt động"
+        inactive: "Không hoạt động"
+
+  attributes:
+    created_at: "Ngày tạo"
+    updated_at: "Ngày cập nhật"
+    discount_type:
+      percent: "Phần trăm"
+      amount: "Số tiền"
+    status: "Trạng thái"

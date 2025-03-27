@@ -1,0 +1,32 @@
+en:
+  home:
+    hero:
+      nav: "Home"
+      title: "Welcome to Rails 8\nHotel Booking Management"
+      subtitle: "Experience a wonderful stay with 5-star service"
+    about:
+      nav: "About"
+      title: "About Us"
+      description: "Rails 8 Hotel Booking Management offers an ideal retreat with high-class service and modern amenities. Located in the heart of the city, our hotel is always ready to welcome you with outstanding services."
+    services:
+      nav: "Services"
+      title: "Our Services"
+      luxury_rooms:
+        title: "Luxury Rooms"
+        description: "Comfortable rooms equipped with modern amenities and stunning views."
+      fine_dining:
+        title: "Fine Dining"
+        description: "Enjoy exquisite cuisine at our luxurious on-site restaurant."
+      health_wellness:
+        title: "Health and Wellness"
+        description: "Relax at our spa or work out in the gym with professional wellness services."
+    contact:
+      nav: "Contact"
+      title: "Contact Us"
+      description: "If you have any questions or need assistance, feel free to contact us using the details below:"
+      address: "123 XYZ Street, ABC City"
+      phone: "+1 123 456 789"
+      email: "info@xyz.hotel"
+      address_label: "Address"
+      phone_label: "Phone"
+      email_label: "Email"

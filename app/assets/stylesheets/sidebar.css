@@ -17,3 +17,11 @@
     margin-left: 0;
   }
 }
+
+.dropdown-locale {
+  --bs-dropdown-min-width: 5rem;
+}
+
+.dropdown-locale img {
+  width: 24px;
+}
