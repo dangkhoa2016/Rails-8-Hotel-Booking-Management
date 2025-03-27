@@ -2,7 +2,6 @@ class Customer < ApplicationRecord
   has_many :bookings
   has_many :vip_customers_benefits
 
-
   enum :customer_type, { normal: 0, vip: 1 }
   enum :status, { inactive: 0, active: 1 }
 
@@ -16,5 +15,9 @@ class Customer < ApplicationRecord
 
   def to_s
     name
+  end
+
+  def display_at_index_page_columns
+    %w[name email phone_number address customer_type status]
   end
 end
