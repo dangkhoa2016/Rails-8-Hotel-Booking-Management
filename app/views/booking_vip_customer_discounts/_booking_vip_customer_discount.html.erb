@@ -1,7 +1,10 @@
 <div id="<%= dom_id booking_vip_customer_discount %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>VIP Customer Discount</strong>
+      <%= link_to booking_vip_customer_discount do %>
+        <i class="fa fa-link"></i>
+        <strong><%= booking_vip_customer_discount.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Booking:</strong> <%= booking_vip_customer_discount.booking_id %></p>

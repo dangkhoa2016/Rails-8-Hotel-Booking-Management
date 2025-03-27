@@ -1,7 +1,10 @@
 <div id="<%= dom_id special_request %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Special Request</strong>
+      <%= link_to special_request do %>
+        <i class="fa fa-link"></i>
+        <strong><%= special_request.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Reservation:</strong> <%= special_request.reservation_id %></p>

@@ -1,7 +1,10 @@
 <div id="<%= dom_id booking_additional_service %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Additional Service</strong>
+      <%= link_to booking_additional_service do %>
+        <i class="fa fa-link"></i>
+        <strong><%= booking_additional_service.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Additional service:</strong> <%= booking_additional_service.additional_service_id %></p>

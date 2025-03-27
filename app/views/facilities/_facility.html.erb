@@ -1,7 +1,10 @@
 <div id="<%= dom_id facility %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Facility</strong>
+      <%= link_to facility do %>
+        <i class="fa fa-link"></i>
+        <strong><%= facility.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Name:</strong> <%= facility.name %></p>

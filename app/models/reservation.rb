@@ -15,4 +15,9 @@ class Reservation < ApplicationRecord
     in_progress: 6,
     overdue: 7
   }
+
+
+  def to_s
+    "Booking ##{booking_id} - Room: #{room&.name}"
+  end
 end
