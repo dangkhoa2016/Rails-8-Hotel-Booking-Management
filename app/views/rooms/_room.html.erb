@@ -1,52 +1,19 @@
-<div id="<%= dom_id room %>">
-  <p>
-    <strong>Name:</strong>
-    <%= room.name %>
-  </p>
-
-  <p>
-    <strong>Room type:</strong>
-    <%= room.room_type_id %>
-  </p>
-
-  <p>
-    <strong>Hotel location:</strong>
-    <%= room.hotel_location_id %>
-  </p>
-
-  <p>
-    <strong>Capacity:</strong>
-    <%= room.capacity %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= room.price %>
-  </p>
-
-  <p>
-    <strong>Half day price morning:</strong>
-    <%= room.half_day_price_morning %>
-  </p>
-
-  <p>
-    <strong>Half day price afternoon:</strong>
-    <%= room.half_day_price_afternoon %>
-  </p>
-
-  <p>
-    <strong>Summary:</strong>
-    <%= room.summary %>
-  </p>
-
-  <p>
-    <strong>Available:</strong>
-    <%= room.available %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= room.status %>
-  </p>
-
+<div id="<%= dom_id room %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Room Details</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= room.name %></p>
+      <p><strong>Room type:</strong> <%= room.room_type_id %></p>
+      <p><strong>Hotel location:</strong> <%= room.hotel_location_id %></p>
+      <p><strong>Capacity:</strong> <%= room.capacity %></p>
+      <p><strong>Price:</strong> <%= room.price %></p>
+      <p><strong>Half day price morning:</strong> <%= room.half_day_price_morning %></p>
+      <p><strong>Half day price afternoon:</strong> <%= room.half_day_price_afternoon %></p>
+      <p><strong>Summary:</strong> <%= room.summary %></p>
+      <p><strong>Available:</strong> <%= room.available %></p>
+      <p><strong>Status:</strong> <%= room.status %></p>
+    </div>
+  </div>
 </div>

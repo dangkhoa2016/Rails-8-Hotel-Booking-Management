@@ -1,42 +1,17 @@
-<div id="<%= dom_id customer %>">
-  <p>
-    <strong>Name:</strong>
-    <%= customer.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= customer.email %>
-  </p>
-
-  <p>
-    <strong>Encrypted password:</strong>
-    <%= customer.encrypted_password %>
-  </p>
-
-  <p>
-    <strong>Phone number:</strong>
-    <%= customer.phone_number %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= customer.address %>
-  </p>
-
-  <p>
-    <strong>Note:</strong>
-    <%= customer.note %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= customer.status %>
-  </p>
-
-  <p>
-    <strong>Customer type:</strong>
-    <%= customer.customer_type %>
-  </p>
-
+<div id="<%= dom_id customer %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Customer Details</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= customer.name %></p>
+      <p><strong>Email:</strong> <%= customer.email %></p>
+      <p><strong>Encrypted password:</strong> <%= customer.encrypted_password %></p>
+      <p><strong>Phone number:</strong> <%= customer.phone_number %></p>
+      <p><strong>Address:</strong> <%= customer.address %></p>
+      <p><strong>Note:</strong> <%= customer.note %></p>
+      <p><strong>Status:</strong> <%= customer.status %></p>
+      <p><strong>Customer type:</strong> <%= customer.customer_type %></p>
+    </div>
+  </div>
 </div>

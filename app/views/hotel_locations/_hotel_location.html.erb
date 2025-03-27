@@ -1,22 +1,13 @@
-<div id="<%= dom_id hotel_location %>">
-  <p>
-    <strong>Name:</strong>
-    <%= hotel_location.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= hotel_location.address %>
-  </p>
-
-  <p>
-    <strong>Manager name:</strong>
-    <%= hotel_location.manager_name %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= hotel_location.status %>
-  </p>
-
+<div id="<%= dom_id hotel_location %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Hotel Location</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= hotel_location.name %></p>
+      <p><strong>Address:</strong> <%= hotel_location.address %></p>
+      <p><strong>Manager name:</strong> <%= hotel_location.manager_name %></p>
+      <p><strong>Status:</strong> <%= hotel_location.status %></p>
+    </div>
+  </div>
 </div>

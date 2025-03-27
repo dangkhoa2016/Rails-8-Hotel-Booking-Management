@@ -1,42 +1,17 @@
-<div id="<%= dom_id promotion %>">
-  <p>
-    <strong>Name:</strong>
-    <%= promotion.name %>
-  </p>
-
-  <p>
-    <strong>Summary:</strong>
-    <%= promotion.summary %>
-  </p>
-
-  <p>
-    <strong>Start date:</strong>
-    <%= promotion.start_date %>
-  </p>
-
-  <p>
-    <strong>End date:</strong>
-    <%= promotion.end_date %>
-  </p>
-
-  <p>
-    <strong>Discount type:</strong>
-    <%= promotion.discount_type %>
-  </p>
-
-  <p>
-    <strong>Discount percent:</strong>
-    <%= promotion.discount_percent %>
-  </p>
-
-  <p>
-    <strong>Discount amount:</strong>
-    <%= promotion.discount_amount %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= promotion.status %>
-  </p>
-
+<div id="<%= dom_id promotion %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Promotion</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= promotion.name %></p>
+      <p><strong>Summary:</strong> <%= promotion.summary %></p>
+      <p><strong>Start date:</strong> <%= promotion.start_date %></p>
+      <p><strong>End date:</strong> <%= promotion.end_date %></p>
+      <p><strong>Discount type:</strong> <%= promotion.discount_type %></p>
+      <p><strong>Discount percent:</strong> <%= promotion.discount_percent %></p>
+      <p><strong>Discount amount:</strong> <%= promotion.discount_amount %></p>
+      <p><strong>Status:</strong> <%= promotion.status %></p>
+    </div>
+  </div>
 </div>
