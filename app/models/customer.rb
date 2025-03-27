@@ -13,11 +13,14 @@ class Customer < ApplicationRecord
   validates :phone_number, format: { with: /\A[\-\s\d\.]+\z/ }, allow_blank: true
 
 
-  def to_s
-    name
+  class << self
+    def display_at_index_page_columns
+      %w[name email phone_number address customer_type status]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[name email phone_number address customer_type status]
+
+  def to_s
+    name
   end
 end

@@ -32,11 +32,14 @@ class Booking < ApplicationRecord
   validates :status, presence: true
 
 
-  def to_s
-    "Booking ##{id} - Customer: #{customer&.name}"
+  class << self
+    def display_at_index_page_columns
+      %w[customer_id total_price_before_discount total_price note discount_note status]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[customer_id total_price_before_discount total_price note discount_note status]
+
+  def to_s
+    "Booking ##{id} - Customer: #{customer&.name}"
   end
 end

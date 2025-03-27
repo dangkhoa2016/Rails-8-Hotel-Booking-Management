@@ -16,12 +16,15 @@ class BookingVipCustomerDiscount < ApplicationRecord
   validate :at_least_one_discount_present
 
 
-  def to_s
-    "Booking ##{booking_id} - Customer ##{customer_id}"
+  class << self
+    def display_at_index_page_columns
+      %w[booking_id customer_id discount_type discount_percent_on_room_price discount_amount_on_room_price]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[booking_id customer_id discount_type discount_percent_on_room_price discount_amount_on_room_price]
+
+  def to_s
+    "Booking ##{booking_id} - Customer ##{customer_id}"
   end
 
   private

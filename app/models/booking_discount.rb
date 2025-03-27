@@ -15,12 +15,15 @@ class BookingDiscount < ApplicationRecord
   validate :at_least_one_discount_present
 
 
-  def to_s
-    reason_for_discount || "Discount ##{id}"
+  class << self
+    def display_at_index_page_columns
+      %w[booking_id discount_type discount_percent discount_amount reason_for_discount]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[booking_id discount_type discount_percent discount_amount reason_for_discount]
+
+  def to_s
+    reason_for_discount || "Discount ##{id}"
   end
 
   private
