@@ -5,4 +5,9 @@ class Customer < ApplicationRecord
 
   enum :customer_type, { normal: 0, vip: 1 }
   enum :status, { inactive: 0, active: 1 }
+
+
+  def to_s
+    name
+  end
 end

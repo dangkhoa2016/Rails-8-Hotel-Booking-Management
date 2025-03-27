@@ -1,7 +1,10 @@
 <div id="<%= dom_id customer %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Customer Details</strong>
+      <%= link_to customer do %>
+        <i class="fa fa-link"></i>
+        <strong><%= customer.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Name:</strong> <%= customer.name %></p>
