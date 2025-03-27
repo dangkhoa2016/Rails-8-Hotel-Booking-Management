@@ -10,9 +10,6 @@ content_for :title, page_title
 <div id="users" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @users.each do |user| %>
     <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
   <% end %>
 </div>
 
