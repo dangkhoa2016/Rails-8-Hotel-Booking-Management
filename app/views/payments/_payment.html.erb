@@ -1,7 +1,10 @@
-<div id="<%= dom_id payment %>" class='row'>
+<div id="<%= dom_id payment %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Payment</strong>
+      <%= link_to payment do %>
+        <i class="fa fa-link"></i>
+        <strong><%= payment.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Booking:</strong> <%= payment.booking_id %></p>
