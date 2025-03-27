@@ -1,47 +1,18 @@
-<div id="<%= dom_id reservation %>">
-  <p>
-    <strong>Room:</strong>
-    <%= reservation.room_id %>
-  </p>
-
-  <p>
-    <strong>Booking:</strong>
-    <%= reservation.booking_id %>
-  </p>
-
-  <p>
-    <strong>Check in at:</strong>
-    <%= reservation.check_in_at %>
-  </p>
-
-  <p>
-    <strong>Check out at:</strong>
-    <%= reservation.check_out_at %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= reservation.status %>
-  </p>
-
-  <p>
-    <strong>Room price:</strong>
-    <%= reservation.room_price %>
-  </p>
-
-  <p>
-    <strong>Note:</strong>
-    <%= reservation.note %>
-  </p>
-
-  <p>
-    <strong>Room occupant:</strong>
-    <%= reservation.room_occupant %>
-  </p>
-
-  <p>
-    <strong>Total price:</strong>
-    <%= reservation.total_price %>
-  </p>
-
+<div id="<%= dom_id reservation %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Room Reservation</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Room:</strong> <%= reservation.room_id %></p>
+      <p><strong>Booking:</strong> <%= reservation.booking_id %></p>
+      <p><strong>Check in at:</strong> <%= reservation.check_in_at %></p>
+      <p><strong>Check out at:</strong> <%= reservation.check_out_at %></p>
+      <p><strong>Status:</strong> <%= reservation.status %></p>
+      <p><strong>Room price:</strong> <%= reservation.room_price %></p>
+      <p><strong>Note:</strong> <%= reservation.note %></p>
+      <p><strong>Room occupant:</strong> <%= reservation.room_occupant %></p>
+      <p><strong>Total price:</strong> <%= reservation.total_price %></p>
+    </div>
+  </div>
 </div>
