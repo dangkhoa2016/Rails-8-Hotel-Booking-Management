@@ -1,0 +1,32 @@
+vi:
+  home:
+    hero:
+      nav: "Trang chủ"
+      title: "Chào mừng đến với Rails 8\nQuản lý Đặt phòng Khách sạn"
+      subtitle: "Trải nghiệm kỳ nghỉ tuyệt vời với dịch vụ 5 sao"
+    about:
+      nav: "Giới thiệu"
+      title: "Giới thiệu về chúng tôi"
+      description: "Rails 8 Quản lý Đặt phòng Khách sạn cung cấp một nơi nghỉ dưỡng lý tưởng với dịch vụ cao cấp và tiện nghi hiện đại. Nằm ở trung tâm thành phố, khách sạn của chúng tôi luôn sẵn sàng chào đón bạn với những dịch vụ xuất sắc."
+    services:
+      nav: "Dịch vụ"
+      title: "Dịch vụ của chúng tôi"
+      luxury_rooms:
+        title: "Phòng sang trọng"
+        description: "Phòng thoải mái được trang bị tiện nghi hiện đại và tầm nhìn tuyệt đẹp."
+      fine_dining:
+        title: "Ẩm thực cao cấp"
+        description: "Thưởng thức ẩm thực tinh tế tại nhà hàng sang trọng của chúng tôi."
+      health_wellness:
+        title: "Sức khỏe và Thư giãn"
+        description: "Thư giãn tại spa của chúng tôi hoặc tập luyện tại phòng gym với các dịch vụ chăm sóc chuyên nghiệp."
+    contact:
+      nav: "Liên hệ"
+      title: "Liên hệ với chúng tôi"
+      description: "Nếu bạn có bất kỳ câu hỏi nào hoặc cần hỗ trợ, vui lòng liên hệ với chúng tôi qua thông tin dưới đây:"
+      address: "123 Đường XYZ, Thành phố ABC"
+      phone: "+84 123 456 789"
+      email: "info@xyz.hotel"
+      address_label: "Địa chỉ"
+      phone_label: "Điện thoại"
+      email_label: "Email"
