@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   enum :role, { normal: 0, manager: 1, admin: 2 }
   enum :status, { inactive: 0, active: 1 }
+
+
+  def to_s
+    full_name
+  end
 end

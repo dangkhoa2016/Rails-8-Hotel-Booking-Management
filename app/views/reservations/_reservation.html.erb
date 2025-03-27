@@ -1,7 +1,10 @@
 <div id="<%= dom_id reservation %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Room Reservation</strong>
+      <%= link_to reservation do %>
+        <i class="fa fa-link"></i>
+        <strong><%= reservation.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Room:</strong> <%= reservation.room_id %></p>
