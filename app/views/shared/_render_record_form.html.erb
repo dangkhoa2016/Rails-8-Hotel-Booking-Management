@@ -1,0 +1,28 @@
+<div id="<%= dom_id record %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>#<%= record.id %> <%= record.to_s %></strong>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: record, url: get_form_url(record)) do |form| %>
+        <% if record.errors.any? %>
+          <div class="alert alert-danger">
+            <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+            <ul class="mb-0">
+              <% record.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= render_record_form(form, record) %>
+
+        <div class="form-group">
+          <%= form.submit(class: "btn btn-primary") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -17,7 +17,8 @@ class HotelLocationsTest < ApplicationSystemTestCase
     fill_in "Address", with: @hotel_location.address + " new"
     fill_in "Manager name", with: @hotel_location.manager_name
     fill_in "Name", with: @hotel_location.name + " new"
-    find("#hotel_location_status").find("option[value='#{@hotel_location.status}']").select_option
+    chk = find("#hotel_location_status")
+    chk.click if chk.value != @hotel_location.status && chk.checked?
     click_on "Create Hotel Location"
 
     assert_text "Hotel location was successfully created"
@@ -31,7 +32,8 @@ class HotelLocationsTest < ApplicationSystemTestCase
     fill_in "Address", with: @hotel_location.address + " updated"
     fill_in "Manager name", with: @hotel_location.manager_name
     fill_in "Name", with: @hotel_location.name + " updated"
-    find("#hotel_location_status").find("option[value='#{@hotel_location.status}']").select_option
+    chk = find("#hotel_location_status")
+    chk.click if chk.value != @hotel_location.status && chk.checked?
     click_on "Update Hotel Location"
 
     assert_text "Hotel location was successfully updated"

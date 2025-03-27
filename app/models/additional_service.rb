@@ -10,11 +10,14 @@ class AdditionalService < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than: 0 }
 
 
-  def to_s
-    name
+  class << self
+    def display_at_index_page_columns
+      %w[name summary price unit status]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[name summary price unit status]
+
+  def to_s
+    name
   end
 end

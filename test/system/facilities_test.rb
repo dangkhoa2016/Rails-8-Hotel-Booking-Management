@@ -15,7 +15,8 @@ class FacilitiesTest < ApplicationSystemTestCase
     click_on "New facility"
 
     fill_in "Name", with: @facility.name + " new"
-    find("#facility_status").find("option[value='#{@facility.status}']").select_option
+    chk = find("#facility_status")
+    chk.click if chk.value != @facility.status && chk.checked?
     fill_in "Summary", with: @facility.summary
     click_on "Create Facility"
 
@@ -28,7 +29,8 @@ class FacilitiesTest < ApplicationSystemTestCase
     click_on "Edit this facility", match: :first
 
     fill_in "Name", with: @facility.name + " updated"
-    find("#facility_status").find("option[value='#{@facility.status}']").select_option
+    chk = find("#facility_status")
+    chk.click if chk.value != @facility.status && chk.checked?
     fill_in "Summary", with: @facility.summary
     click_on "Update Facility"
 
