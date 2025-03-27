@@ -1,10 +1,12 @@
-<div class="card mb-3">
-  <div class="card-header">
-    <strong>Facility</strong>
-  </div>
-  <div class="card-body">
-    <p><strong>Name:</strong> <%= facility.name %></p>
-    <p><strong>Summary:</strong> <%= facility.summary %></p>
-    <p><strong>Status:</strong> <%= facility.status %></p>
+<div id="<%= dom_id facility %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Facility</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= facility.name %></p>
+      <p><strong>Summary:</strong> <%= facility.summary %></p>
+      <p><strong>Status:</strong> <%= facility.status %></p>
+    </div>
   </div>
 </div>
