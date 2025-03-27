@@ -1,15 +1,1 @@
-<div id="<%= dom_id facility %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to facility do %>
-        <i class="fa fa-link"></i>
-        <strong><%= facility.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Name:</strong> <%= facility.name %></p>
-      <p><strong>Summary:</strong> <%= facility.summary %></p>
-      <p><strong>Status:</strong> <%= facility.status %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: facility %>

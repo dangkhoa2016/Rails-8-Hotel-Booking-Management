@@ -1,18 +1,1 @@
-<div id="<%= dom_id booking_additional_service %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to booking_additional_service do %>
-        <i class="fa fa-link"></i>
-        <strong><%= booking_additional_service.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Additional service:</strong> <%= booking_additional_service.additional_service_id %></p>
-      <p><strong>Reservation:</strong> <%= booking_additional_service.reservation_id %></p>
-      <p><strong>Note:</strong> <%= booking_additional_service.note %></p>
-      <p><strong>Quantity:</strong> <%= booking_additional_service.quantity %></p>
-      <p><strong>Unit:</strong> <%= booking_additional_service.unit %></p>
-      <p><strong>Total price:</strong> <%= booking_additional_service.total_price %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: booking_additional_service %>

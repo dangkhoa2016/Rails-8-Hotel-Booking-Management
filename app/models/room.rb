@@ -18,4 +18,8 @@ class Room < ApplicationRecord
   def to_s
     name
   end
+
+  def display_at_index_page_columns
+    %w[name room_type_id hotel_location_id capacity price available status]
+  end
 end

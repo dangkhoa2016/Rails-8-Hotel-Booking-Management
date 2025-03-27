@@ -13,4 +13,8 @@ class AdditionalService < ApplicationRecord
   def to_s
     name
   end
+
+  def display_at_index_page_columns
+    %w[name summary price unit status]
+  end
 end

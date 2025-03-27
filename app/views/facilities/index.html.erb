@@ -10,9 +10,6 @@ content_for :title, page_title
 <div id="facilities" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @facilities.each do |facility| %>
     <%= render facility %>
-    <p>
-      <%= link_to "Show this facility", facility %>
-    </p>
   <% end %>
 </div>
 

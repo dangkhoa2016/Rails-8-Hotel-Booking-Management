@@ -116,6 +116,10 @@ en:
         note: "Note"
         customer_type: "Customer type"
 
+      customer/customer_type:
+        normal: "Normal"
+        vip: "VIP"
+
       facility:
         name: "Name"
         summary: "Summary"
@@ -133,6 +137,18 @@ en:
         payment_method: "Payment method"
         payment_type: "Payment type"
         note: "Note"
+
+      payment/payment_type:
+        one_time_payment: "One time payment"
+        installment_payment: "Installment payment"
+        subscription: "Subscription"
+
+      payment/payment_method:
+        cash: "Cash"
+        credit_card: "Credit card"
+        bank_transfer: "Bank transfer"
+        online_wallet: "Online wallet"
+        cryptocurrency: "Cryptocurrency"
 
       promotion:
         name: "Name"
@@ -216,6 +232,11 @@ en:
         password_should_be_at_least_x_characters:
           one: "Password should be at least %{count} character"
           other: "Password should be at least %{count} characters"
+
+      user/role:
+        normal: "Normal user"
+        admin: "Administrator"
+        manager: "Manager"
 
       vip_customer_benefit:
         customer_id: "Customer"
