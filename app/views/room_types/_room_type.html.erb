@@ -1,16 +1,1 @@
-<div id="<%= dom_id room_type %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to room_type_path(room_type) do %>
-        <i class="fa fa-link"></i>
-        <strong><%= room_type.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Name:</strong> <%= room_type.name %></p>
-      <p><strong>Summary:</strong> <%= room_type.summary %></p>
-      <p><strong>Color:</strong> <%= room_type.color %></p>
-      <p><strong>Status:</strong> <%= room_type.status %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: room_type %>

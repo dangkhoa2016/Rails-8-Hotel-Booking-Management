@@ -1,0 +1,17 @@
+<div id="<%= dom_id record %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <% if action_name == 'index' %>
+        <%= link_to record do %>
+          <i class="fa fa-link"></i>
+          <strong><%= record.to_s %></strong>
+        <% end %>
+      <% else %>
+        <strong><%= record.to_s %></strong>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <%= render_record_fields(record) %>
+    </div>
+  </div>
+</div>
