@@ -1,18 +1,1 @@
-<div id="<%= dom_id booking %>" class="col">
-  <div class="card mb-3">
-    <div class="card-header">
-      <%= link_to booking do %>
-        <i class="fa fa-link"></i>
-        <strong><%= booking.to_s %></strong>
-      <% end %>
-    </div>
-    <div class="card-body">
-      <p><strong>Customer:</strong> <%= booking.customer_id %></p>
-      <p><strong>Status:</strong> <%= booking.status %></p>
-      <p><strong>Total price before discount:</strong> <%= booking.total_price_before_discount %></p>
-      <p><strong>Total price:</strong> <%= booking.total_price %></p>
-      <p><strong>Note:</strong> <%= booking.note %></p>
-      <p><strong>Discount note:</strong> <%= booking.discount_note %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/render_record_show', record: booking %>
