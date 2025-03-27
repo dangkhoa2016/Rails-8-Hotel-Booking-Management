@@ -38,16 +38,33 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#"><%= t('home.hero.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#about"><%= t('home.about.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#services"><%= t('home.services.nav') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#contact"><%= t('home.contact.nav') %></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <%= image_tag("/locales/#{locale}.png", class: 'flag-icon') %>
+            <%= I18n.locale.to_s.upcase %>
+          </a>
+          <ul class="dropdown-menu locale-dropdown dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <% I18n.available_locales.each do |locale| %>
+              <li>
+                <%= link_to root_path(locale: locale), class: 'dropdown-item d-flex' do %>
+                  <%= image_tag("/locales/#{locale}.png", class: 'flag-icon me-2') %>
+                  <%= locale.to_s.upcase %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         </li>
       </ul>
     </div>
@@ -57,39 +74,39 @@
 <!-- Hero Section -->
 <div class="hero-section">
   <div class="hero-text alert alert-dark">
-    <h1>Welcome to Rails 8<br/>Hotel Booking Management</h1>
-    <p>Experience a wonderful stay with 5-star service</p>
+    <h1><%= t('home.hero.title').gsub("\n", '<br/>').html_safe %></h1>
+    <p><%= t('home.hero.subtitle') %></p>
   </div>
 </div>
 
 <!-- About Section -->
 <div id='about' class="container my-5">
-  <h2 class="text-center mb-4">About</h2>
+  <h2 class="text-center mb-4"><%= t('home.about.title') %></h2>
   <p class="text-center">
-    Rails 8 Hotel Booking Management offers an ideal retreat with high-class service and modern amenities. Located in the heart of the city, our hotel is always ready to welcome you with outstanding services.
+    <%= t('home.about.description') %>
   </p>
 </div>
 
 <!-- Services Section -->
 <div id='services' class="container my-5">
-  <h2 class="text-center mb-4">Our Services</h2>
+  <h2 class="text-center mb-4"><%= t('home.services.title') %></h2>
   <div class="row">
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Luxury Rooms</h4>
-        <p>Comfortable rooms equipped with modern amenities and stunning views.</p>
+        <h4><%= t('home.services.luxury_rooms.title') %></h4>
+        <p><%= t('home.services.luxury_rooms.description') %></p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Fine Dining</h4>
-        <p>Enjoy exquisite cuisine at our luxurious on-site restaurant.</p>
+        <h4><%= t('home.services.fine_dining.title') %></h4>
+        <p><%= t('home.services.fine_dining.description') %></p>
       </div>
     </div>
     <div class="col-md-4">
       <div class="service-card">
-        <h4>Health and Wellness</h4>
-        <p>Relax at our spa or work out in the gym with professional wellness services.</p>
+        <h4><%= t('home.services.health_wellness.title') %></h4>
+        <p><%= t('home.services.health_wellness.description') %></p>
       </div>
     </div>
   </div>
@@ -97,11 +114,11 @@
 
 <!-- Contact Section -->
 <div id='contact' class="container my-5">
-  <h2 class="text-center mb-4">Contact Us</h2>
-  <p class="text-center">If you have any questions or need assistance, feel free to contact us using the details below:</p>
+  <h2 class="text-center mb-4"><%= t('home.contact.title') %></h2>
+  <p class="text-center"><%= t('home.contact.description') %></p>
   <div class="text-center">
-    <p><strong>Address:</strong> 123 XYZ Street, ABC City</p>
-    <p><strong>Phone:</strong> +84 123 456 789</p>
-    <p><strong>Email:</strong> info@xyzhotel.com</p>
+    <p><%= t('home.contact.address_label') %>: <strong><%= t('home.contact.address') %></strong></p>
+    <p><%= t('home.contact.phone_label') %>: <strong><%= t('home.contact.phone') %></strong></p>
+    <p><%= t('home.contact.email_label') %>: <strong><%= t('home.contact.email') %></strong></p>
   </div>
 </div>
