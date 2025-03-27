@@ -1,17 +1,12 @@
-<div id="<%= dom_id special_request %>">
-  <p>
-    <strong>Reservation:</strong>
-    <%= special_request.reservation_id %>
-  </p>
-
-  <p>
-    <strong>Request:</strong>
-    <%= special_request.request %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= special_request.price %>
-  </p>
-
+<div id="<%= dom_id special_request %>" class="col">
+  <div class="card mb-3">
+    <div class="card-header">
+      <strong>Special Request</strong>
+    </div>
+    <div class="card-body">
+      <p><strong>Reservation:</strong> <%= special_request.reservation_id %></p>
+      <p><strong>Request:</strong> <%= special_request.request %></p>
+      <p><strong>Price:</strong> <%= special_request.price %></p>
+    </div>
+  </div>
 </div>
