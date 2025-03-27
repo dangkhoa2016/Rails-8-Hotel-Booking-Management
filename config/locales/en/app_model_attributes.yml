@@ -1,0 +1,223 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     en:
+#       "yes": yup
+#       enabled: "ON"
+
+en:
+  activerecord:
+    models:
+      additional_service: "Additional Service"
+      booking: "Booking"
+      booking_additional_service: "Booking Additional Service"
+      booking_discount: "Booking Discount"
+      booking_vip_customer_discount: "VIP Customer Discount"
+      customer: "Customer"
+      facility: "Facility"
+      hotel_location: "Hotel Location"
+      payment: "Payment"
+      promotion: "Promotion"
+      review: "Review"
+      reservation: "Reservation"
+      room: "Room"
+      room_type: "Room Type"
+      special_request: "Special Request"
+      user: "User"
+      vip_customers_benefit: "VIP Customers Benefit"
+
+    attributes:
+      additional_service:
+        name: "Name"
+        summary: "Summary"
+        price: "Price"
+        unit: "Unit"
+
+      booking:
+        customer_id: "Customer"
+        total_price_before_discount: "Total price before discount"
+        total_price: "Total price"
+        note: "Note"
+        discount_note: "Discount note"
+
+      booking/status:
+        pending: "Pending"
+        confirmed: "Confirmed"
+        checked_in: "Checked in"
+        checked_out: "Checked out"
+        canceled: "Canceled"
+        no_show: "No show"
+        in_progress: "In progress"
+        refunded: "Refunded"
+        rescheduled: "Rescheduled"
+        overdue: "Overdue"
+        waiting_for_payment: "Waiting for payment"
+
+      booking_additional_service:
+        booking_id: "Booking"
+        additional_service_id: "Additional service"
+        reservation_id: "Room reservation"
+        note: "Note"
+        quantity: "Quantity"
+        unit: "Unit"
+        total_price: "Total price"
+
+      booking_discount:
+        booking_id: "Booking"
+        discount_type: "Discount type"
+        discount_percent: "Discount percent"
+        discount_amount: "Discount amount"
+        promotion_id: "Promotion"
+        reason_for_discount: "Reason for discount"
+        note: "Note"
+
+      booking_vip_customer_discount:
+        booking_id: "Booking"
+        customer_id: "Customer"
+        discount_type: "Discount type"
+        discount_percent_on_room_price: "Discount percent on room price"
+        discount_percent_on_additional_services: "Discount percent on additional services"
+        discount_amount_on_room_price: "Discount amount on room price"
+        discount_amount_on_additional_services: "Discount amount on additional services"
+
+      customer:
+        name: "Name"
+        email: "Email"
+        encrypted_password: "Encrypted password"
+        phone_number: "Phone number"
+        address: "Address"
+        note: "Note"
+        customer_type: "Customer type"
+
+      facility:
+        name: "Name"
+        summary: "Summary"
+        
+      hotel_location:
+        name: "Name"
+        address: "Address"
+        manager_name: "Manager name"
+        
+      payment:
+        booking_id: "Booking"
+        amount: "Amount"
+        payment_date: "Payment date"
+        payment_method: "Payment method"
+        payment_type: "Payment type"
+        note: "Note"
+
+      promotion:
+        name: "Name"
+        summary: "Summary"
+        start_date: "Start date"
+        end_date: "End date"
+        discount_type: "Discount type"
+        discount_percent: "Discount percent"
+        discount_amount: "Discount amount"
+        
+      review:
+        customer_id: "Customer"
+        room_id: "Room"
+        room_rating: "Room rating"
+        service_rating: "Service rating"
+        comment: "Comment"
+        
+      room:
+        name: "Name"
+        room_type_id: "Room type"
+        hotel_location_id: "Hotel location"
+        capacity: "Capacity"
+        price: "Price"
+        half_day_price_morning: "Half day price morning"
+        half_day_price_afternoon: "Half day price afternoon"
+        summary: "Summary"
+        available: "Available"
+
+      room/available:
+        active: "Yes"
+        inactive: "No"
+
+      reservation:
+        room_id: "Room"
+        booking_id: "Booking"
+        check_in_at: "Check in at"
+        check_out_at: "Check out at"
+        room_price: "Room price"
+        note: "Note"
+        room_occupant: "Room occupant"
+
+      reservation/status:
+        pending: "Pending"
+        confirmed: "Confirmed"
+        checked_in: "Checked in"
+        checked_out: "Checked out"
+        canceled: "Canceled"
+        no_show: "No show"
+        in_progress: "In progress"
+        overdue: "Overdue"
+
+      room_type:
+        name: "Name"
+        summary: "Summary"
+        color: "Color"
+
+      special_request:
+        booking_id: "Booking"
+        reservation_id: "Room reservation"
+        request: "Request"
+        price: "Price"
+
+      user:
+        email: "Email"
+        full_name: "Full name"
+        email: "Email address"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        encrypted_password: "Encrypted password"
+        role: "Role"
+        reset_password_token: "Reset password token"
+        reset_password_sent_at: "Reset password sent at"
+        remember_created_at: "Remember created at"
+
+      vip_customers_benefit:
+        customer_id: "Customer"
+        discount_type: "Discount type"
+        discount_percent_on_room_price: "Discount percent on room price"
+        discount_percent_on_additional_services: "Discount percent on additional services"
+        discount_amount_on_room_price: "Discount amount on room price"
+        discount_amount_on_additional_services: "Discount amount on additional services"
+
+      status:
+        active: "Active"
+        inactive: "Inactive"
+
+  # Common Attributes
+  attributes:
+    created_at: "Created at"
+    updated_at: "Updated at"
+    discount_type:
+      percent: "Percent"
+      amount: "Amount"
+    status: "Status"
