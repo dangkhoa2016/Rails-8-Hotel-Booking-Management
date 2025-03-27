@@ -20,7 +20,8 @@ class PromotionsTest < ApplicationSystemTestCase
     fill_in "End date", with: @promotion.end_date
     fill_in "Name", with: @promotion.name + " new"
     fill_in "Start date", with: @promotion.start_date
-    find("#promotion_status").find("option[value='#{@promotion.status}']").select_option
+    chk = find("#promotion_status")
+    chk.click if chk.value != @promotion.status && chk.checked?
     fill_in "Summary", with: @promotion.summary
     click_on "Create Promotion"
 
@@ -38,10 +39,11 @@ class PromotionsTest < ApplicationSystemTestCase
     fill_in "End date", with: @promotion.end_date
     fill_in "Name", with: @promotion.name + " updated"
     fill_in "Start date", with: @promotion.start_date
-    find("#promotion_status").find("option[value='#{@promotion.status}']").select_option
+    chk = find("#promotion_status")
+    chk.click if chk.value != @promotion.status && chk.checked?
     fill_in "Summary", with: @promotion.summary
     click_on "Update Promotion"
-
+    puts "@promotion.reload.status: #{@promotion.reload.status}"
     assert_text "Promotion was successfully updated"
     click_on "Back"
   end

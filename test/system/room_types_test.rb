@@ -16,7 +16,8 @@ class RoomTypesTest < ApplicationSystemTestCase
 
     fill_in "Color", with: @room_type.color
     fill_in "Name", with: @room_type.name + " new"
-    find("#room_type_status").find("option[value='#{@room_type.status}']").select_option
+    chk = find("#room_type_status")
+    chk.click if chk.value != @room_type.status && chk.checked?
     fill_in "Summary", with: @room_type.summary
     click_on "Create Room Type"
 
@@ -30,7 +31,8 @@ class RoomTypesTest < ApplicationSystemTestCase
 
     fill_in "Color", with: @room_type.color
     fill_in "Name", with: @room_type.name + " updated"
-    find("#room_type_status").find("option[value='#{@room_type.status}']").select_option
+    chk = find("#room_type_status")
+    chk.click if chk.value != @room_type.status && chk.checked?
     fill_in "Summary", with: @room_type.summary
     click_on "Update Room Type"
 

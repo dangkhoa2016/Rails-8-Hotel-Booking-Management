@@ -3,15 +3,18 @@ class SpecialRequest < ApplicationRecord
 
 
   validates :request, presence: true
-  validates :request, uniqueness: { scope: [ :booking_id, :reservation_id ], message: "has already been requested for this booking" }
+  validates :request, uniqueness: { scope: [ :reservation_id ], message: "has already been requested for this reservation" }
   validates :price, presence: true, numericality: { greater_than: 0 }
 
 
-  def to_s
-    "Special Request ##{id} - Booking ##{booking_id}"
+  class << self
+    def display_at_index_page_columns
+      %w[reservation_id request price]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[booking_id reservation_id request price]
+
+  def to_s
+    "Special Request ##{id} - Reservation ##{reservation_id}"
   end
 end

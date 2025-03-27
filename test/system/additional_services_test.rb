@@ -16,7 +16,8 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @additional_service.name
     fill_in "Price", with: @additional_service.price
-    select @additional_service.status, from: "Status"
+    chk = find("#additional_service_status")
+    chk.click if chk.value != @additional_service.status && chk.checked?
     fill_in "Summary", with: @additional_service.summary
     fill_in "Unit", with: @additional_service.unit
     click_on "Create Additional Service"
@@ -31,7 +32,8 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @additional_service.name
     fill_in "Price", with: @additional_service.price
-    select @additional_service.status, from: "Status"
+    chk = find("#additional_service_status")
+    chk.click if chk.value != @additional_service.status && chk.checked?
     fill_in "Summary", with: @additional_service.summary
     fill_in "Unit", with: @additional_service.unit
     click_on "Update Additional Service"

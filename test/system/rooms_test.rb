@@ -22,7 +22,8 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Name", with: @room.name + " new"
     fill_in "Price", with: @room.price
     fill_in "Room type", with: @room.room_type_id
-    find("#room_status").find("option[value='#{@room.status}']").select_option
+    chk = find("#room_status")
+    chk.click if chk.value != @room.status && chk.checked?
     fill_in "Summary", with: @room.summary
     click_on "Create Room"
 
@@ -42,7 +43,8 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Name", with: @room.name + " updated"
     fill_in "Price", with: @room.price
     fill_in "Room type", with: @room.room_type_id
-    find("#room_status").find("option[value='#{@room.status}']").select_option
+    chk = find("#room_status")
+    chk.click if chk.value != @room.status && chk.checked?
     fill_in "Summary", with: @room.summary
     click_on "Update Room"
 
