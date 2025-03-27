@@ -9,11 +9,14 @@ class RoomType < ApplicationRecord
   validates :name, uniqueness: true
 
 
-  def to_s
-    name
+  class << self
+    def display_at_index_page_columns
+      %w[name summary color status]
+    end
   end
 
-  def display_at_index_page_columns
-    %w[name summary color status]
+
+  def to_s
+    name
   end
 end
