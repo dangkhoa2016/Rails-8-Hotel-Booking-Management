@@ -1,7 +1,10 @@
 <div id="<%= dom_id room_type %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>Room Type</strong>
+      <%= link_to room_type_path(room_type) do %>
+        <i class="fa fa-link"></i>
+        <strong><%= room_type.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <p><strong>Name:</strong> <%= room_type.name %></p>
