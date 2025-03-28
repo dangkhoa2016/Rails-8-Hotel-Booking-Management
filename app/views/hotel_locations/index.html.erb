@@ -1,8 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Hotel locations" %>
+<%
+page_title = HotelLocation.model_name.human.pluralize(I18n.locale)
+content_for :title, page_title
+%>
 
-<h1>Hotel locations</h1>
+<h1><%= page_title %></h1>
 
 <div id="hotel_locations" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @hotel_locations.each do |hotel_location| %>

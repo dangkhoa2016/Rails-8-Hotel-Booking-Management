@@ -82,4 +82,11 @@ module ApplicationHelper
   def is_current_page?(model)
     controller_name == model.to_s.pluralize && action_name != "index"
   end
+
+  def page_title
+    default_title = "Hotel Booking Management"
+    arr = [ default_title ]
+    arr << content_for(:title) if content_for?(:title)
+    arr.join(" | ")
+  end
 end

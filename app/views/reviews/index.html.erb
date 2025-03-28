@@ -1,8 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Reviews" %>
+<%
+page_title = Review.model_name.human.pluralize(I18n.locale)
+content_for :title, page_title
+%>
 
-<h1>Reviews</h1>
+<h1><%= page_title %></h1>
 
 <div id="reviews" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @reviews.each do |review| %>
