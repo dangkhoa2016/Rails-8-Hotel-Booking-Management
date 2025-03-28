@@ -89,4 +89,8 @@ module ApplicationHelper
     arr << content_for(:title) if content_for?(:title)
     arr.join(" | ")
   end
+
+  def sidebar_name(key)
+    I18n.t("activerecord.models.#{key.to_s.singularize}").pluralize(I18n.locale)
+  end
 end
