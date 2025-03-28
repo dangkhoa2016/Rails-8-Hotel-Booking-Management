@@ -1,8 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Special requests" %>
+<%
+page_title = SpecialRequest.model_name.human.pluralize(I18n.locale)
+content_for :title, page_title
+%>
 
-<h1>Special requests</h1>
+<h1><%= page_title %></h1>
 
 <div id="special_requests" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @special_requests.each do |special_request| %>
