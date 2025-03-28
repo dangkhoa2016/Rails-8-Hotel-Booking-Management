@@ -192,6 +192,7 @@ vi:
         password: "Mật khẩu"
         password_confirmation: "Xác nhận mật khẩu"
         encrypted_password: "Mật khẩu mã hóa"
+        remember_me: "Ghi nhớ"
         role: "Vai trò"
         reset_password_token: "Mã đặt lại mật khẩu"
         reset_password_sent_at: "Thời gian gửi mã đặt lại mật khẩu"
@@ -209,6 +210,18 @@ vi:
       status:
         active: "Hoạt động"
         inactive: "Không hoạt động"
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            password:
+              blank: "không thể để trống"
+              confirmation: "Mật khẩu xác nhận không khớp với mật khẩu"
+              too_short: "Mật khẩu quá ngắn (ít nhất là %{count} ký tự)"
 
   attributes:
     created_at: "Ngày tạo"

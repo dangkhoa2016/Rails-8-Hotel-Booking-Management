@@ -2,26 +2,30 @@
   <div class="col-md-8 col-lg-6 col-xl-5">
     <%= image_tag "/logo.svg", class: "w-50 mx-auto d-block", alt: "Logo" %>
 
-    <h2 class='text-center mb-3'>Change Your Password</h2>
+    <h2 class='text-center mb-3'><%= t('devise.passwords.change_password_title') %></h2>
     <div class="">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <%= f.hidden_field :reset_password_token %>
 
         <div class="form-group">
-          <%= form.label :password, "New password", class: "form-label" %>
+          <%= form.label :password, t('devise.passwords.new_password'), class: "form-label" %>
           <%= form.password_field :password, autofocus: true, class: "form-control", autocomplete: "new-password" %>
-          <small class="form-text text-muted">Password should be at least <%= @minimum_password_length %> characters long.</small>
+          <small class="form-text text-muted">
+            <%= resource.class.human_attribute_name(:password_should_be_at_least_x_characters, { count: @minimum_password_length }) %>
+          </small>
         </div>
 
         <div class="form-group">
-          <%= form.label :password_confirmation, "Confirm new password", class: "form-label" %>
-          <small class="form-text text-muted">Password should be at least <%= @minimum_password_length %> characters long.</small>
+          <%= form.label :password_confirmation, t('devise.passwords.confirm_new_password'), class: "form-label" %>
+          <small class="form-text text-muted">
+            <%= resource.class.human_attribute_name(:password_should_be_at_least_x_characters, { count: @minimum_password_length }) %>
+          </small>
           <%= form.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
         </div>
 
         <div class="mt-3 text-center">
-          <%= form.submit "Change my password", class: "btn btn-primary" %>
+          <%= form.submit t('buttons.change_my_password'), class: "btn btn-primary" %>
         </div>
 
         <div class="text-center mt-3">
