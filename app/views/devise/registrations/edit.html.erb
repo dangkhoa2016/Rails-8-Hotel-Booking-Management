@@ -1,10 +1,9 @@
-<h2 class='text-center mb-3'>Edit Your Profile</h2>
+<h2 class='text-center mb-3'><%= translate('devise.registrations.edit_your_profile_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div class='alert alert-info'>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class='alert alert-info'><%= translate('devise.registrations.currently_waiting_confirmation', { email: resource.unconfirmed_email }) %></div>
   <% end %>
 
   <div class="row row-gap-3">
@@ -21,8 +20,10 @@
       <div class="form-group">
         <%= form.label :password, class: "form-label" %>
         <%= form.password_field :password, class: "form-control", autocomplete: "new-password" %>
-        <small class="form-text text-muted">Password should be at least <%= @minimum_password_length %> characters long.</small>
-        <small class="form-text text-muted">Leave blank if you don't want to change your password.</small>
+        <small class="form-text text-muted">
+          <%= resource.class.human_attribute_name(:password_should_be_at_least_x_characters, { count: @minimum_password_length }) %>
+        </small>
+        <small class="form-text text-muted"><%= translate('devise.registrations.edit_profile_password_hint') %></small>
       </div>
     </div>
   </div>
@@ -32,7 +33,9 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= form.label :password_confirmation, class: "form-label" %>
-        <small class="form-text text-muted">Password should be at least <%= @minimum_password_length %> characters long.</small>
+        <small class="form-text text-muted">
+          <%= resource.class.human_attribute_name(:password_should_be_at_least_x_characters, { count: @minimum_password_length }) %>
+        </small>
         <%= form.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
       </div>
     </div>
@@ -42,23 +45,23 @@
       <div class="form-group">
         <%= form.label :current_password, class: "form-label" %>
         <%= form.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
-        <small class="form-text text-muted">Please enter your current password to confirm changes.</small>
+        <small class="form-text text-muted"><%= translate('devise.registrations.edit_profile_enter_current_password_hint') %></small>
       </div>
     </div>
   </div>
 
   <div class="mt-3 d-flex justify-content-sm-between flex-sm-row flex-column row-gap-2">
-    <%= form.submit "Update Profile", class: "btn btn-primary" %>
-    <%= link_to "Back to profile", profile_path, class: "btn btn-secondary" %>
+    <%= form.submit translate('buttons.update_profile'), class: "btn btn-primary" %>
+    <%= link_to translate('buttons.back_to_profile'), profile_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
 
 <div class="text-center mt-3">
-  <h3>Cancel my account</h3>
+  <h3><%= translate('devise.cancel_my_account') %>?</h3>
 
   <div>
-    Unhappy? <%= button_to "Cancel my account", registration_path(resource_name),
-      data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },
+    <%= translate('devise.registrations.unhappy') %> <%= button_to translate('devise.cancel_my_account'), registration_path(resource_name),
+      data: { confirm: translate('messages.are_you_sure'), turbo_confirm: translate('messages.are_you_sure') },
       method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
