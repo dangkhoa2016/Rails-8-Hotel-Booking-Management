@@ -1,4 +1,9 @@
-<h2 class='text-center mb-3'><%= translate('devise.sessions.login_title') %></h2>
+<%
+  page_title = t('devise.sessions.login_title')
+  content_for :title, page_title
+%>
+
+<h2 class='text-center mb-3'><%= page_title %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
   <% if flash[:alert] %>

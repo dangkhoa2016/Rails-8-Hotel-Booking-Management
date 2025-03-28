@@ -1,8 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Booking vip customer discounts" %>
+<%
+page_title = BookingVipCustomerDiscount.model_name.human.pluralize(I18n.locale)
+content_for :title, page_title
+%>
 
-<h1>Booking vip customer discounts</h1>
+<h1><%= page_title %></h1>
 
 <div id="booking_vip_customer_discounts" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @booking_vip_customer_discounts.each do |booking_vip_customer_discount| %>
