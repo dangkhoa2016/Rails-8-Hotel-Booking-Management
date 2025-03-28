@@ -1,4 +1,9 @@
-<h2 class='text-center mb-3'><%= translate('devise.passwords.forgot_password_title') %></h2>
+<%
+  page_title = t('devise.passwords.forgot_password_title')
+  content_for :title, page_title
+%>
+
+<h2 class='text-center mb-3'><%= page_title %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
   <% if resource.errors.any? %>
