@@ -13,6 +13,17 @@
     <div class='d-flex container h-100 align-items-center w-100 justify-content-center'>
       <div class="row justify-content-center w-100">
         <div class="position-relative col-md-8 col-lg-6 col-xl-5 my-3">
+          <ul class="devise-locale position-absolute mb-0 list-unstyled">
+            <% I18n.available_locales.each do |locale| %>
+              <li class="px-2 py-1<%= ' text-bg-secondary' if I18n.locale == locale %>">
+                <%= link_to url_for(locale: locale), class: 'dropdown-item d-flex' do %>
+                  <%= image_tag("/locales/#{locale}.png", class: 'flag-icon me-2') %>
+                  <%= locale.to_s.upcase %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+
           <%= image_tag "/logo.svg", class: "w-50 mx-auto d-block", alt: "Logo" %>
 
           <%= yield %>

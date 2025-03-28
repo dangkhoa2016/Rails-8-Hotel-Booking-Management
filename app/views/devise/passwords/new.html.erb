@@ -1,7 +1,13 @@
-<h2 class='text-center mb-3'>Forgot Your Password?</h2>
+<h2 class='text-center mb-3'><%= translate('devise.passwords.forgot_password_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <% if resource.errors.any? %>
+    <div class='alert alert-danger'>
+      <% resource.errors.full_messages.each do |error| %>
+        <p class='m-0'><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :email, class: "form-label" %>
@@ -9,7 +15,7 @@
   </div>
 
   <div class="mt-3 text-center">
-    <%= form.submit "Send me reset password instructions", class: "btn btn-primary" %>
+    <%= form.submit translate('buttons.send_reset_password_instructions'), class: "btn btn-primary" %>
   </div>
 <% end %>
 

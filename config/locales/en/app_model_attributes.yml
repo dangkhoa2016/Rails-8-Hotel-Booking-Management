@@ -192,10 +192,14 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         encrypted_password: "Encrypted password"
+        remember_me: "Remember me"
         role: "Role"
         reset_password_token: "Reset password token"
         reset_password_sent_at: "Reset password sent at"
         remember_created_at: "Remember created at"
+        password_should_be_at_least_x_characters:
+          one: "Password should be at least %{count} character"
+          other: "Password should be at least %{count} characters"
 
       vip_customers_benefit:
         customer_id: "Customer"
@@ -208,6 +212,18 @@ en:
       status:
         active: "Active"
         inactive: "Inactive"
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            password:
+              blank: "can't be blank"
+              confirmation: "Password confirmation doesn't match Password"
+              too_short: "Password is too short (minimum is %{count} characters)"
 
   # Common Attributes
   attributes:
