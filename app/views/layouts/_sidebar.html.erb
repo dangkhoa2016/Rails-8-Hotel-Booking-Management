@@ -20,7 +20,7 @@
             <% url = polymorphic_path(nav[:model].to_s.pluralize.underscore) rescue '#' %>
 
             <%= link_to url, class: "nav-link text-light#{' active' if (current_page?(url) || is_current_page?(nav[:model]))}" do %>
-              <i class="bi bi-<%= nav[:icon] %>"></i> <%= nav[:name] || nav[:model].to_s.titleize %>
+              <i class="bi bi-<%= nav[:icon] %>"></i> <%= sidebar_name(nav[:name] || nav[:model]) %>
             <% end %>
           <% end %>
         </li>
