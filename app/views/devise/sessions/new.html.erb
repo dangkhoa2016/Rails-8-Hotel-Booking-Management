@@ -1,9 +1,9 @@
-<h2 class='text-center mb-3'>Log In</h2>
+<h2 class='text-center mb-3'><%= translate('devise.sessions.login_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
   <% if flash[:alert] %>
     <div class="alert alert-danger">
-      <%= flash[:alert] %>
+      <%= flash[:alert].capitalize %>
     </div>
   <% end %>
 
@@ -25,7 +25,7 @@
   <% end %>
 
   <div class="mt-3 text-center">
-    <%= form.submit "Login", class: "btn btn-primary" %>
+    <%= form.submit translate('buttons.login'), class: "btn btn-primary" %>
   </div>
 <% end %>
 
