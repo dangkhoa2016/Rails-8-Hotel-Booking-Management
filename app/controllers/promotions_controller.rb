@@ -3,7 +3,7 @@ class PromotionsController < ApplicationController
 
   # GET /promotions or /promotions.json
   def index
-    @promotions = Promotion.all
+    @pagy, @promotions = pagy(Promotion.all)
   end
 
   # GET /promotions/1 or /promotions/1.json

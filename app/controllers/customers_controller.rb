@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
+    @pagy, @customers = pagy(Customer.all)
   end
 
   # GET /customers/1 or /customers/1.json

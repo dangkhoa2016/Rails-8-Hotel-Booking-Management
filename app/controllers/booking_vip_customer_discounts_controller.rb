@@ -3,7 +3,7 @@ class BookingVipCustomerDiscountsController < ApplicationController
 
   # GET /booking_vip_customer_discounts or /booking_vip_customer_discounts.json
   def index
-    @booking_vip_customer_discounts = BookingVipCustomerDiscount.all
+    @pagy, @booking_vip_customer_discounts = pagy(BookingVipCustomerDiscount.all)
   end
 
   # GET /booking_vip_customer_discounts/1 or /booking_vip_customer_discounts/1.json
