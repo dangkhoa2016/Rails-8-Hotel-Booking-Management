@@ -13,5 +13,7 @@
     <div class="card-body">
       <%= render_record_fields(record) %>
     </div>
+
+    <%= render partial: "shared/footer_actions", locals: { record: record } %>
   </div>
 </div>
