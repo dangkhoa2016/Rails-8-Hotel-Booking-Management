@@ -58,7 +58,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Room.statuses.map { |name, value| [Room.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

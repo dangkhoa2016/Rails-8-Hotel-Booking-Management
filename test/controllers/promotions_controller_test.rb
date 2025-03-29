@@ -18,7 +18,14 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create promotion" do
     assert_difference("Promotion.count") do
-      post promotions_url, params: { promotion: { discount_amount: @promotion.discount_amount, discount_percent: @promotion.discount_percent, discount_type: @promotion.discount_type, end_date: @promotion.end_date, name: @promotion.name, start_date: @promotion.start_date, status: @promotion.status, summary: @promotion.summary } }
+      post promotions_url, params: { promotion: {
+          discount_amount: @promotion.discount_amount,
+          discount_percent: @promotion.discount_percent,
+          discount_type: @promotion.discount_type, end_date: @promotion.end_date,
+          name: @promotion.name + " test", start_date: @promotion.start_date,
+          status: @promotion.status, summary: @promotion.summary
+        }
+      }
     end
 
     assert_redirected_to promotion_url(Promotion.last)
@@ -35,7 +42,14 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update promotion" do
-    patch promotion_url(@promotion), params: { promotion: { discount_amount: @promotion.discount_amount, discount_percent: @promotion.discount_percent, discount_type: @promotion.discount_type, end_date: @promotion.end_date, name: @promotion.name, start_date: @promotion.start_date, status: @promotion.status, summary: @promotion.summary } }
+    patch promotion_url(@promotion), params: { promotion: {
+        discount_amount: @promotion.discount_amount,
+        discount_percent: @promotion.discount_percent,
+        discount_type: @promotion.discount_type, end_date: @promotion.end_date,
+        name: @promotion.name + " test", start_date: @promotion.start_date,
+        status: @promotion.status, summary: @promotion.summary
+      }
+    }
     assert_redirected_to promotion_url(@promotion)
   end
 

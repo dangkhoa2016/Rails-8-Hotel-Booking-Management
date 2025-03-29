@@ -3,6 +3,7 @@ require "test_helper"
 class BookingDiscountsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking_discount = booking_discounts(:one)
+    @booking2 = bookings(:two)
     sign_in users(:one)
   end
 
@@ -18,7 +19,14 @@ class BookingDiscountsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking_discount" do
     assert_difference("BookingDiscount.count") do
-      post booking_discounts_url, params: { booking_discount: { booking_id: @booking_discount.booking_id, discount_amount: @booking_discount.discount_amount, discount_percent: @booking_discount.discount_percent, discount_type: @booking_discount.discount_type, note: @booking_discount.note, promotion_id: @booking_discount.promotion_id, reason_for_discount: @booking_discount.reason_for_discount } }
+      post booking_discounts_url, params: { booking_discount: {
+          booking_id: @booking2.id, discount_amount: @booking_discount.discount_amount,
+          discount_percent: @booking_discount.discount_percent,
+          discount_type: @booking_discount.discount_type,
+          note: @booking_discount.note, promotion_id: @booking_discount.promotion_id,
+          reason_for_discount: @booking_discount.reason_for_discount
+        }
+      }
     end
 
     assert_redirected_to booking_discount_url(BookingDiscount.last)
@@ -35,7 +43,14 @@ class BookingDiscountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update booking_discount" do
-    patch booking_discount_url(@booking_discount), params: { booking_discount: { booking_id: @booking_discount.booking_id, discount_amount: @booking_discount.discount_amount, discount_percent: @booking_discount.discount_percent, discount_type: @booking_discount.discount_type, note: @booking_discount.note, promotion_id: @booking_discount.promotion_id, reason_for_discount: @booking_discount.reason_for_discount } }
+    patch booking_discount_url(@booking_discount), params: { booking_discount: {
+        booking_id: @booking2.id, discount_amount: @booking_discount.discount_amount,
+        discount_percent: @booking_discount.discount_percent,
+        discount_type: @booking_discount.discount_type,
+        note: @booking_discount.note, promotion_id: @booking_discount.promotion_id,
+        reason_for_discount: @booking_discount.reason_for_discount
+      }
+    }
     assert_redirected_to booking_discount_url(@booking_discount)
   end
 
