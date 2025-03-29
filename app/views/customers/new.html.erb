@@ -1,5 +1,5 @@
 <% content_for :title, "New customer" %>
 
-<h1>New customer</h1>
+<%= render partial: "shared/header_actions", locals: { record: @customer } %>
 
 <%= render "form", customer: @customer %>
