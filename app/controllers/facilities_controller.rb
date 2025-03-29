@@ -3,7 +3,7 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities or /facilities.json
   def index
-    @facilities = Facility.all
+    @pagy, @facilities = pagy(Facility.all)
   end
 
   # GET /facilities/1 or /facilities/1.json

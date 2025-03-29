@@ -3,7 +3,7 @@ class RoomTypesController < ApplicationController
 
   # GET /room_types or /room_types.json
   def index
-    @room_types = RoomType.all
+    @pagy, @room_types = pagy(RoomType.all)
   end
 
   # GET /room_types/1 or /room_types/1.json

@@ -13,4 +13,9 @@ content_for :title, page_title
   <% end %>
 </div>
 
-<%= link_to "New room type", new_room_type_path %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<p class='text-muted text-center'>
+  <%== pagy_info(@pagy) %>
+</p>
+
+<%= link_to "New room type", new_room_type_path, class: "btn btn-primary mt-3" %>

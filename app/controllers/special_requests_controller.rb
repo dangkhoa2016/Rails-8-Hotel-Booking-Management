@@ -3,7 +3,7 @@ class SpecialRequestsController < ApplicationController
 
   # GET /special_requests or /special_requests.json
   def index
-    @special_requests = SpecialRequest.all
+    @pagy, @special_requests = pagy(SpecialRequest.all)
   end
 
   # GET /special_requests/1 or /special_requests/1.json
