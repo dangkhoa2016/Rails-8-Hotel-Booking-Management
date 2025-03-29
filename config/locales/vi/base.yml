@@ -35,6 +35,7 @@ vi:
     edit: "Chỉnh sửa"
     delete: "Xóa"
     view: "Xem"
+    show: "Hiển thị"
     new: "Tạo mới"
     back: "Quay lại"
     save: "Lưu"
