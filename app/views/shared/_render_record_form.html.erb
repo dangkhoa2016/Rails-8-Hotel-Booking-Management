@@ -1,7 +1,11 @@
 <div id="<%= dom_id record %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <strong>#<%= record.id %> <%= record.to_s %></strong>
+      <% if record.new_record? %>
+        <strong style='color: var(--bs-indigo)'>[<%= translate("buttons.new") %>]</strong>
+      <% else %>
+        <strong style='color: var(--bs-indigo)'>[#<%= record.id %>]</strong> <strong><%= record.to_s %></strong>
+      <% end %>
     </div>
     <div class="card-body">
       <%= form_with(model: record) do |form| %>

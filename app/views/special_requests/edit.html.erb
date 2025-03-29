@@ -1,5 +1,5 @@
 <% content_for :title, "Editing special request" %>
 
-<h1>Editing special request</h1>
+<%= render partial: "shared/header_actions", locals: { record: @special_request } %>
 
 <%= render "form", special_request: @special_request %>
