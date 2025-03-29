@@ -13,4 +13,9 @@ content_for :title, page_title
   <% end %>
 </div>
 
-<%= link_to "New special request", new_special_request_path %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<p class='text-muted text-center'>
+  <%== pagy_info(@pagy) %>
+</p>
+
+<%= link_to "New special request", new_special_request_path, class: "btn btn-primary mt-3" %>
