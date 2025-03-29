@@ -38,7 +38,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Review.statuses.map { |name, value| [Review.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

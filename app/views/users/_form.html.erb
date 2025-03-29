@@ -22,13 +22,13 @@
   </div>
 
   <div>
-    <%= form.label :encrypted_password, style: "display: block" %>
-    <%= form.text_field :encrypted_password %>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password %>
   </div>
 
   <div>
     <%= form.label :role, style: "display: block" %>
-    <%= form.number_field :role %>
+    <%= form.select :role, User.roles.map { |name, value| [User.human_attribute_name("role.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
@@ -48,7 +48,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, User.statuses.map { |name, value| [User.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

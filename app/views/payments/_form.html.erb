@@ -28,12 +28,12 @@
 
   <div>
     <%= form.label :payment_method, style: "display: block" %>
-    <%= form.text_field :payment_method %>
+    <%= form.select :payment_method, Payment.payment_methods.map { |name, value| [Payment.human_attribute_name("payment_method.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
     <%= form.label :payment_type, style: "display: block" %>
-    <%= form.text_field :payment_type %>
+    <%= form.select :payment_type, Payment.payment_types.map { |name, value| [Payment.human_attribute_name("payment_type.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

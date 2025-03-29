@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Booking.statuses.map { |name, value| [Booking.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

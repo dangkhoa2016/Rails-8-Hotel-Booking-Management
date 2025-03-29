@@ -43,12 +43,12 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Customer.statuses.map { |name, value| [Customer.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
     <%= form.label :customer_type, style: "display: block" %>
-    <%= form.number_field :customer_type %>
+    <%= form.select :customer_type, Customer.customer_types.map { |name, value| [Customer.human_attribute_name("customer_type.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
