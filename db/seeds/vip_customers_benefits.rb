@@ -54,6 +54,6 @@ Customer.all.each do |customer|
       discount_amount_on_additional_services: benefit[:discount_amount_on_additional_services],
       created_at: created_at,
       updated_at: created_at.since(rand(100..10000).minutes),
-    ).save!
+    ).save! rescue nil
   end
 end

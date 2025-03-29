@@ -3,6 +3,7 @@ require "test_helper"
 class BookingVipCustomerDiscountsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking_vip_customer_discount = booking_vip_customer_discounts(:one)
+    @booking2 = bookings(:two)
     sign_in users(:one)
   end
 
@@ -18,7 +19,17 @@ class BookingVipCustomerDiscountsControllerTest < ActionDispatch::IntegrationTes
 
   test "should create booking_vip_customer_discount" do
     assert_difference("BookingVipCustomerDiscount.count") do
-      post booking_vip_customer_discounts_url, params: { booking_vip_customer_discount: { booking_id: @booking_vip_customer_discount.booking_id, customer_id: @booking_vip_customer_discount.customer_id, discount_amount_on_additional_services: @booking_vip_customer_discount.discount_amount_on_additional_services, discount_amount_on_room_price: @booking_vip_customer_discount.discount_amount_on_room_price, discount_percent_on_additional_services: @booking_vip_customer_discount.discount_percent_on_additional_services, discount_percent_on_room_price: @booking_vip_customer_discount.discount_percent_on_room_price, discount_type: @booking_vip_customer_discount.discount_type } }
+      post booking_vip_customer_discounts_url, params: {
+        booking_vip_customer_discount: {
+          booking_id: @booking2.id,
+          customer_id: @booking_vip_customer_discount.customer_id,
+          discount_amount_on_additional_services: @booking_vip_customer_discount.discount_amount_on_additional_services,
+          discount_amount_on_room_price: @booking_vip_customer_discount.discount_amount_on_room_price,
+          discount_percent_on_additional_services: @booking_vip_customer_discount.discount_percent_on_additional_services,
+          discount_percent_on_room_price: @booking_vip_customer_discount.discount_percent_on_room_price,
+          discount_type: @booking_vip_customer_discount.discount_type
+        }
+      }
     end
 
     assert_redirected_to booking_vip_customer_discount_url(BookingVipCustomerDiscount.last)
@@ -35,7 +46,17 @@ class BookingVipCustomerDiscountsControllerTest < ActionDispatch::IntegrationTes
   end
 
   test "should update booking_vip_customer_discount" do
-    patch booking_vip_customer_discount_url(@booking_vip_customer_discount), params: { booking_vip_customer_discount: { booking_id: @booking_vip_customer_discount.booking_id, customer_id: @booking_vip_customer_discount.customer_id, discount_amount_on_additional_services: @booking_vip_customer_discount.discount_amount_on_additional_services, discount_amount_on_room_price: @booking_vip_customer_discount.discount_amount_on_room_price, discount_percent_on_additional_services: @booking_vip_customer_discount.discount_percent_on_additional_services, discount_percent_on_room_price: @booking_vip_customer_discount.discount_percent_on_room_price, discount_type: @booking_vip_customer_discount.discount_type } }
+    patch booking_vip_customer_discount_url(@booking_vip_customer_discount), params: {
+      booking_vip_customer_discount: {
+        booking_id: @booking2.id,
+        customer_id: @booking_vip_customer_discount.customer_id,
+        discount_amount_on_additional_services: @booking_vip_customer_discount.discount_amount_on_additional_services,
+        discount_amount_on_room_price: @booking_vip_customer_discount.discount_amount_on_room_price,
+        discount_percent_on_additional_services: @booking_vip_customer_discount.discount_percent_on_additional_services,
+        discount_percent_on_room_price: @booking_vip_customer_discount.discount_percent_on_room_price,
+        discount_type: @booking_vip_customer_discount.discount_type
+      }
+    }
     assert_redirected_to booking_vip_customer_discount_url(@booking_vip_customer_discount)
   end
 

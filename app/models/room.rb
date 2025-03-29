@@ -10,6 +10,11 @@ class Room < ApplicationRecord
   enum :status, { inactive: 0, active: 1 }
 
 
+  validates :name, :status, presence: true
+  validates :name, uniqueness: { scope: [ :room_type_id, :hotel_location_id ] }
+  validates :capacity, :price, presence: true, numericality: { greater_than: 0 }
+
+
   def to_s
     name
   end

@@ -57,6 +57,7 @@ vi:
 
       booking:
         customer_id: "Khách hàng"
+        customer: "Khách hàng"
         total_price_before_discount: "Tổng giá trước giảm giá"
         total_price: "Tổng giá"
         note: "Ghi chú"
@@ -77,8 +78,11 @@ vi:
 
       booking_additional_service:
         booking_id: "Hóa đơn"
+        booking: "Hóa đơn"
         additional_service_id: "Dịch vụ bổ sung"
+        additional_service: "Dịch vụ bổ sung"
         reservation_id: "Đặt phòng"
+        reservation: "Đặt phòng"
         note: "Ghi chú"
         quantity: "Số lượng"
         unit: "Đơn vị"
@@ -86,17 +90,19 @@ vi:
 
       booking_discount:
         booking_id: "Hóa đơn"
-        discount_type: "Loại giảm giá"
+        booking: "Hóa đơn"
         discount_percent: "Phần trăm giảm giá"
         discount_amount: "Số tiền giảm giá"
         promotion_id: "Khuyến mãi"
+        promotion: "Khuyến mãi"
         reason_for_discount: "Lý do giảm giá"
         note: "Ghi chú"
 
       booking_vip_customer_discount:
         booking_id: "Hóa đơn"
+        booking: "Hóa đơn"
         customer_id: "Khách hàng"
-        discount_type: "Loại giảm giá"
+        customer: "Khách hàng"
         discount_percent_on_room_price: "Phần trăm giảm giá giá phòng"
         discount_percent_on_additional_services: "Phần trăm giảm giá dịch vụ bổ sung"
         discount_amount_on_room_price: "Số tiền giảm giá giá phòng"
@@ -122,6 +128,7 @@ vi:
 
       payment:
         booking_id: "Hóa đơn"
+        booking: "Hóa đơn"
         amount: "Số tiền"
         payment_date: "Ngày thanh toán"
         payment_method: "Phương thức thanh toán"
@@ -133,13 +140,14 @@ vi:
         summary: "Tóm tắt"
         start_date: "Ngày bắt đầu"
         end_date: "Ngày kết thúc"
-        discount_type: "Loại giảm giá"
         discount_percent: "Phần trăm giảm giá"
         discount_amount: "Số tiền giảm giá"
 
       review:
         customer_id: "Khách hàng"
+        customer: "Khách hàng"
         room_id: "Phòng"
+        room: "Phòng"
         room_rating: "Đánh giá phòng"
         service_rating: "Đánh giá dịch vụ"
         comment: "Bình luận"
@@ -147,7 +155,9 @@ vi:
       room:
         name: "Tên"
         room_type_id: "Loại phòng"
+        room_type: "Loại phòng"
         hotel_location_id: "Địa điểm khách sạn"
+        hotel_location: "Địa điểm khách sạn"
         capacity: "Sức chứa"
         price: "Giá"
         half_day_price_morning: "Giá nửa ngày buổi sáng"
@@ -161,7 +171,9 @@ vi:
 
       reservation:
         room_id: "Phòng"
+        room: "Phòng"
         booking_id: "Hóa đơn"
+        booking: "Hóa đơn"
         check_in_at: "Thời gian nhận phòng"
         check_out_at: "Thời gian trả phòng"
         room_price: "Giá phòng"
@@ -185,7 +197,9 @@ vi:
 
       special_request:
         booking_id: "Hóa đơn"
+        booking: "Hóa đơn"
         reservation_id: "Đặt phòng"
+        reservation: "Đặt phòng"
         request: "Yêu cầu"
         price: "Giá"
 
@@ -205,7 +219,7 @@ vi:
 
       vip_customers_benefit:
         customer_id: "Khách hàng"
-        discount_type: "Loại giảm giá"
+        customer: "Khách hàng"
         discount_percent_on_room_price: "Phần trăm giảm giá giá phòng"
         discount_percent_on_additional_services: "Phần trăm giảm giá dịch vụ bổ sung"
         discount_amount_on_room_price: "Số tiền giảm giá giá phòng"
@@ -215,22 +229,70 @@ vi:
         active: "Hoạt động"
         inactive: "Không hoạt động"
 
+      discount_type:
+        percent: "Phần trăm"
+        amount: "Số tiền"
+
     errors:
       models:
         user:
           attributes:
             email:
-              blank: "không thể để trống"
               taken: "đã được sử dụng"
             password:
-              blank: "không thể để trống"
               confirmation: "Mật khẩu xác nhận không khớp với mật khẩu"
               too_short: "Mật khẩu quá ngắn (ít nhất là %{count} ký tự)"
+            role:
+              inclusion: "không hợp lệ"
+
+        reservation:
+          attributes:
+            room:
+              uniqueness: "đã được đặt trong khoảng thời gian đã chọn"
+            check_in_at:
+              comparison: "phải trước thời gian trả phòng"
+              less_than_or_equal_to: "phải trước thời gian trả phòng"
+            base:
+              overlap: "Thời gian nhận và trả phòng không được trùng với các đặt phòng khác"
+              unavailable: "Phòng phải sẵn sàng để đặt"
+              inactive: "Phòng phải đang hoạt động để đặt"
+
+        promotion:
+          attributes:
+            start_date:
+              comparison: "phải trước ngày kết thúc"
+
+        vip_customers_benefit:
+          attributes:
+            customer_id:
+              taken: "đã có loại giảm giá này"
+            customer:
+              taken: "đã có loại giảm giá này"
+            base:
+              customer_is_vip: "Khách hàng không phải là VIP"
+              customer_is_inactive: "Khách hàng hiện không được hoạt động"
+
+      messages:
+        not_a_number: "phải là một số"
+        blank: "không thể để trống"
+        greater_than_or_equal_to: "phải lớn hơn hoặc bằng %{count}"
+        less_than_or_equal_to: "phải nhỏ hơn hoặc bằng %{count}"
+        cannot_be_in_the_future: "không thể là ngày trong tương lai"
+        greater_than: "phải lớn hơn %{count}"
+        less_than: "phải nhỏ hơn %{count}"
+        required: "phải tồn tại"
+        at_least_one_discount_present: "Phải có ít nhất một loại giảm giá lớn hơn 0"
+        taken: "đã được sử dụng"
+
+  errors:
+    attributes:
+      status:
+        inclusion: "không hợp lệ"
+      discount_type:
+        inclusion: "không hợp lệ"
 
   attributes:
     created_at: "Ngày tạo"
     updated_at: "Ngày cập nhật"
-    discount_type:
-      percent: "Phần trăm"
-      amount: "Số tiền"
     status: "Trạng thái"
+    discount_type: "Loại giảm giá"

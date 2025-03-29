@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :discount_type, style: "display: block" %>
-    <%= form.number_field :discount_type %>
+    <%= form.select :discount_type, BookingVipCustomerDiscount.discount_types.map { |name, value| [BookingVipCustomerDiscount.human_attribute_name("discount_type.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
