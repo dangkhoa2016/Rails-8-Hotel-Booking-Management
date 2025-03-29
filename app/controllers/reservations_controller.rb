@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @pagy, @reservations = pagy(Reservation.all)
   end
 
   # GET /reservations/1 or /reservations/1.json
