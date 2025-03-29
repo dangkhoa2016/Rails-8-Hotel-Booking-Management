@@ -18,7 +18,11 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create facility" do
     assert_difference("Facility.count") do
-      post facilities_url, params: { facility: { name: @facility.name, status: @facility.status, summary: @facility.summary } }
+      post facilities_url, params: { facility: {
+        name: @facility.name + " test",
+        status: @facility.status, summary: @facility.summary
+      }
+    }
     end
 
     assert_redirected_to facility_url(Facility.last)
@@ -35,7 +39,11 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update facility" do
-    patch facility_url(@facility), params: { facility: { name: @facility.name, status: @facility.status, summary: @facility.summary } }
+    patch facility_url(@facility), params: { facility: {
+        name: @facility.name + " test",
+        status: @facility.status, summary: @facility.summary
+      }
+    }
     assert_redirected_to facility_url(@facility)
   end
 
