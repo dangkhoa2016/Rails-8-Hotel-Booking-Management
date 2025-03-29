@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :role, style: "display: block" %>
-    <%= form.number_field :role %>
+    <%= form.select :role, User.roles.keys.map { |role| [role.humanize, role] }, include_blank: true %>
   </div>
 
   <div>
@@ -48,7 +48,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, User.statuses.keys.map { |status| [status.humanize, status] }, include_blank: true %>
   </div>
 
   <div>

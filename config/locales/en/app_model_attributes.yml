@@ -224,6 +224,245 @@ en:
               blank: "can't be blank"
               confirmation: "Password confirmation doesn't match Password"
               too_short: "Password is too short (minimum is %{count} characters)"
+            role:
+              blank: "can't be blank"
+              inclusion: "is not included in the list"
+
+        additional_service:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            price:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              not_a_number: "must be a number"
+            unit:
+              blank: "can't be blank"
+            summary:
+              blank: "can't be blank"
+
+        booking:
+          attributes:
+            customer_id:
+              blank: "can't be blank"
+            total_price_before_discount:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              not_a_number: "must be a number"
+            total_price:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+            status:
+              blank: "can't be blank"
+
+        booking_additional_service:
+          attributes:
+            additional_service_id:
+              blank: "can't be blank"
+            booking_id:
+              blank: "can't be blank"
+            reservation_id:
+              blank: "can't be blank"
+            unit:
+              blank: "can't be blank"
+            quantity:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+            price:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+
+        booking_discount:
+          attributes:
+            booking_id:
+              blank: "can't be blank"
+            discount_type:
+              blank: "can't be blank"
+            discount_percent:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              less_than_or_equal_to: "must be less than or equal to 100"
+            discount_amount:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+            reason_for_discount:
+              blank: "can't be blank"
+
+        customer:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "must be unique"
+            email:
+              invalid: "is invalid"
+              taken: "has already been taken"
+            phone_number:
+              invalid: "is invalid"
+            customer_type:
+              blank: "can't be blank"
+              inclusion: "is not included in the list"
+
+        hotel_location:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            address:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            manager_name:
+              blank: "can't be blank"
+
+        payment:
+          attributes:
+            amount:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              not_a_number: "must be a number"
+            payment_date:
+              blank: "can't be blank"
+              future: "can't be in the future"
+            payment_method:
+              blank: "can't be blank"
+            payment_type:
+              blank: "can't be blank"
+
+        reservation:
+          attributes:
+            room_id:
+              blank: "can't be blank"
+              uniqueness: "is already reserved for the selected time period"
+            booking_id:
+              blank: "can't be blank"
+            check_in_at:
+              blank: "can't be blank"
+              comparison: "must be before check-out time"
+            check_out_at:
+              blank: "can't be blank"
+            quantity:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 1"
+            status:
+              blank: "can't be blank"
+            base:
+              overlap: "Check-in and check-out dates must not overlap with existing reservations"
+              unavailable: "Room must be available for reservation"
+              inactive: "Room must be active for reservation"
+            room:
+              required: "can't be blank"
+            booking:
+              required: "can't be blank"
+
+        review:
+          attributes:
+            customer_id:
+              blank: "can't be blank"
+            room_id:
+              blank: "can't be blank"
+            status:
+              blank: "can't be blank"
+            comment:
+              blank: "can't be blank"
+            room_rating:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 1"
+              less_than_or_equal_to: "must be less than or equal to 10"
+              not_a_number: "must be a number"
+            service_rating:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 1"
+              less_than_or_equal_to: "must be less than or equal to 10"
+              not_a_number: "must be a number"
+
+        facility:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            summary:
+              blank: "can't be blank"
+
+        promotion:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            summary:
+              blank: "can't be blank"
+            start_date:
+              blank: "can't be blank"
+              comparison: "must be before the end date"
+            end_date:
+              blank: "can't be blank"
+            discount_percent:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              less_than_or_equal_to: "must be less than or equal to 100"
+            discount_amount:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+
+        room:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            room_type_id:
+              blank: "can't be blank"
+            hotel_location_id:
+              blank: "can't be blank"
+            capacity:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 1"
+            price:
+              blank: "can't be blank"
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+            summary:
+              blank: "can't be blank"
+
+        room_type:
+          attributes:
+            name:
+              blank: "can't be blank"
+              taken: "has already been taken"
+            summary:
+              blank: "can't be blank"
+
+        special_request:
+          attributes:
+            request:
+              blank: "can't be blank"
+              taken: "has already been requested for this booking"
+            booking_id:
+              blank: "can't be blank"
+            reservation_id:
+              numericality: "must be a number"
+              required: "must be a number"
+            price:
+              not_a_number: "must be a number"
+
+        vip_customers_benefit:
+          attributes:
+            customer_id:
+              blank: "can't be blank"
+              uniqueness: "already has this discount type"
+            discount_percent_on_room_price:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              less_than_or_equal_to: "must be less than or equal to 100"
+              greater_than: "Discount percent on room price must be greater than 0"
+            discount_percent_on_additional_services:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              less_than_or_equal_to: "must be less than or equal to 100"
+              greater_than: "Discount percent on additional services must be greater than 0"
+            discount_amount_on_room_price:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              greater_than: "Discount amount on room price must be greater than 0"
+            discount_amount_on_additional_services:
+              greater_than_or_equal_to: "must be greater than or equal to 0"
+              greater_than: "Discount amount on additional services must be greater than 0"
+            base:
+              at_least_one_discount_present: "At least one discount must be present"
+              customer_is_vip: "Customer is not a VIP"
+              customer_is_active: "Customer is not active"
+            customer:
+              required: "can't be blank"
+            discount_type:
+              blank: "can't be blank"
+              inclusion: "is not included in the list"
 
   # Common Attributes
   attributes:

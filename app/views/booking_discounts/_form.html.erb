@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :discount_type, style: "display: block" %>
-    <%= form.number_field :discount_type %>
+    <%= form.select :discount_type, BookingDiscount.discount_types.keys.map { |type| [type.humanize, type] }, include_blank: true %>
   </div>
 
   <div>

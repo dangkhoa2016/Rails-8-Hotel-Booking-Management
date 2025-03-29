@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :discount_type, style: "display: block" %>
-    <%= form.number_field :discount_type %>
+    <%= form.select :discount_type, VipCustomersBenefit.discount_types.keys.map { |type| [type.humanize, type] }, include_blank: true %>
   </div>
 
   <div>
@@ -43,7 +43,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, VipCustomersBenefit.statuses.keys.map { |status| [status.humanize, status] }, include_blank: true %>
   </div>
 
   <div>

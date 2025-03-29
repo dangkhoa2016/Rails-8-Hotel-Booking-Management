@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, HotelLocation.statuses.keys.map { |status| [status.humanize, status] }, include_blank: true %>
   </div>
 
   <div>

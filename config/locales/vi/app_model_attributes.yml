@@ -222,6 +222,263 @@ vi:
               blank: "không thể để trống"
               confirmation: "Mật khẩu xác nhận không khớp với mật khẩu"
               too_short: "Mật khẩu quá ngắn (ít nhất là %{count} ký tự)"
+            role:
+              blank: "không thể để trống"
+              inclusion: "không hợp lệ"
+
+        customer:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            email:
+              invalid: "không hợp lệ"
+              taken: "đã được sử dụng"
+            customer_type:
+              blank: "không thể để trống"
+              inclusion: "không hợp lệ"
+            phone_number:
+              invalid: "không hợp lệ"
+
+        vip_customers_benefit:
+          attributes:
+            discount_percent_on_room_price:
+              greater_than: "Phần trăm giảm giá giá phòng phải lớn hơn 0"
+            discount_percent_on_additional_services:
+              greater_than: "Phần trăm giảm giá dịch vụ bổ sung phải lớn hơn 0"
+            discount_amount_on_room_price:
+              greater_than: "Số tiền giảm giá giá phòng phải lớn hơn 0"
+            discount_amount_on_additional_services:
+              greater_than: "Số tiền giảm giá dịch vụ bổ sung phải lớn hơn 0"
+            customer:
+              required: "không thể để trống"
+            discount_type:
+              blank: "không thể để trống"
+              inclusion: "không hợp lệ"
+
+        additional_service:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            price:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              not_a_number: "phải là một số"
+            unit:
+              blank: "không thể để trống"
+            summary:
+              blank: "không thể để trống"
+
+        booking:
+          attributes:
+            customer_id:
+              blank: "không thể để trống"
+            total_price_before_discount:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              not_a_number: "phải là một số"
+            total_price:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            status:
+              blank: "không thể để trống"
+
+        booking_additional_service:
+          attributes:
+            additional_service_id:
+              blank: "không thể để trống"
+            booking_id:
+              blank: "không thể để trống"
+            reservation_id:
+              blank: "không thể để trống"
+            unit:
+              blank: "không thể để trống"
+            quantity:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            price:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+
+        booking_discount:
+          attributes:
+            booking:
+              required: "không thể để trống"
+            discount_type:
+              blank: "không thể để trống"
+            discount_percent:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 100"
+            discount_amount:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            reason_for_discount:
+              blank: "không thể để trống"
+
+        facility:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            summary:
+              blank: "không thể để trống"
+
+        hotel_location:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            address:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            manager_name:
+              blank: "không thể để trống"
+
+        payment:
+          attributes:
+            amount:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              not_a_number: "phải là một số"
+            payment_date:
+              blank: "không thể để trống"
+              future: "không thể là ngày trong tương lai"
+            payment_method:
+              blank: "không thể để trống"
+            payment_type:
+              blank: "không thể để trống"
+
+        reservation:
+          attributes:
+            room:
+              blank: "không thể để trống"
+              uniqueness: "đã được đặt trong khoảng thời gian đã chọn"
+              required: "không thể để trống"
+            booking:
+              required: "không thể để trống"
+            check_in_at:
+              blank: "không thể để trống"
+              comparison: "phải trước thời gian trả phòng"
+            check_out_at:
+              blank: "không thể để trống"
+            quantity:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 1"
+            status:
+              blank: "không thể để trống"
+            base:
+              overlap: "Thời gian nhận và trả phòng không được trùng với các đặt phòng khác"
+              unavailable: "Phòng phải sẵn sàng để đặt"
+              inactive: "Phòng phải đang hoạt động để đặt"
+
+        review:
+          attributes:
+            customer_id:
+              blank: "không thể để trống"
+            room_id:
+              blank: "không thể để trống"
+            status:
+              blank: "không thể để trống"
+            comment:
+              blank: "không thể để trống"
+            room_rating:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 1"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 10"
+              not_a_number: "phải là một số"
+            service_rating:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 1"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 10"
+              not_a_number: "phải là một số"
+
+        promotion:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            summary:
+              blank: "không thể để trống"
+            start_date:
+              blank: "không thể để trống"
+              comparison: "phải trước ngày kết thúc"
+            end_date:
+              blank: "không thể để trống"
+            discount_percent:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 100"
+            discount_amount:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            discount_type:
+              blank: "không thể để trống"
+              inclusion: "không hợp lệ"
+
+        room:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            room_type:
+              required: "không thể để trống"
+              taken: "đã được sử dụng"
+            room_type_id:
+              taken: "đã được sử dụng"
+            hotel_location:
+              required: "không thể để trống"
+            capacity:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 1"
+            price:
+              blank: "không thể để trống"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            summary:
+              blank: "không thể để trống"
+
+        room_type:
+          attributes:
+            name:
+              blank: "không thể để trống"
+              taken: "đã được sử dụng"
+            summary:
+              blank: "không thể để trống"
+
+        special_request:
+          attributes:
+            request:
+              blank: "không thể để trống"
+              taken: "đã được yêu cầu cho hóa đơn này"
+            booking:
+              required: "không thể để trống"
+            reservation:
+              required: "phải là một số"
+            price:
+              blank: "không thể để trống"
+              not_a_number: "phải là một số"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+
+        vip_customers_benefit:
+          attributes:
+            customer_id:
+              blank: "không thể để trống"
+              uniqueness: "đã có loại giảm giá này"
+            discount_percent_on_room_price:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 100"
+            discount_percent_on_additional_services:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+              less_than_or_equal_to: "phải nhỏ hơn hoặc bằng 100"
+            discount_amount_on_room_price:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            discount_amount_on_additional_services:
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+            base:
+              at_least_one_discount_present: "Phải có ít nhất một loại giảm giá"
+              customer_is_vip: "Khách hàng không phải là VIP"
+              customer_is_active: "Khách hàng không hoạt động"
+
+  errors:
+    attributes:
+      status:
+        blank: "không thể để trống"
+        inclusion: "không hợp lệ"
 
   attributes:
     created_at: "Ngày tạo"
