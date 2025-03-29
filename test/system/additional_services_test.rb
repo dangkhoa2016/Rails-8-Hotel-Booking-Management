@@ -7,7 +7,7 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit additional_services_url
-    assert_selector "h1", text: "Additional Services"
+    assert_selector "h2", text: "Additional Services"
   end
 
   test "should create additional service" do
@@ -23,7 +23,7 @@ class AdditionalServicesTest < ApplicationSystemTestCase
     click_on "Create Additional Service"
 
     assert_text "Additional service was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Additional service" do
@@ -39,7 +39,7 @@ class AdditionalServicesTest < ApplicationSystemTestCase
     click_on "Update Additional Service"
 
     assert_text "Additional service was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Additional service" do

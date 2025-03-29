@@ -7,7 +7,7 @@ class PaymentsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit payments_url
-    assert_selector "h1", text: "Payments"
+    assert_selector "h2", text: "Payments"
   end
 
   test "should create payment" do
@@ -23,7 +23,7 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "Create Payment"
 
     assert_text "Payment was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Payment" do
@@ -39,7 +39,7 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "Update Payment"
 
     assert_text "Payment was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Payment" do

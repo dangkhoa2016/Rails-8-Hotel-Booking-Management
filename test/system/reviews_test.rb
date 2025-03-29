@@ -7,7 +7,7 @@ class ReviewsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit reviews_url
-    assert_selector "h1", text: "Reviews"
+    assert_selector "h2", text: "Reviews"
   end
 
   test "should create review" do
@@ -24,7 +24,7 @@ class ReviewsTest < ApplicationSystemTestCase
     click_on "Create Review"
 
     assert_text "Review was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Review" do
@@ -41,7 +41,7 @@ class ReviewsTest < ApplicationSystemTestCase
     click_on "Update Review"
 
     assert_text "Review was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Review" do

@@ -7,7 +7,7 @@ class RoomTypesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit room_types_url
-    assert_selector "h1", text: "Room Types"
+    assert_selector "h2", text: "Room Types"
   end
 
   test "should create room type" do
@@ -22,7 +22,7 @@ class RoomTypesTest < ApplicationSystemTestCase
     click_on "Create Room Type"
 
     assert_text "Room type was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Room type" do
@@ -37,7 +37,7 @@ class RoomTypesTest < ApplicationSystemTestCase
     click_on "Update Room Type"
 
     assert_text "Room type was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Room type" do

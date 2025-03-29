@@ -8,7 +8,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit users_url
-    assert_selector "h1", text: "Users"
+    assert_selector "h2", text: "Users"
   end
 
   test "should create user" do
@@ -24,7 +24,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Create User"
 
     assert_text "User was successfully created."
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update User" do
@@ -40,7 +40,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Update User"
 
     assert_text "User was successfully updated."
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy User" do
