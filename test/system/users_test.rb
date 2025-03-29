@@ -29,7 +29,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test "should update User" do
     visit user_url(@user)
-    click_on "Edit this user", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Email", with: @user.email + ".test"
     fill_in "Password", with: "password"
@@ -45,7 +45,10 @@ class UsersTest < ApplicationSystemTestCase
 
   test "should destroy User" do
     visit user_url(@user)
-    click_on "Destroy this user", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "User was successfully destroyed"
   end

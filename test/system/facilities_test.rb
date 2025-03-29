@@ -26,7 +26,7 @@ class FacilitiesTest < ApplicationSystemTestCase
 
   test "should update Facility" do
     visit facility_url(@facility)
-    click_on "Edit this facility", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Name", with: @facility.name + " updated"
     chk = find("#facility_status")
@@ -40,7 +40,10 @@ class FacilitiesTest < ApplicationSystemTestCase
 
   test "should destroy Facility" do
     visit facility_url(@facility)
-    click_on "Destroy this facility", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Facility was successfully destroyed"
   end

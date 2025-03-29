@@ -29,7 +29,7 @@ class ReviewsTest < ApplicationSystemTestCase
 
   test "should update Review" do
     visit review_url(@review)
-    click_on "Edit this review", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Comment", with: @review.comment
     fill_in "Customer", with: @review.customer_id
@@ -46,7 +46,10 @@ class ReviewsTest < ApplicationSystemTestCase
 
   test "should destroy Review" do
     visit review_url(@review)
-    click_on "Destroy this review", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Review was successfully destroyed"
   end

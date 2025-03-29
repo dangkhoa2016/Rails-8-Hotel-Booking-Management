@@ -25,7 +25,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
   test "should update Special request" do
     visit special_request_url(@special_request)
-    click_on "Edit this special request", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request + " updated"
@@ -38,7 +38,10 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
   test "should destroy Special request" do
     visit special_request_url(@special_request)
-    click_on "Destroy this special request", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Special request was successfully destroyed"
   end

@@ -30,7 +30,7 @@ class BookingVipCustomerDiscountsTest < ApplicationSystemTestCase
 
   test "should update Booking vip customer discount" do
     visit booking_vip_customer_discount_url(@booking_vip_customer_discount)
-    click_on "Edit this booking vip customer discount", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Booking", with: @booking_vip_customer_discount.booking_id
     fill_in "Customer", with: @booking_vip_customer_discount.customer_id
@@ -47,7 +47,10 @@ class BookingVipCustomerDiscountsTest < ApplicationSystemTestCase
 
   test "should destroy Booking vip customer discount" do
     visit booking_vip_customer_discount_url(@booking_vip_customer_discount)
-    click_on "Destroy this booking vip customer discount", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Booking vip customer discount was successfully destroyed"
   end
