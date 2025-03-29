@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @pagy, @reviews = pagy(Review.all)
   end
 
   # GET /reviews/1 or /reviews/1.json
