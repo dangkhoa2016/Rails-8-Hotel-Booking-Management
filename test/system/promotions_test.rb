@@ -31,7 +31,7 @@ class PromotionsTest < ApplicationSystemTestCase
 
   test "should update Promotion" do
     visit promotion_url(@promotion)
-    click_on "Edit this promotion", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Discount amount", with: @promotion.discount_amount
     fill_in "Discount percent", with: @promotion.discount_percent
@@ -50,7 +50,10 @@ class PromotionsTest < ApplicationSystemTestCase
 
   test "should destroy Promotion" do
     visit promotion_url(@promotion)
-    click_on "Destroy this promotion", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Promotion was successfully destroyed"
   end

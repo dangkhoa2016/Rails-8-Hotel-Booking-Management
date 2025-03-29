@@ -28,7 +28,7 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
   test "should update Additional service" do
     visit additional_service_url(@additional_service)
-    click_on "Edit this additional service", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Name", with: @additional_service.name
     fill_in "Price", with: @additional_service.price
@@ -44,7 +44,10 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
   test "should destroy Additional service" do
     visit additional_service_url(@additional_service)
-    click_on "Destroy this additional service", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Additional service was successfully destroyed"
   end

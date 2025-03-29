@@ -32,7 +32,7 @@ class ReservationsTest < ApplicationSystemTestCase
 
   test "should update Reservation" do
     visit reservation_url(@reservation)
-    click_on "Edit this reservation", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Booking", with: @reservation.booking_id
     fill_in "Check in at", with: @reservation.check_in_at
@@ -51,7 +51,10 @@ class ReservationsTest < ApplicationSystemTestCase
 
   test "should destroy Reservation" do
     visit reservation_url(@reservation)
-    click_on "Destroy this reservation", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Reservation was successfully destroyed"
   end

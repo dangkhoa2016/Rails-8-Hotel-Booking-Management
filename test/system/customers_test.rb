@@ -30,7 +30,7 @@ class CustomersTest < ApplicationSystemTestCase
 
   test "should update Customer" do
     visit customer_url(@customer)
-    click_on "Edit this customer", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Address", with: @customer.address
     find("#customer_customer_type").find("option[value='#{@customer.customer_type}']").select_option
@@ -48,7 +48,10 @@ class CustomersTest < ApplicationSystemTestCase
 
   test "should destroy Customer" do
     visit customer_url(@customer)
-    click_on "Destroy this customer", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Customer was successfully destroyed"
   end

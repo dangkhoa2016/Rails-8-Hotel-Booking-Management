@@ -28,7 +28,7 @@ class BookingsTest < ApplicationSystemTestCase
 
   test "should update Booking" do
     visit booking_url(@booking)
-    click_on "Edit this booking", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Customer", with: @booking.customer_id
     fill_in "Discount note", with: @booking.discount_note
@@ -44,7 +44,10 @@ class BookingsTest < ApplicationSystemTestCase
 
   test "should destroy Booking" do
     visit booking_url(@booking)
-    click_on "Destroy this booking", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Booking was successfully destroyed"
   end

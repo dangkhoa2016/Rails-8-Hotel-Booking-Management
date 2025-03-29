@@ -33,7 +33,7 @@ class RoomsTest < ApplicationSystemTestCase
 
   test "should update Room" do
     visit room_url(@room)
-    click_on "Edit this room", match: :first
+    click_on "Edit", match: :first
 
     check "Available" if @room.available
     fill_in "Capacity", with: @room.capacity
@@ -54,7 +54,10 @@ class RoomsTest < ApplicationSystemTestCase
 
   test "should destroy Room" do
     visit room_url(@room)
-    click_on "Destroy this room", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Room was successfully destroyed"
   end

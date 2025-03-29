@@ -27,7 +27,7 @@ class RoomTypesTest < ApplicationSystemTestCase
 
   test "should update Room type" do
     visit room_type_url(@room_type)
-    click_on "Edit this room type", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Color", with: @room_type.color
     fill_in "Name", with: @room_type.name + " updated"
@@ -42,7 +42,10 @@ class RoomTypesTest < ApplicationSystemTestCase
 
   test "should destroy Room type" do
     visit room_type_url(@room_type)
-    click_on "Destroy this room type", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Room type was successfully destroyed"
   end

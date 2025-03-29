@@ -30,7 +30,7 @@ class BookingDiscountsTest < ApplicationSystemTestCase
 
   test "should update Booking discount" do
     visit booking_discount_url(@booking_discount)
-    click_on "Edit this booking discount", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Booking", with: @booking_discount.booking_id
     fill_in "Discount amount", with: @booking_discount.discount_amount
@@ -47,7 +47,10 @@ class BookingDiscountsTest < ApplicationSystemTestCase
 
   test "should destroy Booking discount" do
     visit booking_discount_url(@booking_discount)
-    click_on "Destroy this booking discount", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Booking discount was successfully destroyed"
   end
