@@ -1,5 +1,5 @@
 <% content_for :title, "Editing room" %>
 
-<h1>Editing room</h1>
+<%= render partial: "shared/header_actions", locals: { record: @room } %>
 
 <%= render "form", room: @room %>

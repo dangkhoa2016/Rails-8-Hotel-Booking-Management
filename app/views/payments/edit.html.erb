@@ -1,5 +1,5 @@
 <% content_for :title, "Editing payment" %>
 
-<h1>Editing payment</h1>
+<%= render partial: "shared/header_actions", locals: { record: @payment } %>
 
 <%= render "form", payment: @payment %>
