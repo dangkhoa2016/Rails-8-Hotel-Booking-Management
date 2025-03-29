@@ -1,0 +1,37 @@
+<%
+  model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil)
+  page_title = defined?(locals) ? locals[:title] : (defined?(title) ? title : nil)
+
+  def back_to_list_link(controller_name)
+    link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'btn btn-secondary') do
+      "<i class='bi bi-backspace me-2'></i>#{translate('buttons.back_to_list')}".html_safe
+    end
+  end
+
+  def action_button(action, model_record)
+    options = { data: { turbo_frame: '_top' }, class: 'btn btn-primary' }
+    case action
+    when 'edit', 'update'
+      link_to translate('buttons.show'), model_record, options
+    when 'show'
+      link_to translate('buttons.edit'), edit_polymorphic_path(model_record), options
+    when 'index'
+      link_to new_polymorphic_path(controller_name.singularize.to_sym), options do
+        "<i class='bi bi-plus-circle me-2'></i>#{translate('buttons.new')}".html_safe
+      end
+    end
+  end
+%>
+
+<div class='d-flex align-items-center mb-4'>
+  <% if model_record %>
+    <h2 class='mb-0'><%= translate("buttons.#{action_name}") %> <%= translated_model_name(model_record) %></h2>
+  <% else %>
+    <h2 class='mb-0'><%= page_title %></h2>
+  <% end %>
+
+  <div class='btn-group btn-group-sm ms-auto'>
+    <%= action_button(action_name, model_record) if action_name.in?(['edit', 'update', 'show', 'index']) %>
+    <%= back_to_list_link(controller_name) unless action_name == 'index' %>
+  </div>
+</div>

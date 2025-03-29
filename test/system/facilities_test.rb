@@ -7,7 +7,7 @@ class FacilitiesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit facilities_url
-    assert_selector "h1", text: "Facilities"
+    assert_selector "h2", text: "Facilities"
   end
 
   test "should create facility" do
@@ -21,7 +21,7 @@ class FacilitiesTest < ApplicationSystemTestCase
     click_on "Create Facility"
 
     assert_text "Facility was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Facility" do
@@ -35,7 +35,7 @@ class FacilitiesTest < ApplicationSystemTestCase
     click_on "Update Facility"
 
     assert_text "Facility was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Facility" do

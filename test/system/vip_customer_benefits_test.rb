@@ -9,7 +9,7 @@ class VipCustomerBenefitsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit vip_customer_benefits_url
-    assert_selector "h1", text: "VIP Customer Benefits"
+    assert_selector "h2", text: "VIP Customer Benefits"
   end
 
   test "should create vip customer benefit" do
@@ -27,7 +27,7 @@ class VipCustomerBenefitsTest < ApplicationSystemTestCase
     click_on "Create VIP Customer Benefit"
 
     assert_text "Vip customer benefit was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Vip customer benefit" do
@@ -45,7 +45,7 @@ class VipCustomerBenefitsTest < ApplicationSystemTestCase
     click_on "Update VIP Customer Benefit"
 
     assert_text "Vip customer benefit was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Vip customer benefit" do

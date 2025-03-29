@@ -1,5 +1,5 @@
 <% content_for :title, "Editing booking vip customer discount" %>
 
-<h1>Editing booking vip customer discount</h1>
+<%= render partial: "shared/header_actions", locals: { record: @booking_vip_customer_discount } %>
 
 <%= render "form", booking_vip_customer_discount: @booking_vip_customer_discount %>

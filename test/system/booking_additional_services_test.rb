@@ -7,7 +7,7 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit booking_additional_services_url
-    assert_selector "h1", text: "Booking Additional Services"
+    assert_selector "h2", text: "Booking Additional Services"
   end
 
   test "should create booking additional service" do
@@ -23,12 +23,12 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     click_on "Create Booking Additional Service"
 
     assert_text "Booking additional service was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Booking additional service" do
     visit booking_additional_service_url(@booking_additional_service)
-    click_on "Edit this booking additional service", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Additional service", with: @booking_additional_service.additional_service_id
     fill_in "Note", with: @booking_additional_service.note
@@ -39,7 +39,7 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     click_on "Update Booking Additional Service"
 
     assert_text "Booking additional service was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Booking additional service" do
