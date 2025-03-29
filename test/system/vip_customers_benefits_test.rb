@@ -32,7 +32,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
 
   test "should update Vip customers benefit" do
     visit vip_customers_benefit_url(@vip_customers_benefit)
-    click_on "Edit this vip customers benefit", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Customer", with: @vip_customers_benefit.customer_id
     fill_in "Discount amount on additional services", with: @vip_customers_benefit.discount_amount_on_additional_services
@@ -50,7 +50,10 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
 
   test "should destroy Vip customers benefit" do
     visit vip_customers_benefit_url(@vip_customers_benefit)
-    click_on "Destroy this vip customers benefit", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Vip customers benefit was successfully destroyed"
   end

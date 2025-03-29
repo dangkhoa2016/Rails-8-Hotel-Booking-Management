@@ -28,7 +28,7 @@ class PaymentsTest < ApplicationSystemTestCase
 
   test "should update Payment" do
     visit payment_url(@payment)
-    click_on "Edit this payment", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Amount", with: @payment.amount
     fill_in "Booking", with: @payment.booking_id
@@ -44,7 +44,10 @@ class PaymentsTest < ApplicationSystemTestCase
 
   test "should destroy Payment" do
     visit payment_url(@payment)
-    click_on "Destroy this payment", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Payment was successfully destroyed"
   end

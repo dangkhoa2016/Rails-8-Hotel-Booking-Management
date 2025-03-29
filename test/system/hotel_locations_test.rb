@@ -27,7 +27,7 @@ class HotelLocationsTest < ApplicationSystemTestCase
 
   test "should update Hotel location" do
     visit hotel_location_url(@hotel_location)
-    click_on "Edit this hotel location", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Address", with: @hotel_location.address + " updated"
     fill_in "Manager name", with: @hotel_location.manager_name
@@ -42,7 +42,10 @@ class HotelLocationsTest < ApplicationSystemTestCase
 
   test "should destroy Hotel location" do
     visit hotel_location_url(@hotel_location)
-    click_on "Destroy this hotel location", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Hotel location was successfully destroyed"
   end

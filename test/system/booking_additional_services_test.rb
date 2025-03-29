@@ -46,7 +46,10 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
 
   test "should destroy Booking additional service" do
     visit booking_additional_service_url(@booking_additional_service)
-    click_on "Destroy this booking additional service", match: :first
+
+    accept_alert do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Booking additional service was successfully destroyed"
   end
