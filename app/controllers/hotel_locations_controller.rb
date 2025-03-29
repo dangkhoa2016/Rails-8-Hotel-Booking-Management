@@ -3,7 +3,7 @@ class HotelLocationsController < ApplicationController
 
   # GET /hotel_locations or /hotel_locations.json
   def index
-    @hotel_locations = HotelLocation.all
+    @pagy, @hotel_locations = pagy(HotelLocation.all)
   end
 
   # GET /hotel_locations/1 or /hotel_locations/1.json
