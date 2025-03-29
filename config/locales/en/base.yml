@@ -34,7 +34,7 @@ en:
     sign_out: "Sign out"
     edit: "Edit"
     delete: "Delete"
-    show: "Show"
+    view: "View"
     new: "New"
     back: "Back"
     save: "Save"
@@ -48,6 +48,7 @@ en:
     change_my_password: "Change my password"
     update_profile: "Update profile"
     back_to_profile: "Back to profile"
+    back_to_list: "Back to list"
 
   messages:
-    are_you_sure: "Are you sure?"
+    confirm_destroy_single: "Are you sure you want to delete this %{model} record with id %{id}?"

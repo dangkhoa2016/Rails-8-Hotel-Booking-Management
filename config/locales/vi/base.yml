@@ -34,7 +34,7 @@ vi:
     sign_out: "Đăng xuất"
     edit: "Chỉnh sửa"
     delete: "Xóa"
-    show: "Xem"
+    view: "Xem"
     new: "Tạo mới"
     back: "Quay lại"
     save: "Lưu"
@@ -48,6 +48,7 @@ vi:
     change_my_password: "Đổi mật khẩu của tôi"
     update_profile: "Cập nhật hồ sơ"
     back_to_profile: "Quay lại hồ sơ"
+    back_to_list: "Quay lại danh sách"
 
   messages:
-    are_you_sure: "Bạn có chắc chắn không?"
+    confirm_destroy_single: "Bạn có chắc chắn muốn xóa bản ghi %{model} với id %{id} không?"
