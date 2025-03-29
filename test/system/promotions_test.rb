@@ -7,7 +7,7 @@ class PromotionsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit promotions_url
-    assert_selector "h1", text: "Promotions"
+    assert_selector "h2", text: "Promotions"
   end
 
   test "should create promotion" do
@@ -26,7 +26,7 @@ class PromotionsTest < ApplicationSystemTestCase
     click_on "Create Promotion"
 
     assert_text "Promotion was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Promotion" do
@@ -45,7 +45,7 @@ class PromotionsTest < ApplicationSystemTestCase
     click_on "Update Promotion"
     puts "@promotion.reload.status: #{@promotion.reload.status}"
     assert_text "Promotion was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Promotion" do

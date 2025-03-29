@@ -7,7 +7,7 @@ class HotelLocationsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit hotel_locations_url
-    assert_selector "h1", text: "Hotel Locations"
+    assert_selector "h2", text: "Hotel Locations"
   end
 
   test "should create hotel location" do
@@ -22,7 +22,7 @@ class HotelLocationsTest < ApplicationSystemTestCase
     click_on "Create Hotel Location"
 
     assert_text "Hotel location was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Hotel location" do
@@ -37,7 +37,7 @@ class HotelLocationsTest < ApplicationSystemTestCase
     click_on "Update Hotel Location"
 
     assert_text "Hotel location was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Hotel location" do

@@ -8,25 +8,25 @@ class ReservationsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit reservations_url
-    assert_selector "h1", text: "Reservations"
+    assert_selector "h2", text: "Reservations"
   end
 
   test "should create reservation" do
     visit reservations_url
     click_on "New reservation"
 
-    fill_in "Booking", with: @reservation.booking_id
+    find("#reservation_booking_id").find("option[value='#{@reservation.booking_id}']").select_option
     fill_in "Check in at", with: @reservation.check_in_at
     fill_in "Check out at", with: @reservation.check_out_at
     fill_in "Note", with: @reservation.note
-    fill_in "Room", with: @room2.id
+    find("#reservation_room_id").find("option[value='#{@room2.id}']").select_option
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
     find("#reservation_status").find("option[value='#{@reservation.status}']").select_option
     click_on "Create Reservation"
 
     assert_text "Reservation was successfully created"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should update Reservation" do
@@ -44,7 +44,7 @@ class ReservationsTest < ApplicationSystemTestCase
     click_on "Update Reservation"
 
     assert_text "Reservation was successfully updated"
-    click_on "Back"
+    click_on "Back", match: :first
   end
 
   test "should destroy Reservation" do
