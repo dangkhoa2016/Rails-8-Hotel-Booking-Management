@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   around_action :set_locale
@@ -28,6 +30,7 @@ class ApplicationController < ActionController::Base
     locale = params[:locale] || cookies[:locale] || extract_locale_from_accept_language_header
     locale = I18n.available_locales.map(&:to_s).include?(locale) ? locale : I18n.default_locale
     cookies[:locale] = locale
+    @pagy_locale = locale.to_s
     I18n.with_locale(locale, &action)
   end
 

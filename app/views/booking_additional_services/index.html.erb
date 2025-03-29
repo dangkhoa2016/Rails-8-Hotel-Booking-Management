@@ -13,4 +13,9 @@ content_for :title, page_title
   <% end %>
 </div>
 
-<%= link_to "New booking additional service", new_booking_additional_service_path %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<p class='text-muted text-center'>
+  <%== pagy_info(@pagy) %>
+</p>
+
+<%= link_to "New booking additional service", new_booking_additional_service_path, class: "btn btn-primary mt-3" %>

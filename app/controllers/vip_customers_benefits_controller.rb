@@ -3,7 +3,7 @@ class VipCustomersBenefitsController < ApplicationController
 
   # GET /vip_customers_benefits or /vip_customers_benefits.json
   def index
-    @vip_customers_benefits = VipCustomersBenefit.all
+    @pagy, @vip_customers_benefits = pagy(VipCustomersBenefit.all)
   end
 
   # GET /vip_customers_benefits/1 or /vip_customers_benefits/1.json
