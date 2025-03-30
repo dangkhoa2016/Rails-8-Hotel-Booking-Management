@@ -1,0 +1,8 @@
+
+<%== pagy_bootstrap_nav(@pagy) %>
+<p class='text-muted text-center'>
+  <%== pagy_info(@pagy) %>
+</p>
+
+<%= link_to "#{translate('buttons.new')} #{model_class.model_name.human.downcase}",
+  new_polymorphic_path(controller_name.singularize), class: "btn btn-primary" %>
