@@ -8,7 +8,7 @@ content_for :title, page_title
 <%= render partial: "shared/header_actions", locals: { title: page_title } %>
 
 <div id="booking_vip_customer_discounts" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-  <% @booking_vip_customer_discounts.each do |booking_vip_customer_discount| %>
+  <% @records.each do |booking_vip_customer_discount| %>
     <%= render booking_vip_customer_discount %>
   <% end %>
 </div>

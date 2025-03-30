@@ -1,10 +1,11 @@
 class BookingDiscountsController < ApplicationController
+  include IndexConcern
   before_action :set_booking_discount, only: %i[ show edit update destroy ]
 
   # GET /booking_discounts or /booking_discounts.json
-  def index
-    @pagy, @booking_discounts = pagy(BookingDiscount.all)
-  end
+  # def index
+  #   @pagy, @booking_discounts = pagy(BookingDiscount.all)
+  # end
 
   # GET /booking_discounts/1 or /booking_discounts/1.json
   def show
@@ -66,5 +67,9 @@ class BookingDiscountsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def booking_discount_params
       params.expect(booking_discount: [ :booking_id, :discount_type, :discount_percent, :discount_amount, :promotion_id, :reason_for_discount, :note ])
+    end
+
+    def include_models
+      [ [ booking: :customer ], :promotion ]
     end
 end

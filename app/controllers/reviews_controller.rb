@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
+  include IndexConcern
   before_action :set_review, only: %i[ show edit update destroy ]
 
   # GET /reviews or /reviews.json
-  def index
-    @pagy, @reviews = pagy(Review.all)
-  end
+  # def index
+  #   @pagy, @reviews = pagy(Review.all)
+  # end
 
   # GET /reviews/1 or /reviews/1.json
   def show

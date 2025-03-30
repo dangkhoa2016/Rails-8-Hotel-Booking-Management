@@ -1,10 +1,11 @@
 class AdditionalServicesController < ApplicationController
+  include IndexConcern
   before_action :set_additional_service, only: %i[ show edit update destroy ]
 
   # GET /additional_services or /additional_services.json
-  def index
-    @pagy, @additional_services = pagy(AdditionalService.all)
-  end
+  # def index
+  #   @pagy, @additional_services = pagy(AdditionalService.all)
+  # end
 
   # GET /additional_services/1 or /additional_services/1.json
   def show

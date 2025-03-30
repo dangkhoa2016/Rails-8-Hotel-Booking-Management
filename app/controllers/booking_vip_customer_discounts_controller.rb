@@ -1,10 +1,6 @@
 class BookingVipCustomerDiscountsController < ApplicationController
+  include IndexConcern
   before_action :set_booking_vip_customer_discount, only: %i[ show edit update destroy ]
-
-  # GET /booking_vip_customer_discounts or /booking_vip_customer_discounts.json
-  def index
-    @pagy, @booking_vip_customer_discounts = pagy(BookingVipCustomerDiscount.all)
-  end
 
   # GET /booking_vip_customer_discounts/1 or /booking_vip_customer_discounts/1.json
   def show
