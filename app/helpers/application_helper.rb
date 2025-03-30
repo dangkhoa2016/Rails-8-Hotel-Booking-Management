@@ -1,5 +1,6 @@
 module ApplicationHelper
   include Pagy::Frontend
+  include Utils
 
   def nav_list
     [

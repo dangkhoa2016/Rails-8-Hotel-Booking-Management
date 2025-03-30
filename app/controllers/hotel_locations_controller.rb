@@ -1,10 +1,11 @@
 class HotelLocationsController < ApplicationController
+  include IndexConcern
   before_action :set_hotel_location, only: %i[ show edit update destroy ]
 
   # GET /hotel_locations or /hotel_locations.json
-  def index
-    @pagy, @hotel_locations = pagy(HotelLocation.all)
-  end
+  # def index
+  #   @pagy, @hotel_locations = pagy(HotelLocation.all)
+  # end
 
   # GET /hotel_locations/1 or /hotel_locations/1.json
   def show

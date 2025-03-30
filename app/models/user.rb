@@ -13,6 +13,13 @@ class User < ApplicationRecord
   # validates :email, uniqueness: true
 
 
+  class << self
+    def display_at_index_page_columns
+      %w[full_name email role status]
+    end
+  end
+
+
   def to_s
     full_name
   end

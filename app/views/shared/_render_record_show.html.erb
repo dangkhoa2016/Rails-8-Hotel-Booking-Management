@@ -1,7 +1,7 @@
 <div id="<%= dom_id record %>" class="col">
   <div class="card mb-3">
     <div class="card-header">
-      <% if action_name == 'index' %>
+      <% if is_index_action? %>
         <%= link_to record do %>
           <i class="fa fa-link"></i>
           <strong><%= record.to_s %></strong>
@@ -11,7 +11,29 @@
       <% end %>
     </div>
     <div class="card-body">
+      <% if action_name == 'show' %>
+        <div class="row mb-3">
+          <div class="col">
+            <strong><%= record.class.human_attribute_name(:id) %></strong> : 
+            <%= render_text_field(record, :id) %>
+          </div>
+        </div>
+      <% end %>
+
       <%= render_record_fields(record) %>
+
+      <% if action_name == 'show' %>
+        <div class="row">
+          <div class="col">
+            <strong><%= record.class.human_attribute_name(:created_at) %></strong> : 
+            <%= render_datetime_field(record, :created_at) %>
+          </div>
+          <div class="col">
+            <strong><%= record.class.human_attribute_name(:updated_at) %></strong> : 
+            <%= render_datetime_field(record, :updated_at) %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <%= render partial: "shared/footer_actions", locals: { record: record } %>

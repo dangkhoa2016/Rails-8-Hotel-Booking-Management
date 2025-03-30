@@ -1,10 +1,11 @@
 class PromotionsController < ApplicationController
+  include IndexConcern
   before_action :set_promotion, only: %i[ show edit update destroy ]
 
   # GET /promotions or /promotions.json
-  def index
-    @pagy, @promotions = pagy(Promotion.all)
-  end
+  # def index
+  #   @pagy, @promotions = pagy(Promotion.all)
+  # end
 
   # GET /promotions/1 or /promotions/1.json
   def show

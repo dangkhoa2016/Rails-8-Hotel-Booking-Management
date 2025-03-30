@@ -1,10 +1,6 @@
 class VipCustomersBenefitsController < ApplicationController
+  include IndexConcern
   before_action :set_vip_customers_benefit, only: %i[ show edit update destroy ]
-
-  # GET /vip_customers_benefits or /vip_customers_benefits.json
-  def index
-    @pagy, @vip_customers_benefits = pagy(VipCustomersBenefit.all)
-  end
 
   # GET /vip_customers_benefits/1 or /vip_customers_benefits/1.json
   def show

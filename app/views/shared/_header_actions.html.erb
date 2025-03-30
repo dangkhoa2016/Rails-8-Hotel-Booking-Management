@@ -32,6 +32,6 @@
 
   <div class='btn-group btn-group-sm ms-auto'>
     <%= action_button(action_name, model_record) if action_name.in?(['edit', 'update', 'show', 'index']) %>
-    <%= back_to_list_link(controller_name) unless action_name == 'index' %>
+    <%= back_to_list_link(controller_name) unless is_index_action? %>
   </div>
 </div>
