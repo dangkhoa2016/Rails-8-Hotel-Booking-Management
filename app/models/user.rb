@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def to_s
     full_name
   end
+
+  def display_at_index_page_columns
+    %w[full_name email role status]
+  end
 end

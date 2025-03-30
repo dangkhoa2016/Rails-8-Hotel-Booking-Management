@@ -1,5 +1,6 @@
 module ApplicationHelper
   include Pagy::Frontend
+  include Utils
 
   def nav_list
     [
@@ -94,13 +95,5 @@ module ApplicationHelper
 
   def sidebar_name(key)
     I18n.t("activerecord.models.#{key.to_s.singularize}").pluralize(I18n.locale)
-  end
-
-  def translated_model_name(record)
-    record.class.model_name.human
-  end
-
-  def is_index_action?
-    action_name == 'index'
   end
 end

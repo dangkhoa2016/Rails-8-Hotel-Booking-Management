@@ -1,6 +1,6 @@
 module RenderRecordShowHelper
   def render_record_fields(record)
-    columns = get_columns(record)
+    columns = is_index_action? ? get_columns(record) : get_default_columns(record)
     columns.map do |column|
       column_name = column.respond_to?(:name) ? column.name : column
       content_tag(:p) do
@@ -10,29 +10,12 @@ module RenderRecordShowHelper
     end.join.html_safe
   end
 
-  def get_columns(record)
-    columns = []
-    if action_name == 'index'
-      columns = record.display_at_index_page_columns if record.respond_to?(:display_at_index_page_columns)
-    end
-
-    if columns.empty?
-      columns = record.class.columns.map(&:name) - %w[id created_at updated_at encrypted_password]
-    end
-
-    columns
-  end
-
-  def is_enum_column?(record, column)
-    record.class.defined_enums.keys.include?(column)
-  end
-
   def render_date_field(record, column)
-    record.send(column)&.strftime('%Y-%m-%d')
+    record.send(column)&.to_formatted_s(:long)
   end
 
   def render_datetime_field(record, column)
-    record.send(column)&.strftime('%Y-%m-%d %H:%M:%S')
+    record.send(column)&.to_formatted_s(:long)
   end
 
   def render_boolean_field(record, column)
@@ -45,11 +28,31 @@ module RenderRecordShowHelper
     record.class.human_attribute_name("#{column}.#{value}")
   end
 
-  def render_field_value(record, column)
+  def guess_field_and_render(record, column)
     if is_enum_column?(record, column)
-      return render_enum_field(record, column)
+      render_enum_field(record, column)
+    elsif is_associated_column?(record, column.sub(/_id$/, ''))
+      associated_record = record.send(column.sub(/_id$/, ''))
+      associated_record ? link_to(associated_record.to_s, polymorphic_path(associated_record)) : record.send(column).to_s
+    elsif column == 'color'
+      content_tag(:span, '', style: "background-color: #{record.send(column)}; width: 20px; height: 20px; display: inline-block;")
+    end
+  end
+
+  def render_field_value(record, column)
+    custom_render_from_helper = "render_#{record.class.model_name.element}_#{column}"
+    if respond_to?(custom_render_from_helper)
+      return send(custom_render_from_helper, record)
     end
 
+    guess_field_and_render(record, column) || render_field_by_type(record, column)
+  end
+
+  def render_text_field(record, column)
+    record.send(column).to_s
+  end
+
+  def render_field_by_type(record, column)
     type = record.class.columns_hash[column].type
     case type
     when :date
@@ -60,8 +63,16 @@ module RenderRecordShowHelper
       render_boolean_field(record, column)
     when :enum
       render_enum_field(record, column)
+    when :float, :decimal
+      value = record.send(column)
+      if value.to_i == value
+        # If the value has no decimal part, convert it to an integer
+        # This is to avoid displaying decimal values like 10.0
+        value = value.to_i
+      end
+      number_to_currency(value)
     else
-      record.send(column).to_s
+      render_text_field(record, column)
     end
   end
 end
