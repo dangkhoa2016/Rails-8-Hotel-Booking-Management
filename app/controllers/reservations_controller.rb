@@ -1,10 +1,11 @@
 class ReservationsController < ApplicationController
+  include IndexConcern
   before_action :set_reservation, only: %i[ show edit update destroy ]
 
   # GET /reservations or /reservations.json
-  def index
-    @pagy, @reservations = pagy(Reservation.all)
-  end
+  # def index
+  #   @pagy, @reservations = pagy(Reservation.all)
+  # end
 
   # GET /reservations/1 or /reservations/1.json
   def show
@@ -66,5 +67,9 @@ class ReservationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def reservation_params
       params.expect(reservation: [ :room_id, :booking_id, :check_in_at, :check_out_at, :status, :room_price, :note, :room_occupant ])
+    end
+
+    def include_models
+      [ [ booking: :customer ], :room ]
     end
 end
