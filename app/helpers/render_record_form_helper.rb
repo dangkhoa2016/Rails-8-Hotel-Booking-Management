@@ -10,7 +10,7 @@ module RenderRecordFormHelper
   end
 
   def get_form_columns(record)
-    columns = record.class.columns.map(&:name) - %w[id created_at updated_at]
+    columns = get_default_columns(record.class)
     if record.class.name == "User"
       columns << :password
     end

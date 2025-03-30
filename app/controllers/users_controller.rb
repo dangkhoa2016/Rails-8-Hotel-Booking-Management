@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  include IndexConcern
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
-  def index
-    @pagy, @users = pagy(User.all)
-  end
+  # def index
+  #   @pagy, @users = pagy(User.all)
+  # end
 
   # GET /users/1 or /users/1.json
   def show
