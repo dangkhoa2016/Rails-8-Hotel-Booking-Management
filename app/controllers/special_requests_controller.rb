@@ -1,10 +1,11 @@
 class SpecialRequestsController < ApplicationController
+  include IndexConcern
   before_action :set_special_request, only: %i[ show edit update destroy ]
 
   # GET /special_requests or /special_requests.json
-  def index
-    @pagy, @special_requests = pagy(SpecialRequest.all)
-  end
+  # def index
+  #   @pagy, @special_requests = pagy(SpecialRequest.all)
+  # end
 
   # GET /special_requests/1 or /special_requests/1.json
   def show
@@ -66,5 +67,9 @@ class SpecialRequestsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def special_request_params
       params.expect(special_request: [ :booking_id, :reservation_id, :request, :price ])
+    end
+
+    def include_models
+      [ booking: :customer, reservation: :room ]
     end
 end

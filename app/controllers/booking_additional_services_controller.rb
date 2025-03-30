@@ -1,10 +1,6 @@
 class BookingAdditionalServicesController < ApplicationController
+  include IndexConcern
   before_action :set_booking_additional_service, only: %i[ show edit update destroy ]
-
-  # GET /booking_additional_services or /booking_additional_services.json
-  def index
-    @pagy, @booking_additional_services = pagy(BookingAdditionalService.all)
-  end
 
   # GET /booking_additional_services/1 or /booking_additional_services/1.json
   def show

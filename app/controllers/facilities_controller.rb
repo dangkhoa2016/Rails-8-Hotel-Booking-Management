@@ -1,10 +1,11 @@
 class FacilitiesController < ApplicationController
+  include IndexConcern
   before_action :set_facility, only: %i[ show edit update destroy ]
 
   # GET /facilities or /facilities.json
-  def index
-    @pagy, @facilities = pagy(Facility.all)
-  end
+  # def index
+  #   @pagy, @facilities = pagy(Facility.all)
+  # end
 
   # GET /facilities/1 or /facilities/1.json
   def show

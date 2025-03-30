@@ -1,16 +1,12 @@
 module RenderRecordFormHelper
   def render_record_form(form, record)
-    columns = get_form_columns(record)
+    columns = get_default_columns(record.class)
     columns.map do |column|
       column_name = column.respond_to?(:name) ? column.name : column
       content_tag(:div, class: "form-group mb-3") do
         form.label(column_name, class: "form-label") + render_form_field(form, record, column_name)
       end
     end.join.html_safe
-  end
-
-  def get_form_columns(record)
-    record.class.columns.map(&:name) - %w[id created_at updated_at encrypted_password]
   end
 
   def guess_form_field_type(form, record, column)

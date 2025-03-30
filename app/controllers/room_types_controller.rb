@@ -1,10 +1,11 @@
 class RoomTypesController < ApplicationController
+  include IndexConcern
   before_action :set_room_type, only: %i[ show edit update destroy ]
 
   # GET /room_types or /room_types.json
-  def index
-    @pagy, @room_types = pagy(RoomType.all)
-  end
+  # def index
+  #   @pagy, @room_types = pagy(RoomType.all)
+  # end
 
   # GET /room_types/1 or /room_types/1.json
   def show

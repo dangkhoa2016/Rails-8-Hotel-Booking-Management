@@ -1,10 +1,11 @@
 class PaymentsController < ApplicationController
+  include IndexConcern
   before_action :set_payment, only: %i[ show edit update destroy ]
 
   # GET /payments or /payments.json
-  def index
-    @pagy, @payments = pagy(Payment.all)
-  end
+  # def index
+  #   @pagy, @payments = pagy(Payment.all)
+  # end
 
   # GET /payments/1 or /payments/1.json
   def show
@@ -66,5 +67,9 @@ class PaymentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def payment_params
       params.expect(payment: [ :booking_id, :amount, :payment_date, :payment_method, :payment_type, :note ])
+    end
+
+    def include_models
+      [ booking: :customer ]
     end
 end
