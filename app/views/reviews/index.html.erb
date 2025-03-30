@@ -7,16 +7,10 @@ content_for :title, page_title
 
 <%= render partial: "shared/header_actions", locals: { title: page_title } %>
 
-
 <div id="reviews" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
   <% @records.each do |review| %>
     <%= render review %>
   <% end %>
 </div>
 
-<%== pagy_bootstrap_nav(@pagy) %>
-<p class='text-muted text-center'>
-  <%== pagy_info(@pagy) %>
-</p>
-
-<%= link_to "New review", new_review_path, class: "btn btn-primary mt-3" %>
+<%= render 'shared/index_footer' %>
