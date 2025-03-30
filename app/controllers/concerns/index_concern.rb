@@ -8,10 +8,6 @@ module IndexConcern
 
   private
 
-  def model_class
-    controller_name.classify.constantize
-  end
-
   def order_by
     if respond_to?(:order_columns)
       order_columns
