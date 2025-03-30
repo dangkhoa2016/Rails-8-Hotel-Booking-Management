@@ -30,4 +30,8 @@ module Utils
   def is_index_action?
     action_name == "index"
   end
+  
+  def model_class
+    controller_name.classify.constantize
+  end
 end
