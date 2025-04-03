@@ -37,6 +37,7 @@ vi:
       default: "%d-%m-%Y"
       short: "%d %b"
       long: "%d %B, %Y"
+      slash: "%d/%m/%Y"
 
     # Đừng quên dấu ~ ở đầu; không có tháng 0
     month_names:
@@ -167,8 +168,9 @@ vi:
     am: sáng
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%d %B, %Y %H:%M"
+      long: "%d %B, %Y %H:%M:%S"
       short: "%d %b %H:%M"
+      slash: "%d/%m/%Y %H:%M:%S"
     pm: chiều
 
   helpers:

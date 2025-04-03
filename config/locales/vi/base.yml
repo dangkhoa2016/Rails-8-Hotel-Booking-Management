@@ -55,3 +55,8 @@ vi:
 
   messages:
     confirm_destroy_single: "Bạn có chắc chắn muốn xóa bản ghi %{model} với id %{id} không?"
+
+  base:
+    "true": "Có"
+    "false": "Không"
+    blank: "Chưa có giá trị"
