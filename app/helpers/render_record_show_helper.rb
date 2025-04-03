@@ -64,13 +64,9 @@ module RenderRecordShowHelper
     when :enum
       render_enum_field(record, column)
     when :float, :decimal
-      value = record.send(column)
-      if value.to_i == value
-        # If the value has no decimal part, convert it to an integer
-        # This is to avoid displaying decimal values like 10.0
-        value = value.to_i
-      end
-      number_to_currency(value)
+      (record.send(column)).display_as_money
+    when :integer
+      number_with_delimiter(record.send(column))
     else
       render_text_field(record, column)
     end

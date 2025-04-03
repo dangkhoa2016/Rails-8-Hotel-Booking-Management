@@ -16,7 +16,16 @@ class BookingDiscount < ApplicationRecord
 
 
   def to_s
-    reason_for_discount || "Discount ##{id}"
+    discount_value = if discount_type == "percent"
+      "#{discount_percent}%"
+    else
+      "$#{discount_amount}"
+    end
+    self.class.human_attribute_name(:title, {
+      discount_type: self.class.human_attribute_name("discount_type.#{discount_type}"),
+      discount_value: discount_value,
+      booking_id: booking_id
+    })
   end
 
   private

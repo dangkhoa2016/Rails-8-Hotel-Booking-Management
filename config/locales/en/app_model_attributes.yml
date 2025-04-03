@@ -97,6 +97,7 @@ en:
         promotion: "Promotion"
         reason_for_discount: "Reason for discount"
         note: "Note"
+        title: "%{discount_type}: %{discount_value} - Booking: #%{booking_id}"
 
       booking_vip_customer_discount:
         booking_id: "Booking"

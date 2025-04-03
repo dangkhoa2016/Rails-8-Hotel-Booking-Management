@@ -97,6 +97,7 @@ vi:
         promotion: "Khuyến mãi"
         reason_for_discount: "Lý do giảm giá"
         note: "Ghi chú"
+        title: "%{discount_type}: %{discount_value} - Hóa đơn: #%{booking_id}"
 
       booking_vip_customer_discount:
         booking_id: "Hóa đơn"
