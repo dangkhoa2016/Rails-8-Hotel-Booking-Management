@@ -15,6 +15,9 @@ class SpecialRequest < ApplicationRecord
 
 
   def to_s
-    "Special Request ##{id} - Reservation ##{reservation_id}"
+    self.class.human_attribute_name(:card_title, {
+      reservation_id: reservation_id,
+      id: id
+    })
   end
 end

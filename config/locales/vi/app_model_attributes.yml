@@ -62,6 +62,7 @@ vi:
         total_price: "Tổng giá"
         note: "Ghi chú"
         discount_note: "Ghi chú giảm giá"
+        card_title: "Id: #%{id} - Khách hàng: %{customer}"
 
       booking/status:
         pending: "Đang chờ"
@@ -97,6 +98,7 @@ vi:
         promotion: "Khuyến mãi"
         reason_for_discount: "Lý do giảm giá"
         note: "Ghi chú"
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - Hóa đơn: #%{booking_id}"
 
       booking_vip_customer_discount:
         booking_id: "Hóa đơn"
@@ -137,7 +139,8 @@ vi:
         payment_method: "Phương thức thanh toán"
         payment_type: "Loại thanh toán"
         note: "Ghi chú"
-        
+        card_title: "%{payment_type}: <span class='text-danger'>%{amount}</span> - lúc: %{payment_date}"
+
       payment/payment_method:
         cash: "Tiền mặt"
         credit_card: "Thẻ tín dụng"
@@ -157,6 +160,7 @@ vi:
         end_date: "Ngày kết thúc"
         discount_percent: "Phần trăm giảm giá"
         discount_amount: "Số tiền giảm giá"
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - %{name}"
 
       review:
         customer_id: "Khách hàng"
@@ -166,6 +170,7 @@ vi:
         room_rating: "Đánh giá phòng"
         service_rating: "Đánh giá dịch vụ"
         comment: "Bình luận"
+        card_title: "Khách hàng: %{customer} - <i class='fs-5 text-danger d-inline-block bi bi-star'></i> : %{room_rating}"
 
       room:
         name: "Tên"
@@ -194,6 +199,7 @@ vi:
         room_price: "Giá phòng"
         note: "Ghi chú"
         room_occupant: "Người sử dụng phòng"
+        card_title: "Phòng: %{room} - Hóa đơn: #%{booking_id}"
 
       reservation/status:
         pending: "Đang chờ"
@@ -211,12 +217,11 @@ vi:
         color: "Màu sắc"
 
       special_request:
-        booking_id: "Hóa đơn"
-        booking: "Hóa đơn"
         reservation_id: "Đặt phòng"
         reservation: "Đặt phòng"
         request: "Yêu cầu"
         price: "Giá"
+        card_title: "Id: #%{id} - Đặt phòng: #%{reservation_id}"
 
       user:
         email: "Email"
@@ -244,6 +249,7 @@ vi:
         discount_percent_on_additional_services: "Phần trăm giảm giá dịch vụ bổ sung"
         discount_amount_on_room_price: "Số tiền giảm giá phòng"
         discount_amount_on_additional_services: "Số tiền giảm giá dịch vụ bổ sung"
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> - Khách hàng: %{customer}"
 
       status:
         active: "Hoạt động"
