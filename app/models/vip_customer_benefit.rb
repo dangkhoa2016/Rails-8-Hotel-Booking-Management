@@ -25,7 +25,10 @@ class VipCustomerBenefit < ApplicationRecord
 
 
   def to_s
-    "Customer: #{customer&.name} <> #{discount_type&.humanize}"
+    self.class.human_attribute_name(:card_title, {
+      discount_icon: discount_type == "percent" ? "percent" : "cash-coin",
+      customer: customer&.name
+    })
   end
 
   private

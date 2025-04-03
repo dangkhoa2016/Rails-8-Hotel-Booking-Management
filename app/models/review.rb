@@ -11,6 +11,9 @@ class Review < ApplicationRecord
 
 
   def to_s
-    "Review ##{id} - Customer: #{customer&.name}"
+    self.class.human_attribute_name(:card_title, {
+      room_rating: room_rating,
+      customer: customer&.name
+    })
   end
 end

@@ -18,7 +18,11 @@ class Payment < ApplicationRecord
 
 
   def to_s
-    "Payment of #{amount} on #{payment_date&.strftime('%Y-%m-%d')}"
+    self.class.human_attribute_name(:card_title, {
+      payment_type: self.class.human_attribute_name("payment_type.#{payment_type}"),
+      amount: amount.display_as_money,
+      payment_date: I18n.localize(payment_date, format: :slash)
+    })
   end
 
   private
