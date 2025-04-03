@@ -2,12 +2,11 @@
   <div class="card mb-3">
     <div class="card-header">
       <% if is_index_action? %>
-        <%= link_to record do %>
-          <i class="fa fa-link"></i>
-          <strong><%= record.to_s %></strong>
+        <%= link_to record, class: 'text-decoration-none' do %>
+          <strong><%= record.to_s.html_safe %></strong>
         <% end %>
       <% else %>
-        <strong><%= record.to_s %></strong>
+        <strong><%= record.to_s.html_safe %></strong>
       <% end %>
     </div>
     <div class="card-body">

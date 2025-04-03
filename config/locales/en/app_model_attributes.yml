@@ -62,6 +62,7 @@ en:
         total_price: "Total price"
         note: "Note"
         discount_note: "Discount note"
+        card_title: "Id: #%{id} - Customer: %{customer}"
 
       booking/status:
         pending: "Pending"
@@ -97,6 +98,7 @@ en:
         promotion: "Promotion"
         reason_for_discount: "Reason for discount"
         note: "Note"
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - Booking: #%{booking_id}"
 
       booking_vip_customer_discount:
         booking_id: "Booking"
@@ -138,6 +140,7 @@ en:
         payment_method: "Payment method"
         payment_type: "Payment type"
         note: "Note"
+        card_title: "%{payment_type}: <span class='text-danger'>%{amount}</span> - on: %{payment_date}"
 
       payment/payment_type:
         one_time_payment: "One time payment"
@@ -158,7 +161,8 @@ en:
         end_date: "End date"
         discount_percent: "Discount percent"
         discount_amount: "Discount amount"
-        
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - %{name}"
+
       review:
         customer_id: "Customer"
         customer: "Customer"
@@ -167,6 +171,7 @@ en:
         room_rating: "Room rating"
         service_rating: "Service rating"
         comment: "Comment"
+        card_title: "Customer: %{customer} - <i class='fs-5 text-danger d-inline-block bi bi-star'></i> : %{room_rating}"
         
       room:
         name: "Name"
@@ -195,6 +200,7 @@ en:
         room_price: "Room price"
         note: "Note"
         room_occupant: "Room occupant"
+        card_title: "Room: %{room} - Booking: #%{booking_id}"
 
       reservation/status:
         pending: "Pending"
@@ -218,6 +224,7 @@ en:
         reservation: "Room reservation"
         request: "Request"
         price: "Price"
+        card_title: "Id: #%{id} - Booking: #%{booking_id}"
 
       user:
         email: "Email address"
@@ -246,6 +253,7 @@ en:
         discount_percent_on_additional_services: "Discount percent on additional services"
         discount_amount_on_room_price: "Discount amount on room price"
         discount_amount_on_additional_services: "Discount amount on additional services"
+        card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> - Customer: %{customer}"
 
       status:
         active: "Active"
