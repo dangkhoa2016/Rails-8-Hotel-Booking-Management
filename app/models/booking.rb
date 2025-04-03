@@ -40,6 +40,9 @@ class Booking < ApplicationRecord
 
 
   def to_s
-    "Booking ##{id} - Customer: #{customer&.name}"
+    self.class.human_attribute_name(:card_title, {
+      id: id,
+      customer: customer&.name
+    })
   end
 end

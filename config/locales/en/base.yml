@@ -55,3 +55,8 @@ en:
 
   messages:
     confirm_destroy_single: "Are you sure you want to delete this %{model} record with id %{id}?"
+
+  base:
+    "true": "Yes"
+    "false": "No"
+    blank: "Blank"
