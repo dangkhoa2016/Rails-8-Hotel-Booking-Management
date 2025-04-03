@@ -19,7 +19,19 @@ class Promotion < ApplicationRecord
 
 
   def to_s
-    name
+    if discount_type == "percent"
+      discount_value = discount_percent.display_as_percentage
+      discount_icon = "percent"
+    else
+      discount_value = discount_amount.display_as_money
+      discount_icon = "cash-coin"
+    end
+
+    self.class.human_attribute_name(:card_title, {
+      discount_icon: discount_icon,
+      discount_value: discount_value,
+      name: name
+    })
   end
 
   private

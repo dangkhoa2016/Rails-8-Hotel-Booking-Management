@@ -23,7 +23,19 @@ class BookingDiscount < ApplicationRecord
 
 
   def to_s
-    reason_for_discount || "Discount ##{id}"
+    if discount_type == "percent"
+      discount_value = discount_percent.display_as_percentage
+      discount_icon = "percent"
+    else
+      discount_value = discount_amount.display_as_money
+      discount_icon = "cash-coin"
+    end
+
+    self.class.human_attribute_name(:card_title, {
+      discount_icon: discount_icon,
+      discount_value: discount_value,
+      booking_id: booking_id
+    })
   end
 
   private

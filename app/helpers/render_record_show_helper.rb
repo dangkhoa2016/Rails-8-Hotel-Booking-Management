@@ -11,15 +11,21 @@ module RenderRecordShowHelper
   end
 
   def render_date_field(record, column)
-    record.send(column)&.to_formatted_s(:long)
+    value = record.send(column)
+    return value if value.nil?
+    I18n.localize value, format: :long
   end
 
   def render_datetime_field(record, column)
-    record.send(column)&.to_formatted_s(:long)
+    value = record.send(column)
+    return value if value.nil?
+    I18n.localize value, format: :long
   end
 
   def render_boolean_field(record, column)
-    record.send(column) ? "Yes" : "No"
+    value = record.send(column)
+    return value if value.nil?
+    I18n.translate("base.#{value}")
   end
 
   def render_enum_field(record, column)
@@ -33,7 +39,11 @@ module RenderRecordShowHelper
       render_enum_field(record, column)
     elsif is_associated_column?(record, column.sub(/_id$/, ""))
       associated_record = record.send(column.sub(/_id$/, ""))
-      associated_record ? link_to(associated_record.to_s, polymorphic_path(associated_record)) : record.send(column).to_s
+      if associated_record
+        link_to(associated_record.to_s.html_safe, polymorphic_path(associated_record))
+      else
+        record.send(column).to_s.presence || I18n.t("base.blank")
+      end
     end
   end
 
@@ -62,13 +72,9 @@ module RenderRecordShowHelper
     when :enum
       render_enum_field(record, column)
     when :float, :decimal
-      value = record.send(column)
-      if value.to_i == value
-        # If the value has no decimal part, convert it to an integer
-        # This is to avoid displaying decimal values like 10.0
-        value = value.to_i
-      end
-      number_to_currency(value)
+      (record.send(column)).display_as_money
+    when :integer
+      number_with_delimiter(record.send(column))
     else
       render_text_field(record, column)
     end
