@@ -44,3 +44,7 @@
   min-width: 5rem;
   width: 6rem;
 }
+
+.record-form strong i, .record-form strong span {
+  display: none;
+}
