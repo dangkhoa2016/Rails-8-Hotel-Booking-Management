@@ -1,25 +1,15 @@
-<div id="<%= dom_id record %>" class="col">
+<div id="<%= dom_id record %>" class="col record-form">
   <div class="card mb-3">
     <div class="card-header">
       <% if record.new_record? %>
         <strong style='color: var(--bs-indigo)'>[<%= translate("buttons.new") %>]</strong>
       <% else %>
-        <strong style='color: var(--bs-indigo)'>[#<%= record.id %>]</strong> <strong><%= record.to_s %></strong>
+        <strong style='color: var(--bs-indigo)'>[#<%= record.id %>]</strong> <strong><%= record.to_s.html_safe %></strong>
       <% end %>
     </div>
     <div class="card-body">
       <%= form_with(model: record, url: get_form_url(record)) do |form| %>
-        <% if record.errors.any? %>
-          <div class="alert alert-danger">
-            <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
-
-            <ul class="mb-0">
-              <% record.errors.each do |error| %>
-                <li><%= error.full_message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <%= render partial: "devise/shared/error_messages", locals: { resource: record } %>
 
         <%= render_record_form(form, record) %>
 
