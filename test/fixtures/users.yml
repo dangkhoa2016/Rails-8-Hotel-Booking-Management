@@ -1,21 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  full_name: MyString
-  email: MyString
-  encrypted_password: MyString
+  full_name: Alice Johnson
+  email: alice.johnson@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   role: 1
-  reset_password_token: MyString
-  reset_password_sent_at: 2025-03-29 03:22:01
-  remember_created_at: 2025-03-29 03:22:01
   status: 1
 
 two:
-  full_name: MyString
-  email: MyString
-  encrypted_password: MyString
-  role: 1
-  reset_password_token: MyString
-  reset_password_sent_at: 2025-03-29 03:22:01
-  remember_created_at: 2025-03-29 03:22:01
+  full_name: Bob Brown
+  email: bob.brown@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  role: 0
   status: 1

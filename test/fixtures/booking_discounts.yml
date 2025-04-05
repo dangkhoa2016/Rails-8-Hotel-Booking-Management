@@ -2,18 +2,18 @@
 
 one:
   booking: one
-  discount_type: 1
-  discount_percent: 1
-  discount_amount: 1.5
+  discount_type: 0
+  discount_percent: 10
+  discount_amount: 15.0
   promotion: one
-  reason_for_discount: MyString
-  note: MyString
+  reason_for_discount: Loyalty program
+  note: Applied for long-term stay
 
 two:
   booking: two
   discount_type: 1
-  discount_percent: 1
-  discount_amount: 1.5
+  discount_percent: 20
+  discount_amount: 25.0
   promotion: two
-  reason_for_discount: MyString
-  note: MyString
+  reason_for_discount: Seasonal offer
+  note: Applied for holiday season
