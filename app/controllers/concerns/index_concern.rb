@@ -21,10 +21,10 @@ module IndexConcern
       return include_models
     end
 
-    get_columns(model_class).select do |column|
-      column.to_s.end_with?("_id")
+    get_index_page_columns(model_class).select do |column|
+      column[:name].to_s.end_with?("_id")
     end.map do |column|
-      column.to_s.sub(/_id$/, "")
+      column[:name].to_s.sub(/_id$/, "")
     end
   end
 

@@ -11,6 +11,23 @@ class SpecialRequest < ApplicationRecord
     def display_at_index_page_columns
       %w[reservation_id request price]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :reservation_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :request,
+          css_class: "col-12"
+        },
+        {
+          name: :price,
+          css_class: "col-md-6"
+        }
+      ]
+    end
   end
 
 
