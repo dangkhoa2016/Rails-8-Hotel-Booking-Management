@@ -11,7 +11,9 @@
       <%= form_with(model: record) do |form| %>
         <%= render partial: "devise/shared/error_messages", locals: { resource: record } %>
 
-        <%= render_record_form(form, record) %>
+        <div class='row'>
+          <%= render_record_form(form, record) %>
+        </div>
 
         <div class="form-group">
           <%= form.submit(class: "btn btn-primary") %>
