@@ -16,7 +16,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request + " new"
-    fill_in "Reservation", with: @special_request.reservation_id
+    find("#special_request_reservation_id").find("option[value='#{@special_request.reservation_id}']").select_option
     click_on "Create Special Request"
 
     assert_text "Special request was successfully created"
@@ -29,7 +29,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request + " updated"
-    fill_in "Reservation", with: @special_request.reservation_id
+    find("#special_request_reservation_id").find("option[value='#{@special_request.reservation_id}']").select_option
     click_on "Update Special Request"
 
     assert_text "Special request was successfully updated"
