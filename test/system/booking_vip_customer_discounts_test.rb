@@ -13,10 +13,10 @@ class BookingVipCustomerDiscountsTest < ApplicationSystemTestCase
 
   test "should create booking vip customer discount" do
     visit booking_vip_customer_discounts_url
-    click_on "New booking vip customer discount"
+    click_on "New vip customer discount"
 
-    fill_in "Booking", with: @booking2.id
-    fill_in "Customer", with: @booking_vip_customer_discount.customer_id
+    find("#booking_vip_customer_discount_booking_id").find("option[value='#{@booking2.id}']").select_option
+    find("#booking_vip_customer_discount_customer_id").find("option[value='#{@booking_vip_customer_discount.customer_id}']").select_option
     fill_in "Discount amount on additional services", with: @booking_vip_customer_discount.discount_amount_on_additional_services
     fill_in "Discount amount on room price", with: @booking_vip_customer_discount.discount_amount_on_room_price
     fill_in "Discount percent on additional services", with: @booking_vip_customer_discount.discount_percent_on_additional_services
@@ -32,8 +32,8 @@ class BookingVipCustomerDiscountsTest < ApplicationSystemTestCase
     visit booking_vip_customer_discount_url(@booking_vip_customer_discount)
     click_on "Edit", match: :first
 
-    fill_in "Booking", with: @booking_vip_customer_discount.booking_id
-    fill_in "Customer", with: @booking_vip_customer_discount.customer_id
+    find("#booking_vip_customer_discount_booking_id").find("option[value='#{@booking2.id}']").select_option
+    find("#booking_vip_customer_discount_customer_id").find("option[value='#{@booking_vip_customer_discount.customer_id}']").select_option
     fill_in "Discount amount on additional services", with: @booking_vip_customer_discount.discount_amount_on_additional_services
     fill_in "Discount amount on room price", with: @booking_vip_customer_discount.discount_amount_on_room_price
     fill_in "Discount percent on additional services", with: @booking_vip_customer_discount.discount_percent_on_additional_services

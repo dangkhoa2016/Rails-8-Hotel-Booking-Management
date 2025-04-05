@@ -14,10 +14,10 @@ class SpecialRequestsTest < ApplicationSystemTestCase
     visit special_requests_url
     click_on "New special request"
 
-    fill_in "Booking", with: @special_request.booking_id
+    find("#special_request_booking_id").find("option[value='#{@special_request.booking_id}']").select_option
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request + " new"
-    fill_in "Room reservation", with: @special_request.reservation_id
+    find("#special_request_reservation_id").find("option[value='#{@special_request.reservation_id}']").select_option
     click_on "Create Special Request"
 
     assert_text "Special request was successfully created"
@@ -28,10 +28,10 @@ class SpecialRequestsTest < ApplicationSystemTestCase
     visit special_request_url(@special_request)
     click_on "Edit", match: :first
 
-    fill_in "Booking", with: @special_request.booking_id
+    find("#special_request_booking_id").find("option[value='#{@special_request.booking_id}']").select_option
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request + " updated"
-    fill_in "Room reservation", with: @special_request.reservation_id
+    find("#special_request_reservation_id").find("option[value='#{@special_request.reservation_id}']").select_option
     click_on "Update Special Request"
 
     assert_text "Special request was successfully updated"

@@ -16,7 +16,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
     visit vip_customers_benefits_url
     click_on "New vip customers benefit"
 
-    fill_in "Customer", with: @customer2.id
+    find("#vip_customers_benefit_customer_id").find("option[value='#{@customer2.id}']").select_option
     fill_in "Discount amount on additional services", with: @vip_customers_benefit.discount_amount_on_additional_services
     fill_in "Discount amount on room price", with: @vip_customers_benefit.discount_amount_on_room_price
     fill_in "Discount percent on additional services", with: @vip_customers_benefit.discount_percent_on_additional_services
@@ -34,7 +34,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
     visit vip_customers_benefit_url(@vip_customers_benefit)
     click_on "Edit", match: :first
 
-    fill_in "Customer", with: @vip_customers_benefit.customer_id
+    find("#vip_customers_benefit_customer_id").find("option[value='#{@customer2.id}']").select_option
     fill_in "Discount amount on additional services", with: @vip_customers_benefit.discount_amount_on_additional_services
     fill_in "Discount amount on room price", with: @vip_customers_benefit.discount_amount_on_room_price
     fill_in "Discount percent on additional services", with: @vip_customers_benefit.discount_percent_on_additional_services

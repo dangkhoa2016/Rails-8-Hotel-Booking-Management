@@ -37,6 +37,10 @@ class Customer < ApplicationRecord
           css_class: "col-md-6"
         },
         {
+          name: :encrypted_password,
+          css_class: "col-md-6"
+        },
+        {
           name: :address,
           css_class: "col-12"
         },
