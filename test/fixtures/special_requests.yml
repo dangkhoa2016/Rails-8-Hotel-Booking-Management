@@ -2,10 +2,10 @@
 
 one:
   reservation: one
-  request: MyString
-  price: 1.5
+  request: Extra pillows
+  price: 10.0
 
 two:
   reservation: two
-  request: MyString
-  price: 1.5
+  request: Early check-in
+  price: 20.0

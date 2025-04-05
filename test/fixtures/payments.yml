@@ -2,16 +2,16 @@
 
 one:
   booking: one
-  amount: 1.5
-  payment_date: 2025-03-29 03:21:51
-  payment_method: MyString
-  payment_type: MyString
-  note: MyString
+  amount: 200.0
+  payment_date: 2025-03-29 10:00:00
+  payment_method: Credit Card
+  payment_type: Full Payment
+  note: Paid in advance
 
 two:
   booking: two
-  amount: 1.5
-  payment_date: 2025-03-29 03:21:51
-  payment_method: MyString
-  payment_type: MyString
-  note: MyString
+  amount: 150.0
+  payment_date: 2025-03-30 15:00:00
+  payment_method: Cash
+  payment_type: Partial Payment
+  note: Paid at check-in
