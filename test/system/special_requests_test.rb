@@ -17,7 +17,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
     fill_in "Booking", with: @special_request.booking_id
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request
-    fill_in "Room reservation", with: @special_request.reservation_id
+    fill_in "Reservation", with: @special_request.reservation_id
     click_on "Create Special request"
 
     assert_text "Special request was successfully created"
@@ -31,7 +31,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
     fill_in "Booking", with: @special_request.booking_id
     fill_in "Price", with: @special_request.price
     fill_in "Request", with: @special_request.request
-    fill_in "Room reservation", with: @special_request.reservation_id
+    fill_in "Reservation", with: @special_request.reservation_id
     click_on "Update Special request"
 
     assert_text "Special request was successfully updated"

@@ -18,7 +18,7 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     fill_in "Booking", with: @booking_additional_service.booking_id
     fill_in "Note", with: @booking_additional_service.note
     fill_in "Quantity", with: @booking_additional_service.quantity
-    fill_in "Room reservation", with: @booking_additional_service.reservation_id
+    fill_in "Reservation", with: @booking_additional_service.reservation_id
     fill_in "Total price", with: @booking_additional_service.total_price
     fill_in "Unit", with: @booking_additional_service.unit
     click_on "Create Booking additional service"
@@ -35,7 +35,7 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     fill_in "Booking", with: @booking_additional_service.booking_id
     fill_in "Note", with: @booking_additional_service.note
     fill_in "Quantity", with: @booking_additional_service.quantity
-    fill_in "Room reservation", with: @booking_additional_service.reservation_id
+    fill_in "Reservation", with: @booking_additional_service.reservation_id
     fill_in "Total price", with: @booking_additional_service.total_price
     fill_in "Unit", with: @booking_additional_service.unit
     click_on "Update Booking additional service"

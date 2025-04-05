@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  summary: MyString
-  price: 1.5
-  unit: MyString
+  name: Spa Service
+  summary: Full body massage
+  price: 50.0
+  unit: per hour
   status: 1
 
 two:
-  name: MyString
-  summary: MyString
-  price: 1.5
-  unit: MyString
+  name: Airport Pickup
+  summary: Pickup from airport to hotel
+  price: 30.0
+  unit: per trip
   status: 1

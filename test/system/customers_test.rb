@@ -16,7 +16,7 @@ class CustomersTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @customer.address
     fill_in "Customer type", with: @customer.customer_type
-    fill_in "Email", with: @customer.email
+    fill_in "Email", with: @customer.email + ".test"
     fill_in "Encrypted password", with: @customer.encrypted_password
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note
@@ -34,7 +34,7 @@ class CustomersTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @customer.address
     fill_in "Customer type", with: @customer.customer_type
-    fill_in "Email", with: @customer.email
+    fill_in "Email", with: @customer.email + ".test"
     fill_in "Encrypted password", with: @customer.encrypted_password
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note

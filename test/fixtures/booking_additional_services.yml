@@ -4,16 +4,16 @@ one:
   booking: one
   additional_service: one
   reservation: one
-  note: MyString
-  quantity: 1
-  unit: MyString
-  total_price: 1.5
+  note: Extra towels requested
+  quantity: 2
+  unit: per hour
+  total_price: 100.0
 
 two:
   booking: two
   additional_service: two
   reservation: two
-  note: MyString
+  note: Early check-in
   quantity: 1
-  unit: MyString
-  total_price: 1.5
+  unit: per trip
+  total_price: 30.0
