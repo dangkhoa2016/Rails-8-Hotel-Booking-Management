@@ -1,10 +1,12 @@
 module RenderRecordFormHelper
   def render_record_form(form, record)
-    columns = get_default_columns(record.class)
+    columns = get_show_page_and_form_columns(record.class)
     columns.map do |column|
-      column_name = column.respond_to?(:name) ? column.name : column
-      content_tag(:div, class: "form-group mb-3") do
-        form.label(column_name, class: "form-label") + render_form_field(form, record, column_name)
+      column_name = column[:name].to_s
+      content_tag(:div, class: column[:css_class]) do
+        content_tag(:div, class: "form-group mb-3") do
+          form.label(column_name, class: "form-label") + render_form_field(form, record, column_name)
+        end
       end
     end.join.html_safe
   end
@@ -16,7 +18,19 @@ module RenderRecordFormHelper
       render_enum_form_field(form, record, column)
     elsif column.in?([ "summary", "note", "description" ])
       render_textarea_form_field(form, record, column, rows: 3)
+    elsif is_associated_column?(record, column.sub(/_id$/, ""))
+      custom_collection_from_helper = "#{record.class.model_name.element}_#{column}_collection"
+      collection = if respond_to?(custom_collection_from_helper)
+        send(custom_collection_from_helper)
+      else
+        get_associated_collection(record.class, column)
+      end
+      form.select(column, collection, { include_blank: true }, class: "form-select")
     end
+  end
+
+  def get_associated_collection(model_class, column)
+    model_class.reflect_on_association(column.sub(/_id$/, "")).klass.all.map { |r| [ r.to_s, r.id ] }
   end
 
   def render_form_field(form, record, column)
@@ -56,7 +70,7 @@ module RenderRecordFormHelper
   end
 
   def render_datetime_form_field(form, record, column)
-    render_text_form_field(form, record, column, type: "datetime-local")
+    form.datetime_field(column, class: "form-control")
   end
 
   def render_boolean_form_field(form, record, column)
