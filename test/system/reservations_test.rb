@@ -34,11 +34,11 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservation_url(@reservation)
     click_on "Edit", match: :first
 
-    fill_in "Booking", with: @reservation.booking_id
+    find("#reservation_booking_id").find("option[value='#{@reservation.booking_id}']").select_option
     fill_in "Check in at", with: @reservation.check_in_at
     fill_in "Check out at", with: @reservation.check_out_at
     fill_in "Note", with: @reservation.note
-    fill_in "Room", with: @room2.id
+    find("#reservation_room_id").find("option[value='#{@room2.id}']").select_option
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
     fill_in "Total price", with: @reservation.total_price

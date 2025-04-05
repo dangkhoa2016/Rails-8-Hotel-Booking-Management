@@ -14,10 +14,10 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     visit booking_additional_services_url
     click_on "New booking additional service"
 
-    fill_in "Additional service", with: @booking_additional_service.additional_service_id
+    find("#booking_additional_service_additional_service_id").find("option[value='#{@booking_additional_service.additional_service_id}']").select_option
     fill_in "Note", with: @booking_additional_service.note
     fill_in "Quantity", with: @booking_additional_service.quantity
-    fill_in "Reservation", with: @booking_additional_service.reservation_id
+    find("#booking_additional_service_reservation_id").find("option[value='#{@booking_additional_service.reservation_id}']").select_option
     fill_in "Total price", with: @booking_additional_service.total_price
     fill_in "Unit", with: @booking_additional_service.unit
     click_on "Create Booking Additional Service"
@@ -30,10 +30,10 @@ class BookingAdditionalServicesTest < ApplicationSystemTestCase
     visit booking_additional_service_url(@booking_additional_service)
     click_on "Edit", match: :first
 
-    fill_in "Additional service", with: @booking_additional_service.additional_service_id
+    find("#booking_additional_service_additional_service_id").find("option[value='#{@booking_additional_service.additional_service_id}']").select_option
     fill_in "Note", with: @booking_additional_service.note
     fill_in "Quantity", with: @booking_additional_service.quantity
-    fill_in "Reservation", with: @booking_additional_service.reservation_id
+    find("#booking_additional_service_reservation_id").find("option[value='#{@booking_additional_service.reservation_id}']").select_option
     fill_in "Total price", with: @booking_additional_service.total_price
     fill_in "Unit", with: @booking_additional_service.unit
     click_on "Update Booking Additional Service"

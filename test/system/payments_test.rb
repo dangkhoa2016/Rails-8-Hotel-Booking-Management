@@ -15,7 +15,7 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "New payment"
 
     fill_in "Amount", with: @payment.amount
-    fill_in "Booking", with: @payment.booking_id
+    find("#payment_booking_id").find("option[value='#{@payment.booking_id}']").select_option
     fill_in "Note", with: @payment.note
     fill_in "Payment date", with: @payment.payment_date
     find("#payment_payment_method").find("option[value='#{@payment.payment_method}']").select_option
@@ -31,7 +31,7 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Amount", with: @payment.amount
-    fill_in "Booking", with: @payment.booking_id
+    find("#payment_booking_id").find("option[value='#{@payment.booking_id}']").select_option
     fill_in "Note", with: @payment.note
     fill_in "Payment date", with: @payment.payment_date
     find("#payment_payment_method").find("option[value='#{@payment.payment_method}']").select_option

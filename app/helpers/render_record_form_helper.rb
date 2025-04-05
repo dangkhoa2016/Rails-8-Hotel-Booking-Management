@@ -2,17 +2,19 @@ module RenderRecordFormHelper
   def render_record_form(form, record)
     columns = get_form_columns(record)
     columns.map do |column|
-      column_name = column.respond_to?(:name) ? column.name : column
-      content_tag(:div, class: "form-group mb-3") do
-        form.label(column_name, class: "form-label") + render_form_field(form, record, column_name)
+      column_name = column[:name].to_s
+      content_tag(:div, class: column[:css_class]) do
+        content_tag(:div, class: "form-group mb-3") do
+          form.label(column_name, class: "form-label") + render_form_field(form, record, column_name)
+        end
       end
     end.join.html_safe
   end
 
   def get_form_columns(record)
-    columns = get_default_columns(record.class)
+    columns = get_show_page_and_form_columns(record.class)
     if record.class.name == "User"
-      columns << :password
+      columns << { name: :password, css_class: "col-12" }
     end
     columns
   end
@@ -28,7 +30,19 @@ module RenderRecordFormHelper
       render_text_form_field(form, record, column, type: "password")
     elsif column == "email"
       render_text_form_field(form, record, column, type: "email")
+    elsif is_associated_column?(record, column.sub(/_id$/, ""))
+      custom_collection_from_helper = "#{record.class.model_name.element}_#{column}_collection"
+      collection = if respond_to?(custom_collection_from_helper)
+        send(custom_collection_from_helper)
+      else
+        get_associated_collection(record.class, column)
+      end
+      form.select(column, collection, { include_blank: true }, class: "form-select")
     end
+  end
+
+  def get_associated_collection(model_class, column)
+    model_class.reflect_on_association(column.sub(/_id$/, "")).klass.all.map { |r| [ r.to_s, r.id ] }
   end
 
   def render_form_field(form, record, column)

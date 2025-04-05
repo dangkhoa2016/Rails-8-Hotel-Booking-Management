@@ -15,8 +15,8 @@ class ReviewsTest < ApplicationSystemTestCase
     click_on "New review"
 
     fill_in "Comment", with: @review.comment
-    fill_in "Customer", with: @review.customer_id
-    fill_in "Room", with: @review.room_id
+    find("#review_customer_id").find("option[value='#{@review.customer_id}']").select_option
+    find("#review_room_id").find("option[value='#{@review.room_id}']").select_option
     fill_in "Room rating", with: @review.room_rating
     fill_in "Service rating", with: @review.service_rating
     chk = find("#review_status")
@@ -32,8 +32,8 @@ class ReviewsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Comment", with: @review.comment
-    fill_in "Customer", with: @review.customer_id
-    fill_in "Room", with: @review.room_id
+    find("#review_customer_id").find("option[value='#{@review.customer_id}']").select_option
+    find("#review_room_id").find("option[value='#{@review.room_id}']").select_option
     fill_in "Room rating", with: @review.room_rating
     fill_in "Service rating", with: @review.service_rating
     chk = find("#review_status")

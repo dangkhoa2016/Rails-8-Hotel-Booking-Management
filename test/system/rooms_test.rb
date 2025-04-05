@@ -18,10 +18,10 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Capacity", with: @room.capacity
     fill_in "Half day price afternoon", with: @room.half_day_price_afternoon
     fill_in "Half day price morning", with: @room.half_day_price_morning
-    fill_in "Hotel location", with: @room.hotel_location_id
+    find("#room_hotel_location_id").find("option[value='#{@room.hotel_location_id}']").select_option
     fill_in "Name", with: @room.name + " new"
     fill_in "Price", with: @room.price
-    fill_in "Room type", with: @room.room_type_id
+    find("#room_room_type_id").find("option[value='#{@room.room_type_id}']").select_option
     chk = find("#room_status")
     chk.click if chk.value != @room.status && chk.checked?
     fill_in "Summary", with: @room.summary
@@ -39,10 +39,10 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Capacity", with: @room.capacity
     fill_in "Half day price afternoon", with: @room.half_day_price_afternoon
     fill_in "Half day price morning", with: @room.half_day_price_morning
-    fill_in "Hotel location", with: @room.hotel_location_id
+    find("#room_hotel_location_id").find("option[value='#{@room.hotel_location_id}']").select_option
     fill_in "Name", with: @room.name + " updated"
     fill_in "Price", with: @room.price
-    fill_in "Room type", with: @room.room_type_id
+    find("#room_room_type_id").find("option[value='#{@room.room_type_id}']").select_option
     chk = find("#room_status")
     chk.click if chk.value != @room.status && chk.checked?
     fill_in "Summary", with: @room.summary

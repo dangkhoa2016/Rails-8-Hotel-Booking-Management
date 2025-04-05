@@ -14,7 +14,7 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "New booking"
 
-    fill_in "Customer", with: @booking.customer_id
+    find("#booking_customer_id").find("option[value='#{@booking.customer_id}']").select_option
     fill_in "Discount note", with: @booking.discount_note
     fill_in "Note", with: @booking.note
     find("#booking_status").find("option[value='#{@booking.status}']").select_option
@@ -30,7 +30,7 @@ class BookingsTest < ApplicationSystemTestCase
     visit booking_url(@booking)
     click_on "Edit", match: :first
 
-    fill_in "Customer", with: @booking.customer_id
+    find("#booking_customer_id").find("option[value='#{@booking.customer_id}']").select_option
     fill_in "Discount note", with: @booking.discount_note
     fill_in "Note", with: @booking.note
     find("#booking_status").find("option[value='#{@booking.status}']").select_option
