@@ -3,21 +3,21 @@
 one:
   room: one
   booking: one
-  check_in_at: 2025-04-05 20:49:18
-  check_out_at: 2025-04-05 20:49:18
+  check_in_at: 2025-04-01 14:00:00
+  check_out_at: 2025-04-05 12:00:00
   status: 1
-  room_price: 1.5
-  note: MyString
-  room_occupant: MyString
+  room_price: 400.0
+  note: Ocean view requested
+  room_occupant: John Doe
   total_price: 1.5
 
 two:
   room: two
   booking: two
-  check_in_at: 2025-04-05 20:49:18
-  check_out_at: 2025-04-05 20:49:18
-  status: 1
-  room_price: 1.5
-  note: MyString
-  room_occupant: MyString
+  check_in_at: 2025-04-10 15:00:00
+  check_out_at: 2025-04-12 11:00:00
+  status: 0
+  room_price: 300.0
+  note: Late check-out requested
+  room_occupant: Jane Smith
   total_price: 10.5

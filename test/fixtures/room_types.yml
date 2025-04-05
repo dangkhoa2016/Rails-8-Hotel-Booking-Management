@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  summary: MyString
-  color: MyString
+  name: Deluxe Room
+  summary: Spacious room with king-size bed
+  color: Blue
   status: 1
 
 two:
-  name: MyString
-  summary: MyString
-  color: MyString
+  name: Standard Room
+  summary: Comfortable room with queen-size bed
+  color: Green
   status: 1

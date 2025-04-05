@@ -1,21 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  summary: MyString
-  start_date: 2025-04-05
-  end_date: 2025-04-05
-  discount_type: 1
-  discount_percent: 1
-  discount_amount: 1.5
+  name: Spring Sale
+  summary: 10% off for all bookings
+  start_date: 2025-03-01
+  end_date: 2025-03-31
+  discount_type: 0
+  discount_percent: 10
+  discount_amount: 0.0
   status: 1
 
 two:
-  name: MyString
-  summary: MyString
-  start_date: 2025-04-05
-  end_date: 2025-04-05
+  name: Summer Special
+  summary: $20 off for bookings over $200
+  start_date: 2025-06-01
+  end_date: 2025-06-30
   discount_type: 1
-  discount_percent: 1
-  discount_amount: 1.5
+  discount_percent: 0
+  discount_amount: 20.0
   status: 1

@@ -14,8 +14,8 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "New user"
 
-    fill_in "Email", with: @user.email
-    fill_in "Encrypted password", with: @user.encrypted_password
+    fill_in "Email", with: @user.email + ".test"
+    fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
     fill_in "Remember created at", with: @user.remember_created_at
     fill_in "Reset password sent at", with: @user.reset_password_sent_at
@@ -32,8 +32,8 @@ class UsersTest < ApplicationSystemTestCase
     visit user_url(@user)
     click_on "Edit this user", match: :first
 
-    fill_in "Email", with: @user.email
-    fill_in "Encrypted password", with: @user.encrypted_password
+    fill_in "Email", with: @user.email + ".test"
+    fill_in "Password", with: "password"
     fill_in "Full name", with: @user.full_name
     fill_in "Remember created at", with: @user.remember_created_at.to_s
     fill_in "Reset password sent at", with: @user.reset_password_sent_at.to_s

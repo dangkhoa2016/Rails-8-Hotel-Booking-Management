@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  summary: MyString
+  name: Free Breakfast
+  summary: Complimentary breakfast for all guests
   status: 1
 
 two:
-  name: MyString
-  summary: MyString
+  name: Pool Access
+  summary: Unlimited access to the swimming pool
   status: 1
