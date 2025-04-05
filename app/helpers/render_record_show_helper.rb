@@ -1,11 +1,14 @@
 module RenderRecordShowHelper
   def render_record_fields(record)
-    columns = is_index_action? ? get_columns(record.class) : get_default_columns(record.class)
+    columns = is_index_action? ? get_index_page_columns(record.class) : get_show_page_and_form_columns(record.class)
+
     columns.map do |column|
-      column_name = column.respond_to?(:name) ? column.name : column
-      content_tag(:p) do
-        translated_column_name = record.class.human_attribute_name(column_name)
-        content_tag(:strong, translated_column_name) + ": " + render_field_value(record, column_name)
+      column_name = column[:name].to_s
+      content_tag(:div, class: column[:css_class]) do
+        content_tag(:p) do
+          translated_column_name = record.class.human_attribute_name(column_name)
+          content_tag(:strong, translated_column_name) + ": " + render_field_value(record, column_name)
+        end
       end
     end.join.html_safe
   end
