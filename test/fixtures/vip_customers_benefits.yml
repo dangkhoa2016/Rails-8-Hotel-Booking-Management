@@ -2,18 +2,18 @@
 
 one:
   customer: one
-  discount_type: 1
-  discount_percent_on_room_price: 1
-  discount_percent_on_additional_services: 1
-  discount_amount_on_room_price: 1.5
-  discount_amount_on_additional_services: 1.5
+  discount_type: 0
+  discount_percent_on_room_price: 10
+  discount_percent_on_additional_services: 5
+  discount_amount_on_room_price: 30.0
+  discount_amount_on_additional_services: 10.0
   status: 1
 
 two:
   customer: two
   discount_type: 1
-  discount_percent_on_room_price: 1
-  discount_percent_on_additional_services: 1
-  discount_amount_on_room_price: 1.5
-  discount_amount_on_additional_services: 1.5
+  discount_percent_on_room_price: 15
+  discount_percent_on_additional_services: 10
+  discount_amount_on_room_price: 50.0
+  discount_amount_on_additional_services: 20.0
   status: 1

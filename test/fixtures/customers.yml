@@ -1,21 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
-  encrypted_password: MyString
-  phone_number: MyString
-  address: MyString
-  note: MyString
+  name: John Doe
+  email: john.doe@example.com
+  encrypted_password: password123
+  phone_number: 1234567890
+  address: 123 Main Street, Cityville
+  note: VIP customer
   status: 1
   customer_type: 1
 
 two:
-  name: MyString
-  email: MyString
-  encrypted_password: MyString
-  phone_number: MyString
-  address: MyString
-  note: MyString
+  name: Jane Smith
+  email: jane.smith@example.com
+  encrypted_password: password456
+  phone_number: 9876543210
+  address: 456 Elm Street, Townsville
+  note: Regular customer
   status: 1
-  customer_type: 1
+  customer_type: 0

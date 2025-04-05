@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyString
-  manager_name: MyString
+  name: City Center Hotel
+  address: 789 Downtown Ave, Metropolis
+  manager_name: Alice Johnson
   status: 1
 
 two:
-  name: MyString
-  address: MyString
-  manager_name: MyString
+  name: Beachside Resort
+  address: 321 Ocean Drive, Seaside
+  manager_name: Bob Brown
   status: 1
