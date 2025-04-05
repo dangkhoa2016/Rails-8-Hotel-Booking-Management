@@ -17,6 +17,39 @@ class Customer < ApplicationRecord
     def display_at_index_page_columns
       %w[name email phone_number address customer_type status]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :name,
+          css_class: "col-md-6"
+        },
+        {
+          name: :customer_type,
+          css_class: "col-md-6"
+        },
+        {
+          name: :email,
+          css_class: "col-md-6"
+        },
+        {
+          name: :phone_number,
+          css_class: "col-md-6"
+        },
+        {
+          name: :address,
+          css_class: "col-12"
+        },
+        {
+          name: :note,
+          css_class: "col-12"
+        },
+        {
+          name: :status,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

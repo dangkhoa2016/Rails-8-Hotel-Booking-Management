@@ -29,6 +29,43 @@ class Reservation < ApplicationRecord
     def display_at_index_page_columns
       %w[room_id booking_id status check_in_at check_out_at room_price room_occupant]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :room_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :booking_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :check_in_at,
+          css_class: "col-md-6"
+        },
+        {
+          name: :check_out_at,
+          css_class: "col-md-6"
+        },
+        {
+          name: :room_price,
+          css_class: "col-md-6"
+        },
+        {
+          name: :status,
+          css_class: "col-md-6"
+        },
+        {
+          name: :note,
+          css_class: "col-12"
+        },
+        {
+          name: :room_occupant,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

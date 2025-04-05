@@ -14,6 +14,35 @@ class Payment < ApplicationRecord
     def display_at_index_page_columns
       %w[booking_id amount payment_date payment_method payment_type]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :booking_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :amount,
+          css_class: "col-md-6"
+        },
+        {
+          name: :payment_date,
+          css_class: "col-md-6 me-2"
+        },
+        {
+          name: :payment_method,
+          css_class: "col-md-6"
+        },
+        {
+          name: :payment_type,
+          css_class: "col-md-6"
+        },
+        {
+          name: :note,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 
