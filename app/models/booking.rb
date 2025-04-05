@@ -36,6 +36,35 @@ class Booking < ApplicationRecord
     def display_at_index_page_columns
       %w[customer_id total_price_before_discount total_price note discount_note status]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :customer_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :status,
+          css_class: "col-md-6"
+        },
+        {
+          name: :total_price_before_discount,
+          css_class: "col-md-6"
+        },
+        {
+          name: :total_price,
+          css_class: "col-md-6"
+        },
+        {
+          name: :note,
+          css_class: "col-12"
+        },
+        {
+          name: :discount_note,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

@@ -19,6 +19,39 @@ class BookingDiscount < ApplicationRecord
     def display_at_index_page_columns
       %w[booking_id discount_type discount_percent discount_amount reason_for_discount]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :booking_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_type,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_percent,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_amount,
+          css_class: "col-md-6"
+        },
+        {
+          name: :reason_for_discount,
+          css_class: "col-12"
+        },
+        {
+          name: :promotion_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :note,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

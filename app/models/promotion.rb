@@ -15,6 +15,43 @@ class Promotion < ApplicationRecord
     def display_at_index_page_columns
       %w[name summary start_date end_date discount_type discount_percent status]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :name,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_type,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_percent,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_amount,
+          css_class: "col-md-6"
+        },
+        {
+          name: :summary,
+          css_class: "col-md-12"
+        },
+        {
+          name: :start_date,
+          css_class: "col-md-6"
+        },
+        {
+          name: :end_date,
+          css_class: "col-md-6"
+        },
+        {
+          name: :status,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

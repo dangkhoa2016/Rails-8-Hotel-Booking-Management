@@ -16,4 +16,33 @@ class Review < ApplicationRecord
       customer: customer&.name
     })
   end
+
+  def display_at_show_page_and_form_columns
+    [
+      {
+        name: :customer_id,
+        css_class: "col-md-6"
+      },
+      {
+        name: :room_id,
+        css_class: "col-md-6"
+      },
+      {
+        name: :room_rating,
+        css_class: "col-md-6"
+      },
+      {
+        name: :service_rating,
+        css_class: "col-md-6"
+      },
+      {
+        name: :comment,
+        css_class: "col-12"
+      },
+      {
+        name: :status,
+        css_class: "col-12"
+      }
+    ]
+  end
 end

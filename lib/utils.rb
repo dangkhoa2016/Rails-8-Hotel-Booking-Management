@@ -3,15 +3,30 @@ module Utils
     model_class.columns.map(&:name) - %w[id created_at updated_at encrypted_password]
   end
 
-  def get_columns(model_class)
+  def get_index_page_columns(model_class)
     columns = []
-    if is_index_action?
-      columns = model_class.display_at_index_page_columns if model_class.respond_to?(:display_at_index_page_columns)
+    if model_class.respond_to?(:display_at_index_page_columns)
+      columns = model_class.display_at_index_page_columns
     end
 
     columns = get_default_columns(model_class) if columns.empty?
+    columns.map { |column| ensure_column_config(column) }
+  end
 
-    columns
+  def get_show_page_and_form_columns(model_class)
+    columns = []
+    if model_class.respond_to?(:display_at_show_page_and_form_columns)
+      columns = model_class.display_at_show_page_and_form_columns
+    end
+
+    columns = get_default_columns(model_class) if columns.empty?
+    columns.map { |column| ensure_column_config(column) }
+  end
+
+  def ensure_column_config(column)
+    column_config = column.is_a?(Hash) ? column : { name: column }
+    column_config[:css_class] ||= "col-12"
+    column_config
   end
 
   def is_enum_column?(record, column)

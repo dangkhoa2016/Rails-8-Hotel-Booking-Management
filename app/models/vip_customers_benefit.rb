@@ -21,6 +21,39 @@ class VipCustomersBenefit < ApplicationRecord
     def display_at_index_page_columns
       %w[customer_id discount_type discount_percent_on_room_price discount_amount_on_room_price status]
     end
+
+    def display_at_show_page_and_form_columns
+      [
+        {
+          name: :customer_id,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_type,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_percent_on_room_price,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_percent_on_additional_services,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_amount_on_room_price,
+          css_class: "col-md-6"
+        },
+        {
+          name: :discount_amount_on_additional_services,
+          css_class: "col-md-6"
+        },
+        {
+          name: :status,
+          css_class: "col-12"
+        }
+      ]
+    end
   end
 
 

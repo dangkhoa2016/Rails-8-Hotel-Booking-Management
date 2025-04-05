@@ -9,28 +9,26 @@
         <strong><%= record.to_s.html_safe %></strong>
       <% end %>
     </div>
-    <div class="card-body">
+    <div class="card-body row">
       <% if action_name == 'show' %>
-        <div class="row mb-3">
-          <div class="col">
+        <div class="col-12">
+          <p>
             <strong><%= record.class.human_attribute_name(:id) %></strong> : 
             <%= render_text_field(record, :id) %>
-          </div>
+          </p>
         </div>
       <% end %>
 
       <%= render_record_fields(record) %>
 
       <% if action_name == 'show' %>
-        <div class="row">
-          <div class="col">
-            <strong><%= record.class.human_attribute_name(:created_at) %></strong> : 
-            <%= render_datetime_field(record, :created_at) %>
-          </div>
-          <div class="col">
-            <strong><%= record.class.human_attribute_name(:updated_at) %></strong> : 
-            <%= render_datetime_field(record, :updated_at) %>
-          </div>
+        <div class="col-md-6">
+          <strong><%= record.class.human_attribute_name(:created_at) %></strong> : 
+          <%= render_datetime_field(record, :created_at) %>
+        </div>
+        <div class="col-md-6 mt-3 mt-md-0">
+          <strong><%= record.class.human_attribute_name(:updated_at) %></strong> : 
+          <%= render_datetime_field(record, :updated_at) %>
         </div>
       <% end %>
     </div>
