@@ -125,6 +125,8 @@ en:
       facility:
         name: "Name"
         summary: "Summary"
+        rooms: "Rooms are equipped with this facility"
+        rooms_and_facilities: "Rooms and facilities"
         
       hotel_location:
         name: "Name"
@@ -184,6 +186,7 @@ en:
         half_day_price_afternoon: "Half day price afternoon"
         summary: "Summary"
         available: "Available"
+        facilities: "Room facilities"
 
       room/available:
         active: "Yes"
