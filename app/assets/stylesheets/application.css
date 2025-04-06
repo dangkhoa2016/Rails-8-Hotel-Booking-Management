@@ -48,3 +48,11 @@
 .record-form strong i, .record-form strong span {
   display: none;
 }
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme=dark] .hover-shadow:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}

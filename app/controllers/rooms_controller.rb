@@ -67,7 +67,9 @@ class RoomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def room_params
       fields = params.expect(room: [ :name, :room_type_id, :hotel_location_id, :capacity, :price,
-        :half_day_price_morning, :half_day_price_afternoon, :summary, :available, :status ])
+        :half_day_price_morning, :half_day_price_afternoon,
+        :summary, :available, :status, facility_ids: []
+       ])
 
       fields[:available] = fields[:available] == "active" ? true : false
       fields

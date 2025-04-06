@@ -60,3 +60,4 @@ vi:
     "true": "Có"
     "false": "Không"
     blank: "Chưa có giá trị"
+    selected_text: "Đã chọn"

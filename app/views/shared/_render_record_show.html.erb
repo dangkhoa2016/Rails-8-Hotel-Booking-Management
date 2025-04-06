@@ -20,6 +20,7 @@
       <% end %>
 
       <%= render_record_fields(record) %>
+      <%= yield if block_given? %>
 
       <% if action_name == 'show' %>
         <div class="col-md-6">
