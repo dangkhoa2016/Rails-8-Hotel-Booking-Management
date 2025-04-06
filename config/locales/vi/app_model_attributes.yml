@@ -126,6 +126,8 @@ vi:
       facility:
         name: "Tên"
         summary: "Tóm tắt"
+        rooms: "Các phòng đang dùng tiện ích này"
+        rooms_and_facilities: "Các phòng và tiện ích"
 
       hotel_location:
         name: "Tên"
@@ -185,6 +187,7 @@ vi:
         half_day_price_afternoon: "Giá nửa ngày buổi chiều"
         summary: "Tóm tắt"
         available: "Đang trống"
+        facilities: "Các tiện ích phòng"
 
       room/available:
         active: "Đúng"
