@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div class="card-body row">
-      <% if action_name == 'show' %>
+      <% if is_show_action? %>
         <div class="col-12">
           <p>
             <strong><%= record.class.human_attribute_name(:id) %></strong> : 
@@ -20,8 +20,9 @@
       <% end %>
 
       <%= render_record_fields(record) %>
+      <%= yield if block_given? %>
 
-      <% if action_name == 'show' %>
+      <% if is_show_action? %>
         <div class="col-md-6">
           <strong><%= record.class.human_attribute_name(:created_at) %></strong> : 
           <%= render_datetime_field(record, :created_at) %>
