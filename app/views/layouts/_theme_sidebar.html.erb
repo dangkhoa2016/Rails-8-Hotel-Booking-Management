@@ -1,0 +1,18 @@
+<div class='dropdown' data-controller="theme">
+  <a href="#" class="px-3 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+  data-bs-toggle="dropdown" aria-expanded="false">
+    <i class='bi bi-highlights' data-theme-target="button_icon"></i>
+  </a>
+
+  <ul class="dropdown-theme dropdown-menu dropdown-menu-dark text-small shadow">
+    <% theme_list.each do |theme| %>
+      <li>
+        <%= link_to '#', class: "dropdown-item text-light",
+          data: { action: "theme#changeTheme", theme: theme[:name], theme_target: 'link' } do %>
+          <i class="bi me-2 bi-<%= theme[:icon] %>"></i>
+          <%= I18n.t("theme.#{theme[:name].to_s}") %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
