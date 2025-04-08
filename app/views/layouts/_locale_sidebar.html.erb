@@ -1,0 +1,17 @@
+<div class='dropdown'>
+  <a href="#" class="px-3 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+  data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag "/locales/#{I18n.locale}.png", class: "me-2" %>
+    <strong><%= I18n.locale.upcase %></strong>
+  </a>
+
+  <ul class="dropdown-locale dropdown-menu dropdown-menu-dark text-small shadow">
+    <% I18n.available_locales.each do |locale| %>
+      <li>
+        <%= link_to url_for(locale: locale), class: "dropdown-item #{I18n.locale == locale ? 'text-bg-light' : 'text-light'}" do %>
+          <%= image_tag "/locales/#{locale}.png", class: 'me-2' %><%= locale.to_s.upcase %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
