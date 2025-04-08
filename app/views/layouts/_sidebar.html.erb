@@ -27,22 +27,9 @@
       <% end %>
     </ul>
 
-    <div class="dropdown mt-auto mb-2">
-      <a href="#" class="px-3 d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-      data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag "/locales/#{I18n.locale}.png", class: "me-2" %>
-        <strong><%= I18n.locale.upcase %></strong>
-      </a>
-
-      <ul class="dropdown-locale dropdown-menu dropdown-menu-dark text-small shadow">
-        <% I18n.available_locales.each do |locale| %>
-          <li>
-            <%= link_to url_for(locale: locale), class: "dropdown-item #{I18n.locale == locale ? 'text-bg-light' : 'text-light'}" do %>
-              <%= image_tag "/locales/#{locale}.png", class: 'me-2' %><%= locale.to_s.upcase %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="mt-auto mb-2 d-flex justify-content-between align-items-center">
+      <%= render partial: 'layouts/locale_sidebar' %>
+      <%= render partial: 'layouts/theme_sidebar' %>
     </div>
 
     <%= render partial: 'layouts/signed_in' if signed_in? %>

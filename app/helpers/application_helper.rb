@@ -82,6 +82,23 @@ module ApplicationHelper
     ]
   end
 
+  def theme_list
+    [
+      {
+        name: :dark,
+        icon: "moon",
+      },
+      {
+        name: :light,
+        icon: "sun",
+      },
+      {
+        name: :auto,
+        icon: "highlights",
+      }
+    ]
+  end
+
   def is_current_page?(model)
     controller_name == model.to_s.pluralize && action_name != "index"
   end
