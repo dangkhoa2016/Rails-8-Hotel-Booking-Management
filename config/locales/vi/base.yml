@@ -60,3 +60,8 @@ vi:
     "true": "Có"
     "false": "Không"
     blank: "Chưa có giá trị"
+
+  theme:
+    dark: "Tối"
+    light: "Sáng"
+    auto: "Tự động"
