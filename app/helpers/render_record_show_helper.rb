@@ -1,4 +1,9 @@
 module RenderRecordShowHelper
+  def custom_html_data_attributes(record)
+    custom_render_from_helper = "#{record.class.model_name.element}_html_data_attributes"
+    send(custom_render_from_helper, record) if respond_to?(custom_render_from_helper)
+  end
+
   def render_record_fields(record)
     columns = is_index_action? ? get_index_page_columns(record.class) : get_show_page_and_form_columns(record.class)
 

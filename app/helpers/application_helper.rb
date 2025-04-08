@@ -86,15 +86,15 @@ module ApplicationHelper
     [
       {
         name: :dark,
-        icon: "moon",
+        icon: "moon"
       },
       {
         name: :light,
-        icon: "sun",
+        icon: "sun"
       },
       {
         name: :auto,
-        icon: "highlights",
+        icon: "highlights"
       }
     ]
   end
