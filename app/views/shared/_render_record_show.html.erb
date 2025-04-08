@@ -1,4 +1,4 @@
-<div id="<%= dom_id record %>" class="col">
+<%= tag.div id: dom_id(record), class: "col", data: custom_html_data_attributes(record) do %>
   <div class="card mb-3">
     <div class="card-header">
       <% if is_index_action? %>
@@ -35,4 +35,4 @@
 
     <%= render partial: "shared/footer_actions", locals: { record: record } %>
   </div>
-</div>
+<% end %>
