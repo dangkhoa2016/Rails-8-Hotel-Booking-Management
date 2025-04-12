@@ -3,6 +3,8 @@ require "test_helper"
 class ReservationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @reservation = reservations(:one)
+    @room2 = rooms(:two)
+    @room2.update_column(:available, true)
     sign_in users(:one)
   end
 
@@ -18,7 +20,14 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reservation" do
     assert_difference("Reservation.count") do
-      post reservations_url, params: { reservation: { booking_id: @reservation.booking_id, check_in_at: @reservation.check_in_at, check_out_at: @reservation.check_out_at, note: @reservation.note, room_id: @reservation.room_id, room_occupant: @reservation.room_occupant, room_price: @reservation.room_price, status: @reservation.status, total_price: @reservation.total_price } }
+      post reservations_url, params: { reservation: {
+          booking_id: @reservation.booking_id, check_in_at: @reservation.check_in_at,
+          check_out_at: @reservation.check_out_at, note: @reservation.note,
+          room_id: @room2.id, room_occupant: @reservation.room_occupant,
+          status: @reservation.status, room_price: @reservation.room_price,
+          total_price: @reservation.total_price
+        }
+      }
     end
 
     assert_redirected_to reservation_url(Reservation.last)
@@ -35,7 +44,14 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reservation" do
-    patch reservation_url(@reservation), params: { reservation: { booking_id: @reservation.booking_id, check_in_at: @reservation.check_in_at, check_out_at: @reservation.check_out_at, note: @reservation.note, room_id: @reservation.room_id, room_occupant: @reservation.room_occupant, room_price: @reservation.room_price, status: @reservation.status, total_price: @reservation.total_price } }
+    patch reservation_url(@reservation), params: { reservation: {
+      booking_id: @reservation.booking_id, check_in_at: @reservation.check_in_at,
+      check_out_at: @reservation.check_out_at, note: @reservation.note,
+      room_id: @room2.id, room_occupant: @reservation.room_occupant,
+      status: @reservation.status, room_price: @reservation.room_price,
+      total_price: @reservation.total_price
+    }
+  }
     assert_redirected_to reservation_url(@reservation)
   end
 

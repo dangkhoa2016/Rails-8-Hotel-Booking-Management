@@ -16,11 +16,11 @@ class PromotionsTest < ApplicationSystemTestCase
 
     fill_in "Discount amount", with: @promotion.discount_amount
     fill_in "Discount percent", with: @promotion.discount_percent
-    fill_in "Discount type", with: @promotion.discount_type
+    find("#promotion_discount_type").find("option[value='#{@promotion.discount_type}']").select_option
     fill_in "End date", with: @promotion.end_date
-    fill_in "Name", with: @promotion.name
+    fill_in "Name", with: @promotion.name + " new"
     fill_in "Start date", with: @promotion.start_date
-    fill_in "Status", with: @promotion.status
+    find("#promotion_status").find("option[value='#{@promotion.status}']").select_option
     fill_in "Summary", with: @promotion.summary
     click_on "Create Promotion"
 
@@ -34,11 +34,11 @@ class PromotionsTest < ApplicationSystemTestCase
 
     fill_in "Discount amount", with: @promotion.discount_amount
     fill_in "Discount percent", with: @promotion.discount_percent
-    fill_in "Discount type", with: @promotion.discount_type
+    find("#promotion_discount_type").find("option[value='#{@promotion.discount_type}']").select_option
     fill_in "End date", with: @promotion.end_date
-    fill_in "Name", with: @promotion.name
+    fill_in "Name", with: @promotion.name + " updated"
     fill_in "Start date", with: @promotion.start_date
-    fill_in "Status", with: @promotion.status
+    find("#promotion_status").find("option[value='#{@promotion.status}']").select_option
     fill_in "Summary", with: @promotion.summary
     click_on "Update Promotion"
 

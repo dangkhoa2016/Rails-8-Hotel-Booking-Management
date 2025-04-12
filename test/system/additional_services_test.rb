@@ -7,7 +7,7 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit additional_services_url
-    assert_selector "h1", text: "Additional services"
+    assert_selector "h1", text: "Additional Services"
   end
 
   test "should create additional service" do
@@ -16,10 +16,10 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @additional_service.name
     fill_in "Price", with: @additional_service.price
-    fill_in "Status", with: @additional_service.status
+    select @additional_service.status, from: "Status"
     fill_in "Summary", with: @additional_service.summary
     fill_in "Unit", with: @additional_service.unit
-    click_on "Create Additional service"
+    click_on "Create Additional Service"
 
     assert_text "Additional service was successfully created"
     click_on "Back"
@@ -31,10 +31,10 @@ class AdditionalServicesTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @additional_service.name
     fill_in "Price", with: @additional_service.price
-    fill_in "Status", with: @additional_service.status
+    select @additional_service.status, from: "Status"
     fill_in "Summary", with: @additional_service.summary
     fill_in "Unit", with: @additional_service.unit
-    click_on "Update Additional service"
+    click_on "Update Additional Service"
 
     assert_text "Additional service was successfully updated"
     click_on "Back"

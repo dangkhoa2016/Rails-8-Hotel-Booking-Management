@@ -27,6 +27,11 @@ class Booking < ApplicationRecord
   }
 
 
+  validates :customer_id, presence: true
+  validates :total_price_before_discount, presence: true, numericality: { greater_than: 0 }
+  validates :status, presence: true
+
+
   def to_s
     "Booking ##{id} - Customer: #{customer&.name}"
   end

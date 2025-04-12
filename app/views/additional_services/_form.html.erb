@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, AdditionalService.statuses.map { |name, value| [AdditionalService.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
