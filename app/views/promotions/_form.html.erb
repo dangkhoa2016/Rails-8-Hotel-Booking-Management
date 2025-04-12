@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label :discount_type, style: "display: block" %>
-    <%= form.number_field :discount_type %>
+    <%= form.select :discount_type, Promotion.discount_types.map { |name, value| [Promotion.human_attribute_name("discount_type.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
@@ -48,7 +48,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, Promotion.statuses.map { |name, value| [Promotion.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

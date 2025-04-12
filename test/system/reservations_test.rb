@@ -3,6 +3,7 @@ require "application_system_test_case"
 class ReservationsTest < ApplicationSystemTestCase
   setup do
     @reservation = reservations(:one)
+    @room2 = rooms(:two)
   end
 
   test "visiting the index" do
@@ -18,10 +19,10 @@ class ReservationsTest < ApplicationSystemTestCase
     fill_in "Check in at", with: @reservation.check_in_at
     fill_in "Check out at", with: @reservation.check_out_at
     fill_in "Note", with: @reservation.note
-    fill_in "Room", with: @reservation.room_id
+    fill_in "Room", with: @room2.id
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
-    fill_in "Status", with: @reservation.status
+    find("#reservation_status").find("option[value='#{@reservation.status}']").select_option
     click_on "Create Reservation"
 
     assert_text "Reservation was successfully created"
@@ -33,13 +34,13 @@ class ReservationsTest < ApplicationSystemTestCase
     click_on "Edit this reservation", match: :first
 
     fill_in "Booking", with: @reservation.booking_id
-    fill_in "Check in at", with: @reservation.check_in_at.to_s
-    fill_in "Check out at", with: @reservation.check_out_at.to_s
+    fill_in "Check in at", with: @reservation.check_in_at
+    fill_in "Check out at", with: @reservation.check_out_at
     fill_in "Note", with: @reservation.note
-    fill_in "Room", with: @reservation.room_id
+    fill_in "Room", with: @room2.id
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
-    fill_in "Status", with: @reservation.status
+    find("#reservation_status").find("option[value='#{@reservation.status}']").select_option
     click_on "Update Reservation"
 
     assert_text "Reservation was successfully updated"

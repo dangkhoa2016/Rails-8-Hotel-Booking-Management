@@ -7,7 +7,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit vip_customers_benefits_url
-    assert_selector "h1", text: "Vip customers benefits"
+    assert_selector "h1", text: "Vip Customers Benefits"
   end
 
   test "should create vip customers benefit" do
@@ -21,7 +21,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
     fill_in "Discount percent on room price", with: @vip_customers_benefit.discount_percent_on_room_price
     fill_in "Discount type", with: @vip_customers_benefit.discount_type
     fill_in "Status", with: @vip_customers_benefit.status
-    click_on "Create Vip customers benefit"
+    click_on "Create Vip Customers Benefit"
 
     assert_text "Vip customers benefit was successfully created"
     click_on "Back"
@@ -38,7 +38,7 @@ class VipCustomersBenefitsTest < ApplicationSystemTestCase
     fill_in "Discount percent on room price", with: @vip_customers_benefit.discount_percent_on_room_price
     fill_in "Discount type", with: @vip_customers_benefit.discount_type
     fill_in "Status", with: @vip_customers_benefit.status
-    click_on "Update Vip customers benefit"
+    click_on "Update Vip Customers Benefit"
 
     assert_text "Vip customers benefit was successfully updated"
     click_on "Back"

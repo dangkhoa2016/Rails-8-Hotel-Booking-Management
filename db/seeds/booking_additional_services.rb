@@ -13,6 +13,7 @@ Booking.all.each do |booking|
         reservation_id: reservation.id,
         additional_service_id: additional_service.id,
         quantity: quantity,
+        unit: additional_service.unit,
         total_price: additional_service.price * quantity,
         created_at: booking.created_at,
         updated_at: booking.updated_at,

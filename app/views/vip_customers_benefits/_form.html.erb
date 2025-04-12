@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :discount_type, style: "display: block" %>
-    <%= form.number_field :discount_type %>
+    <%= form.select :discount_type, VipCustomersBenefit.discount_types.map { |name, value| [VipCustomersBenefit.human_attribute_name("discount_type.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>
@@ -43,7 +43,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, VipCustomersBenefit.statuses.map { |name, value| [VipCustomersBenefit.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

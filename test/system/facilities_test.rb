@@ -14,8 +14,8 @@ class FacilitiesTest < ApplicationSystemTestCase
     visit facilities_url
     click_on "New facility"
 
-    fill_in "Name", with: @facility.name
-    fill_in "Status", with: @facility.status
+    fill_in "Name", with: @facility.name + " new"
+    find("#facility_status").find("option[value='#{@facility.status}']").select_option
     fill_in "Summary", with: @facility.summary
     click_on "Create Facility"
 
@@ -27,8 +27,8 @@ class FacilitiesTest < ApplicationSystemTestCase
     visit facility_url(@facility)
     click_on "Edit this facility", match: :first
 
-    fill_in "Name", with: @facility.name
-    fill_in "Status", with: @facility.status
+    fill_in "Name", with: @facility.name + " updated"
+    find("#facility_status").find("option[value='#{@facility.status}']").select_option
     fill_in "Summary", with: @facility.summary
     click_on "Update Facility"
 

@@ -7,7 +7,7 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit special_requests_url
-    assert_selector "h1", text: "Special requests"
+    assert_selector "h1", text: "Special Requests"
   end
 
   test "should create special request" do
@@ -16,9 +16,9 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
     fill_in "Booking", with: @special_request.booking_id
     fill_in "Price", with: @special_request.price
-    fill_in "Request", with: @special_request.request
-    fill_in "Reservation", with: @special_request.reservation_id
-    click_on "Create Special request"
+    fill_in "Request", with: @special_request.request + " new"
+    fill_in "Room reservation", with: @special_request.reservation_id
+    click_on "Create Special Request"
 
     assert_text "Special request was successfully created"
     click_on "Back"
@@ -30,9 +30,9 @@ class SpecialRequestsTest < ApplicationSystemTestCase
 
     fill_in "Booking", with: @special_request.booking_id
     fill_in "Price", with: @special_request.price
-    fill_in "Request", with: @special_request.request
-    fill_in "Reservation", with: @special_request.reservation_id
-    click_on "Update Special request"
+    fill_in "Request", with: @special_request.request + " updated"
+    fill_in "Room reservation", with: @special_request.reservation_id
+    click_on "Update Special Request"
 
     assert_text "Special request was successfully updated"
     click_on "Back"

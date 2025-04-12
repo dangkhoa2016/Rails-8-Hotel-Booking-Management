@@ -21,5 +21,17 @@ two:
   half_day_price_morning: 75.0
   half_day_price_afternoon: 80.0
   summary: Garden view room
+  available: true
+  status: 1
+
+three:
+  name: Room 303
+  room_type: two
+  hotel_location: one
+  capacity: 4
+  price: 150.0
+  half_day_price_morning: 75.0
+  half_day_price_afternoon: 80.0
+  summary: Garden view room
   available: false
   status: 1

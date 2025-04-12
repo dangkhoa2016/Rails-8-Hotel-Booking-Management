@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, RoomType.statuses.map { |name, value| [RoomType.human_attribute_name("status.#{name}"), name] }, include_blank: true %>
   </div>
 
   <div>

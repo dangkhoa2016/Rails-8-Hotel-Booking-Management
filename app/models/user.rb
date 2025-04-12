@@ -9,6 +9,10 @@ class User < ApplicationRecord
   enum :status, { inactive: 0, active: 1 }
 
 
+  validates :full_name, :email, :role, :status, presence: true
+  # validates :email, uniqueness: true
+
+
   def to_s
     full_name
   end

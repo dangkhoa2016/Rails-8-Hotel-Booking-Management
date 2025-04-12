@@ -19,7 +19,7 @@ class ReviewsTest < ApplicationSystemTestCase
     fill_in "Room", with: @review.room_id
     fill_in "Room rating", with: @review.room_rating
     fill_in "Service rating", with: @review.service_rating
-    fill_in "Status", with: @review.status
+    find("#review_status").find("option[value='#{@review.status}']").select_option
     click_on "Create Review"
 
     assert_text "Review was successfully created"
@@ -35,7 +35,7 @@ class ReviewsTest < ApplicationSystemTestCase
     fill_in "Room", with: @review.room_id
     fill_in "Room rating", with: @review.room_rating
     fill_in "Service rating", with: @review.service_rating
-    fill_in "Status", with: @review.status
+    find("#review_status").find("option[value='#{@review.status}']").select_option
     click_on "Update Review"
 
     assert_text "Review was successfully updated"
