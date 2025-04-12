@@ -7,7 +7,7 @@ class RoomTypesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit room_types_url
-    assert_selector "h1", text: "Room types"
+    assert_selector "h1", text: "Room Types"
   end
 
   test "should create room type" do
@@ -15,10 +15,10 @@ class RoomTypesTest < ApplicationSystemTestCase
     click_on "New room type"
 
     fill_in "Color", with: @room_type.color
-    fill_in "Name", with: @room_type.name
-    fill_in "Status", with: @room_type.status
+    fill_in "Name", with: @room_type.name + " new"
+    find("#room_type_status").find("option[value='#{@room_type.status}']").select_option
     fill_in "Summary", with: @room_type.summary
-    click_on "Create Room type"
+    click_on "Create Room Type"
 
     assert_text "Room type was successfully created"
     click_on "Back"
@@ -29,10 +29,10 @@ class RoomTypesTest < ApplicationSystemTestCase
     click_on "Edit this room type", match: :first
 
     fill_in "Color", with: @room_type.color
-    fill_in "Name", with: @room_type.name
-    fill_in "Status", with: @room_type.status
+    fill_in "Name", with: @room_type.name + " updated"
+    find("#room_type_status").find("option[value='#{@room_type.status}']").select_option
     fill_in "Summary", with: @room_type.summary
-    click_on "Update Room type"
+    click_on "Update Room Type"
 
     assert_text "Room type was successfully updated"
     click_on "Back"

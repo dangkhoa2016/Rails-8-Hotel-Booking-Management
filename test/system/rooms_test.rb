@@ -19,10 +19,10 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Half day price afternoon", with: @room.half_day_price_afternoon
     fill_in "Half day price morning", with: @room.half_day_price_morning
     fill_in "Hotel location", with: @room.hotel_location_id
-    fill_in "Name", with: @room.name
+    fill_in "Name", with: @room.name + " new"
     fill_in "Price", with: @room.price
     fill_in "Room type", with: @room.room_type_id
-    fill_in "Status", with: @room.status
+    find("#room_status").find("option[value='#{@room.status}']").select_option
     fill_in "Summary", with: @room.summary
     click_on "Create Room"
 
@@ -39,10 +39,10 @@ class RoomsTest < ApplicationSystemTestCase
     fill_in "Half day price afternoon", with: @room.half_day_price_afternoon
     fill_in "Half day price morning", with: @room.half_day_price_morning
     fill_in "Hotel location", with: @room.hotel_location_id
-    fill_in "Name", with: @room.name
+    fill_in "Name", with: @room.name + " updated"
     fill_in "Price", with: @room.price
     fill_in "Room type", with: @room.room_type_id
-    fill_in "Status", with: @room.status
+    find("#room_status").find("option[value='#{@room.status}']").select_option
     fill_in "Summary", with: @room.summary
     click_on "Update Room"
 

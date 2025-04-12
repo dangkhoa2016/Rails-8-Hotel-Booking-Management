@@ -64,6 +64,6 @@ Booking.all.each do |booking|
       note: discount[:note],
       created_at: created_at,
       updated_at: created_at.since(rand(100..10000).minutes),
-    ).save!
+    ).save! rescue nil
   end
 end

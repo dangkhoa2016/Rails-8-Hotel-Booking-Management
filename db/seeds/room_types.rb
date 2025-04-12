@@ -25,7 +25,6 @@ room_types = [
   { name: 'Boat', summary: 'Houseboat or yacht for a nautical adventure', color: '#4682B4' },  # Steel Blue
   { name: 'Train Carriage', summary: 'Converted train carriage for a unique stay', color: '#B22222' },  # Firebrick
   { name: 'Cottage', summary: 'Quaint cottage in the countryside', color: '#FFF5EE' },  # Sea Shell
-  { name: 'Apartment', summary: 'Self-contained apartment for longer stays', color: '#808080' },  # Gray
   { name: 'Hostel', summary: 'Budget-friendly accommodation with shared facilities', color: '#7FFF00' },  # Chartreuse
   { name: 'Capsule Hotel', summary: 'Compact sleeping pods for solo travelers', color: '#C0C0C0' },  # Silver
   { name: 'Glamping Tent', summary: 'Luxury tent with hotel-style amenities', color: '#A52A2A' }  # Brown

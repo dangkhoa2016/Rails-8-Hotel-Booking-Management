@@ -3,6 +3,8 @@ require "test_helper"
 class VipCustomerBenefitsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @vip_customer_benefit = vip_customer_benefits(:one)
+    @customers = customers(:two)
+    @customers.update_column(:customer_type, :vip)
     sign_in users(:one)
   end
 
@@ -18,7 +20,16 @@ class VipCustomerBenefitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create vip_customer_benefit" do
     assert_difference("VipCustomerBenefit.count") do
-      post vip_customer_benefits_url, params: { vip_customer_benefit: { customer_id: @vip_customer_benefit.customer_id, discount_amount_on_additional_services: @vip_customer_benefit.discount_amount_on_additional_services, discount_amount_on_room_price: @vip_customer_benefit.discount_amount_on_room_price, discount_percent_on_additional_services: @vip_customer_benefit.discount_percent_on_additional_services, discount_percent_on_room_price: @vip_customer_benefit.discount_percent_on_room_price, discount_type: @vip_customer_benefit.discount_type, status: @vip_customer_benefit.status } }
+      post vip_customer_benefits_url, params: {
+        vip_customer_benefit: {
+          customer_id:  @customers.id,
+          discount_amount_on_additional_services: @vip_customer_benefit.discount_amount_on_additional_services,
+          discount_amount_on_room_price: @vip_customer_benefit.discount_amount_on_room_price,
+          discount_percent_on_additional_services: @vip_customer_benefit.discount_percent_on_additional_services,
+          discount_percent_on_room_price: @vip_customer_benefit.discount_percent_on_room_price,
+          discount_type: @vip_customer_benefit.discount_type, status: @vip_customer_benefit.status
+        }
+      }
     end
 
     assert_redirected_to vip_customer_benefit_url(VipCustomerBenefit.last)
@@ -35,7 +46,16 @@ class VipCustomerBenefitsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update vip_customer_benefit" do
-    patch vip_customer_benefit_url(@vip_customer_benefit), params: { vip_customer_benefit: { customer_id: @vip_customer_benefit.customer_id, discount_amount_on_additional_services: @vip_customer_benefit.discount_amount_on_additional_services, discount_amount_on_room_price: @vip_customer_benefit.discount_amount_on_room_price, discount_percent_on_additional_services: @vip_customer_benefit.discount_percent_on_additional_services, discount_percent_on_room_price: @vip_customer_benefit.discount_percent_on_room_price, discount_type: @vip_customer_benefit.discount_type, status: @vip_customer_benefit.status } }
+    patch vip_customer_benefit_url(@vip_customer_benefit), params: {
+      vip_customer_benefit: {
+        customer_id:  @customers.id,
+        discount_amount_on_additional_services: @vip_customer_benefit.discount_amount_on_additional_services,
+        discount_amount_on_room_price: @vip_customer_benefit.discount_amount_on_room_price,
+        discount_percent_on_additional_services: @vip_customer_benefit.discount_percent_on_additional_services,
+        discount_percent_on_room_price: @vip_customer_benefit.discount_percent_on_room_price,
+        discount_type: @vip_customer_benefit.discount_type, status: @vip_customer_benefit.status
+      }
+    }
     assert_redirected_to vip_customer_benefit_url(@vip_customer_benefit)
   end
 

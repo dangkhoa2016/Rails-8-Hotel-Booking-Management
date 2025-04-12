@@ -18,7 +18,13 @@ class SpecialRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create special_request" do
     assert_difference("SpecialRequest.count") do
-      post special_requests_url, params: { special_request: { price: @special_request.price, request: @special_request.request, reservation_id: @special_request.reservation_id } }
+      post special_requests_url, params: {
+        special_request: {
+          price: @special_request.price,
+          request: @special_request.request + " test",
+          reservation_id: @special_request.reservation_id
+        }
+      }
     end
 
     assert_redirected_to special_request_url(SpecialRequest.last)
@@ -35,7 +41,13 @@ class SpecialRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update special_request" do
-    patch special_request_url(@special_request), params: { special_request: { price: @special_request.price, request: @special_request.request, reservation_id: @special_request.reservation_id } }
+    patch special_request_url(@special_request), params: {
+      special_request: {
+        price: @special_request.price,
+        request: @special_request.request + " test",
+        reservation_id: @special_request.reservation_id
+      }
+    }
     assert_redirected_to special_request_url(@special_request)
   end
 

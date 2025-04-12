@@ -18,7 +18,15 @@ class RoomsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create room" do
     assert_difference("Room.count") do
-      post rooms_url, params: { room: { available: @room.available, capacity: @room.capacity, half_day_price_afternoon: @room.half_day_price_afternoon, half_day_price_morning: @room.half_day_price_morning, hotel_location_id: @room.hotel_location_id, name: @room.name, price: @room.price, room_type_id: @room.room_type_id, status: @room.status, summary: @room.summary } }
+      post rooms_url, params: { room: {
+          available: @room.available,
+          capacity: @room.capacity, half_day_price_afternoon: @room.half_day_price_afternoon,
+          half_day_price_morning: @room.half_day_price_morning,
+          hotel_location_id: @room.hotel_location_id, name: @room.name + " test",
+          price: @room.price, room_type_id: @room.room_type_id,
+          status: @room.status, summary: @room.summary
+        }
+      }
     end
 
     assert_redirected_to room_url(Room.last)
@@ -35,7 +43,15 @@ class RoomsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update room" do
-    patch room_url(@room), params: { room: { available: @room.available, capacity: @room.capacity, half_day_price_afternoon: @room.half_day_price_afternoon, half_day_price_morning: @room.half_day_price_morning, hotel_location_id: @room.hotel_location_id, name: @room.name, price: @room.price, room_type_id: @room.room_type_id, status: @room.status, summary: @room.summary } }
+    patch room_url(@room), params: { room: {
+        available: @room.available,
+        capacity: @room.capacity, half_day_price_afternoon: @room.half_day_price_afternoon,
+        half_day_price_morning: @room.half_day_price_morning,
+        hotel_location_id: @room.hotel_location_id, name: @room.name + " test",
+        price: @room.price, room_type_id: @room.room_type_id,
+        status: @room.status, summary: @room.summary
+      }
+    }
     assert_redirected_to room_url(@room)
   end
 

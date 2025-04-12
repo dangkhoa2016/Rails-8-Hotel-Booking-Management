@@ -18,8 +18,8 @@ class PaymentsTest < ApplicationSystemTestCase
     fill_in "Booking", with: @payment.booking_id
     fill_in "Note", with: @payment.note
     fill_in "Payment date", with: @payment.payment_date
-    fill_in "Payment method", with: @payment.payment_method
-    fill_in "Payment type", with: @payment.payment_type
+    find("#payment_payment_method").find("option[value='#{@payment.payment_method}']").select_option
+    find("#payment_payment_type").find("option[value='#{@payment.payment_type}']").select_option
     click_on "Create Payment"
 
     assert_text "Payment was successfully created"
@@ -33,9 +33,9 @@ class PaymentsTest < ApplicationSystemTestCase
     fill_in "Amount", with: @payment.amount
     fill_in "Booking", with: @payment.booking_id
     fill_in "Note", with: @payment.note
-    fill_in "Payment date", with: @payment.payment_date.to_s
-    fill_in "Payment method", with: @payment.payment_method
-    fill_in "Payment type", with: @payment.payment_type
+    fill_in "Payment date", with: @payment.payment_date
+    find("#payment_payment_method").find("option[value='#{@payment.payment_method}']").select_option
+    find("#payment_payment_type").find("option[value='#{@payment.payment_type}']").select_option
     click_on "Update Payment"
 
     assert_text "Payment was successfully updated"

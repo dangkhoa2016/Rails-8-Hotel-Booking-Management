@@ -4,14 +4,14 @@ one:
   booking: one
   amount: 200.0
   payment_date: 2025-03-29 10:00:00
-  payment_method: Credit Card
-  payment_type: Full Payment
-  note: Paid in advance
+  payment_method: :credit_card
+  payment_type: :one_time_payment
+  note: Paid in full
 
 two:
   booking: two
   amount: 150.0
   payment_date: 2025-03-30 15:00:00
-  payment_method: Cash
-  payment_type: Partial Payment
-  note: Paid at check-in
+  payment_method: :cash
+  payment_type: :installment_payment
+  note: Partial payment made

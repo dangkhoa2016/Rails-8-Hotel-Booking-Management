@@ -17,7 +17,7 @@ class BookingsTest < ApplicationSystemTestCase
     fill_in "Customer", with: @booking.customer_id
     fill_in "Discount note", with: @booking.discount_note
     fill_in "Note", with: @booking.note
-    fill_in "Status", with: @booking.status
+    find("#booking_status").find("option[value='#{@booking.status}']").select_option
     fill_in "Total price", with: @booking.total_price
     fill_in "Total price before discount", with: @booking.total_price_before_discount
     click_on "Create Booking"
@@ -33,7 +33,7 @@ class BookingsTest < ApplicationSystemTestCase
     fill_in "Customer", with: @booking.customer_id
     fill_in "Discount note", with: @booking.discount_note
     fill_in "Note", with: @booking.note
-    fill_in "Status", with: @booking.status
+    find("#booking_status").find("option[value='#{@booking.status}']").select_option
     fill_in "Total price", with: @booking.total_price
     fill_in "Total price before discount", with: @booking.total_price_before_discount
     click_on "Update Booking"

@@ -15,12 +15,12 @@ class CustomersTest < ApplicationSystemTestCase
     click_on "New customer"
 
     fill_in "Address", with: @customer.address
-    fill_in "Customer type", with: @customer.customer_type
+    find("#customer_customer_type").find("option[value='#{@customer.customer_type}']").select_option
     fill_in "Email", with: @customer.email + ".test"
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note
     fill_in "Phone number", with: @customer.phone_number
-    fill_in "Status", with: @customer.status
+    find("#customer_status").find("option[value='#{@customer.status}']").select_option
     click_on "Create Customer"
 
     assert_text "Customer was successfully created"
@@ -32,12 +32,12 @@ class CustomersTest < ApplicationSystemTestCase
     click_on "Edit this customer", match: :first
 
     fill_in "Address", with: @customer.address
-    fill_in "Customer type", with: @customer.customer_type
+    find("#customer_customer_type").find("option[value='#{@customer.customer_type}']").select_option
     fill_in "Email", with: @customer.email + ".test"
     fill_in "Name", with: @customer.name
     fill_in "Note", with: @customer.note
     fill_in "Phone number", with: @customer.phone_number
-    fill_in "Status", with: @customer.status
+    find("#customer_status").find("option[value='#{@customer.status}']").select_option
     click_on "Update Customer"
 
     assert_text "Customer was successfully updated"
