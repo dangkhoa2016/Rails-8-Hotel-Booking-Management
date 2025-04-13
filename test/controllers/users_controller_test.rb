@@ -25,7 +25,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to user_url(User.reorder(id: :desc).first)
   end
 
   test "should show user" do

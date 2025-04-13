@@ -1,0 +1,16 @@
+
+<%= render 'shared/filter_form' %>
+
+<% if @pagy.count.zero? %>
+  <div class="alert alert-info">
+    <%= translate('base.no_records_found') %>
+  </div>
+<% else %>
+  <div id="<%= controller_name %>" class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+    <% @records.each do |record| %>
+      <%= render record %>
+    <% end %>
+  </div>
+  
+  <%= render 'shared/index_footer' %>
+<% end %>

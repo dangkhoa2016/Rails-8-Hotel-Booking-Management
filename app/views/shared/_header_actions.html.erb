@@ -27,7 +27,12 @@
   <% if model_record %>
     <h2 class='mb-0'><%= translate("buttons.#{action_name}") %> <%= translated_model_name(model_record) %></h2>
   <% else %>
-    <h2 class='mb-0'><%= page_title %></h2>
+    <div>
+      <h2 class='mb-1'><%= page_title %></h2>
+      <p class='text-muted'>
+        <%= translate("base.#{has_filters? ? 'total_filtered_record_text' : 'total_record_text'}") %>: <span class='badge bg-secondary'><%= @pagy.count %></span>
+      </p>
+    </div>
   <% end %>
 
   <div class='btn-group btn-group-sm ms-auto'>

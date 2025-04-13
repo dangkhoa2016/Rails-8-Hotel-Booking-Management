@@ -13,7 +13,7 @@ class Promotion < ApplicationRecord
 
   class << self
     def display_at_index_page_columns
-      %w[name summary start_date end_date discount_type discount_percent status]
+      %w[name summary start_date end_date status]
     end
 
     def display_at_show_page_and_form_columns
@@ -51,6 +51,10 @@ class Promotion < ApplicationRecord
           css_class: "col-12"
         }
       ]
+    end
+
+    def additional_filterable_columns
+      %w[discount_amount discount_percent]
     end
   end
 

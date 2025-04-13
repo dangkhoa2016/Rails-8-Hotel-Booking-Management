@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  default_scope { order(name: :asc) }
   has_many :bookings
   has_many :vip_customer_benefits
 

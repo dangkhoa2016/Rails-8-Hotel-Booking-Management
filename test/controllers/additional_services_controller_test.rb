@@ -21,7 +21,7 @@ class AdditionalServicesControllerTest < ActionDispatch::IntegrationTest
       post additional_services_url, params: { additional_service: { name: @additional_service.name, price: @additional_service.price, status: @additional_service.status, summary: @additional_service.summary, unit: @additional_service.unit } }
     end
 
-    assert_redirected_to additional_service_url(AdditionalService.last)
+    assert_redirected_to additional_service_url(AdditionalService.reorder(id: :desc).first)
   end
 
   test "should show additional_service" do

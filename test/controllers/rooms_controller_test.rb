@@ -29,7 +29,7 @@ class RoomsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to room_url(Room.last)
+    assert_redirected_to room_url(Room.reorder(id: :desc).first)
   end
 
   test "should show room" do

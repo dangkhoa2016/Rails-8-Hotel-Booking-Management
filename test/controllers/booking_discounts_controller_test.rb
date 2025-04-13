@@ -29,7 +29,7 @@ class BookingDiscountsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to booking_discount_url(BookingDiscount.last)
+    assert_redirected_to booking_discount_url(BookingDiscount.reorder(id: :desc).first)
   end
 
   test "should show booking_discount" do

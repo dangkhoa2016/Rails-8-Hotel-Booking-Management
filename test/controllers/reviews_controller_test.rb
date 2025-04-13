@@ -21,7 +21,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
       post reviews_url, params: { review: { comment: @review.comment, customer_id: @review.customer_id, room_id: @review.room_id, room_rating: @review.room_rating, service_rating: @review.service_rating, status: @review.status } }
     end
 
-    assert_redirected_to review_url(Review.last)
+    assert_redirected_to review_url(Review.reorder(id: :desc).first)
   end
 
   test "should show review" do
