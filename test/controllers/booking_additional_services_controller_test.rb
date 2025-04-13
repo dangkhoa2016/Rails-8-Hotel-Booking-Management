@@ -21,7 +21,7 @@ class BookingAdditionalServicesControllerTest < ActionDispatch::IntegrationTest
       post booking_additional_services_url, params: { booking_additional_service: { additional_service_id: @booking_additional_service.additional_service_id, booking_id: @booking_additional_service.booking_id, note: @booking_additional_service.note, quantity: @booking_additional_service.quantity, reservation_id: @booking_additional_service.reservation_id, total_price: @booking_additional_service.total_price, unit: @booking_additional_service.unit } }
     end
 
-    assert_redirected_to booking_additional_service_url(BookingAdditionalService.last)
+    assert_redirected_to booking_additional_service_url(BookingAdditionalService.reorder(id: :desc).first)
   end
 
   test "should show booking_additional_service" do

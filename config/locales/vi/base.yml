@@ -47,6 +47,7 @@ vi:
     search: "Tìm kiếm"
     filter: "Lọc"
     reset: "Đặt lại"
+    empty_filter_values: "Xóa bộ lọc"
     send_reset_password_instructions: "Gửi hướng dẫn đặt lại mật khẩu"
     change_my_password: "Đổi mật khẩu của tôi"
     update_profile: "Cập nhật hồ sơ"
@@ -61,8 +62,15 @@ vi:
     "false": "Không"
     blank: "Chưa có giá trị"
     selected_text: "Đã chọn"
+    total_filtered_record_text: "Tổng số bản ghi đã lọc"
+    total_record_text: "Tổng số bản ghi"
+    no_records_found: "Không tìm thấy bản ghi nào"
 
   theme:
     dark: "Tối"
     light: "Sáng"
     auto: "Tự động"
+
+  filters:
+    from_name: "%{name} từ"
+    to_name: "%{name} đến"

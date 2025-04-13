@@ -25,7 +25,7 @@ class Reservation < ApplicationRecord
 
   class << self
     def display_at_index_page_columns
-      %w[room_id booking_id check_in_at check_out_at room_price]
+      %w[room_id booking_id status check_in_at check_out_at room_price]
     end
 
     def display_at_show_page_and_form_columns

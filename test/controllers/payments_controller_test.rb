@@ -21,7 +21,7 @@ class PaymentsControllerTest < ActionDispatch::IntegrationTest
       post payments_url, params: { payment: { amount: @payment.amount, booking_id: @payment.booking_id, note: @payment.note, payment_date: @payment.payment_date, payment_method: @payment.payment_method, payment_type: @payment.payment_type } }
     end
 
-    assert_redirected_to payment_url(Payment.last)
+    assert_redirected_to payment_url(Payment.reorder(id: :desc).first)
   end
 
   test "should show payment" do

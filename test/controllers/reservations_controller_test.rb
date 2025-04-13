@@ -29,7 +29,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to reservation_url(Reservation.last)
+    assert_redirected_to reservation_url(Reservation.reorder(id: :desc).first)
   end
 
   test "should show reservation" do

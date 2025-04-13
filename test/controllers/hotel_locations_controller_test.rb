@@ -25,7 +25,7 @@ class HotelLocationsControllerTest < ActionDispatch::IntegrationTest
     }
     end
 
-    assert_redirected_to hotel_location_url(HotelLocation.last)
+    assert_redirected_to hotel_location_url(HotelLocation.reorder(id: :desc).first)
   end
 
   test "should show hotel_location" do

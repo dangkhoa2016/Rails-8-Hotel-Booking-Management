@@ -27,7 +27,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
     }
     end
 
-    assert_redirected_to customer_url(Customer.last)
+    assert_redirected_to customer_url(Customer.reorder(id: :desc).first)
   end
 
   test "should show customer" do

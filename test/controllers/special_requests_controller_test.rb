@@ -26,7 +26,7 @@ class SpecialRequestsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to special_request_url(SpecialRequest.last)
+    assert_redirected_to special_request_url(SpecialRequest.reorder(id: :desc).first)
   end
 
   test "should show special_request" do

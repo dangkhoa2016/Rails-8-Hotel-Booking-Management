@@ -47,6 +47,7 @@ en:
     search: "Search"
     filter: "Filter"
     reset: "Reset"
+    empty_filter_values: "Clear values"
     send_reset_password_instructions: "Send me reset password instructions"
     change_my_password: "Change my password"
     update_profile: "Update profile"
@@ -61,8 +62,15 @@ en:
     "false": "No"
     blank: "Blank"
     selected_text: "Selected"
+    total_filtered_record_text: "Total filtered records"
+    total_record_text: "Total records"
+    no_records_found: "No records found"
 
   theme:
     dark: "Dark"
     light: "Light"
     auto: "Auto"
+
+  filters:
+    from_name: "From %{name}"
+    to_name: "To %{name}"
