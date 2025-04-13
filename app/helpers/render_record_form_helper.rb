@@ -86,7 +86,8 @@ module RenderRecordFormHelper
   end
 
   def render_boolean_form_field(form, record, column)
-    render_check_box_form_field(form, record, column)
+    value = record.send(column)
+    render_check_box_form_field(form, record.class, column, value)
   end
 
   def render_enum_form_field(form, record, column)
@@ -101,13 +102,12 @@ module RenderRecordFormHelper
     form.text_area(column, class: "form-control", **options)
   end
 
-  def render_check_box_form_field(form, record, column)
-    true_text = record.class.human_attribute_name("#{column}.active")
-    false_text = record.class.human_attribute_name("#{column}.inactive")
+  def render_check_box_form_field(form, record_class, column, value)
+    true_text = record_class.human_attribute_name("#{column}.active")
+    false_text = record_class.human_attribute_name("#{column}.inactive")
     data = { controller: "form-switch", true_text: true_text, false_text: false_text }
     content_tag(:div, class: "form-check form-switch", data: data) do
-      value = record.send(column)
-      form.check_box(column, { class: "form-check-input", role: "switch" }, "active", "inactive") +
+      form.check_box(column, { checked: value == "active", class: "form-check-input", role: "switch" }, "active", "inactive") +
         form.label(column, value == "active" ? true_text : false_text, class: "form-check-label", role: "button")
     end
   end

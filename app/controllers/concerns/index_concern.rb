@@ -29,6 +29,16 @@ module IndexConcern
   end
 
   def model_query
-    model_class.includes(get_include_models).order(order_by)
+    query = model_class.includes(get_include_models)
+
+    get_where_filters(get_filters).each do |key, value|
+      if value.is_a?(Array)
+        query = query.where(value.first, value.last)
+      else
+        query = query.where(key => value)
+      end
+    end
+
+    query.order(order_by)
   end
 end

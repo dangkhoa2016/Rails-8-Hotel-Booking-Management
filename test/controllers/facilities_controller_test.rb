@@ -25,7 +25,7 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
     }
     end
 
-    assert_redirected_to facility_url(Facility.last)
+    assert_redirected_to facility_url(Facility.reorder(id: :desc).first)
   end
 
   test "should show facility" do

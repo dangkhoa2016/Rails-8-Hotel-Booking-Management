@@ -28,7 +28,7 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to promotion_url(Promotion.last)
+    assert_redirected_to promotion_url(Promotion.reorder(id: :desc).first)
   end
 
   test "should show promotion" do

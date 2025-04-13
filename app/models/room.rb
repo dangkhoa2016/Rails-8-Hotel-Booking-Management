@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  default_scope { order(name: :asc) }
   belongs_to :room_type
   belongs_to :hotel_location
 

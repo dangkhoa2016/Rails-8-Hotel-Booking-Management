@@ -21,7 +21,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
       post bookings_url, params: { booking: { customer_id: @booking.customer_id, discount_note: @booking.discount_note, note: @booking.note, status: @booking.status, total_price: @booking.total_price, total_price_before_discount: @booking.total_price_before_discount } }
     end
 
-    assert_redirected_to booking_url(Booking.last)
+    assert_redirected_to booking_url(Booking.reorder(id: :desc).first)
   end
 
   test "should show booking" do

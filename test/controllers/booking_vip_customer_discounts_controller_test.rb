@@ -32,7 +32,7 @@ class BookingVipCustomerDiscountsControllerTest < ActionDispatch::IntegrationTes
       }
     end
 
-    assert_redirected_to booking_vip_customer_discount_url(BookingVipCustomerDiscount.last)
+    assert_redirected_to booking_vip_customer_discount_url(BookingVipCustomerDiscount.reorder(id: :desc).first)
   end
 
   test "should show booking_vip_customer_discount" do

@@ -1,4 +1,6 @@
 module Utils
+  include FilterUtils
+
   def get_default_columns(model_class)
     model_class.columns.map(&:name) - %w[id created_at updated_at]
   end
@@ -30,7 +32,13 @@ module Utils
   end
 
   def is_enum_column?(record, column)
-    record.class.defined_enums.keys.include?(column)
+    return false unless record || column
+
+    if record.is_a?(Class)
+      record.defined_enums.keys.include?(column)
+    else
+      record.class.defined_enums.keys.include?(column)
+    end
   end
 
   def translated_model_name(record)
@@ -38,8 +46,15 @@ module Utils
   end
 
   def is_associated_column?(record, column)
-    record.class.reflect_on_all_associations(:belongs_to).map(&:name).include?(column.to_sym) ||
-      record.class.reflect_on_all_associations(:has_one).map(&:name).include?(column.to_sym)
+    return false unless record || column
+
+    if record.is_a?(Class)
+      record.reflect_on_all_associations(:belongs_to).map(&:name).include?(column.to_sym) ||
+        record.reflect_on_all_associations(:has_one).map(&:name).include?(column.to_sym)
+    else
+      record.class.reflect_on_all_associations(:belongs_to).map(&:name).include?(column.to_sym) ||
+        record.class.reflect_on_all_associations(:has_one).map(&:name).include?(column.to_sym)
+    end
   end
 
   def is_index_action?

@@ -32,7 +32,7 @@ class VipCustomerBenefitsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to vip_customer_benefit_url(VipCustomerBenefit.last)
+    assert_redirected_to vip_customer_benefit_url(VipCustomerBenefit.reorder(id: :desc).first)
   end
 
   test "should show vip_customer_benefit" do
