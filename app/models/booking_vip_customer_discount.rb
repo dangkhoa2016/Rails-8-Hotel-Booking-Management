@@ -27,6 +27,20 @@ class BookingVipCustomerDiscount < ApplicationRecord
     "Booking ##{booking_id} - Customer ##{customer_id}"
   end
 
+  def summary
+    if discount_type == "percent"
+      [
+        BookingDiscount.human_attribute_name("discount_percent_on_room_price") + ": #{discount_percent_on_room_price.display_as_percentage}",
+        BookingDiscount.human_attribute_name("discount_percent_on_additional_services") + ": #{discount_percent_on_additional_services.display_as_percentage}"
+      ].join("\n")
+    else
+      [
+        BookingDiscount.human_attribute_name("discount_amount_on_room_price") + ": #{discount_amount_on_room_price.display_as_money}",
+        BookingDiscount.human_attribute_name("discount_amount_on_additional_services") + ": #{discount_amount_on_additional_services.display_as_money}"
+      ].join("\n")
+    end
+  end
+
   private
 
   def at_least_one_discount_present
