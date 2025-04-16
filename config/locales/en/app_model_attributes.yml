@@ -64,6 +64,10 @@ en:
         note: "Note"
         discount_note: "Discount note"
         card_title: "Id: #%{id} - Customer: %{customer}"
+        associations: "Associations"
+        booking_discounts: "Booking discounts"
+        promotions: "Promotions"
+        booking_vip_customer_discounts: "VIP customer discounts"
 
       booking/status:
         pending: "Pending"

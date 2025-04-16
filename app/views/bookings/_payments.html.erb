@@ -1,0 +1,39 @@
+<div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
+  <% if payments.empty? %>
+    <div class="flex-grow-1">
+      <div class="alert mb-0 alert-secondary hover-shadow">
+        <%= translate('base.no_records_found') %>
+      </div>
+    </div>
+  <% else %>
+    <% payments.each do |payment| %>
+      <div class="col">
+        <div class="alert mb-0 alert-secondary hover-shadow">
+          <h5>
+            <%= payment.to_s.html_safe %>
+          </h5>
+          <p>
+            <%= Payment.human_attribute_name(:payment_method) %>: <%= render_enum_field(payment, :payment_method) %>
+          </p>
+          <p class='mb-0'>
+            <%= Payment.human_attribute_name(:note) %>: <%= payment.note %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<% remain = @booking.total_price - payments.sum(&:amount) %>
+<% if remain > 0 %>
+  <div class="mt-3">
+    <div class="alert mb-0 alert-info">
+      <h5>
+        <%= Booking.human_attribute_name(:remain) %>:
+      </h5>
+      <p class='mb-0'>
+        <%= remain.display_as_money %>
+      </p>
+    </div>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class Booking < ApplicationRecord
   has_many :special_requests, through: :reservations
   has_many :vip_customer_benefits, through: :customer
   has_many :booking_vip_customer_discounts
+  has_many :payments, -> { order(created_at: :desc) }
 
 
   enum :status, {
@@ -73,5 +74,9 @@ class Booking < ApplicationRecord
       id: id,
       customer: customer&.name
     })
+  end
+
+  def total_discounts
+    booking_discounts.size + promotions.size + booking_vip_customer_discounts.size
   end
 end

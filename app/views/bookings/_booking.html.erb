@@ -1,1 +1,76 @@
-<%= render 'shared/render_record_show', record: booking %>
+<%
+if is_show_action?
+  booking_discounts = booking.booking_discounts.to_a
+  promotions = booking.promotions.to_a
+  booking_vip_customer_discounts = booking.booking_vip_customer_discounts.to_a
+  payments = booking.payments.to_a
+end
+%>
+
+<%= render 'shared/render_record_show', record: booking do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= Booking.human_attribute_name(:associations) %>
+      </h4>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="discounts-tab" data-bs-toggle="tab" data-bs-target="#discounts"
+            type="button" role="tab" aria-controls="discounts" aria-selected="true">
+            <i class="bi bi-percent"></i> <%= Booking.human_attribute_name(:booking_discounts) %>
+            <span class='badge bg-secondary'>
+              <span><%= booking_discounts.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="promotions-tab" data-bs-toggle="tab" data-bs-target="#promotions"
+            type="button" role="tab" aria-controls="promotions" aria-selected="false">
+            <i class="bi bi-tags"></i> <%= Booking.human_attribute_name(:promotions) %>
+            <span class='badge bg-secondary'>
+              <span><%= promotions.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="booking_vip_customer_discounts-tab" data-bs-toggle="tab" data-bs-target="#booking_vip_customer_discounts"
+            type="button" role="tab" aria-controls="booking_vip_customer_discounts" aria-selected="false">
+            <i class="bi bi-person-badge"></i> <%= Booking.human_attribute_name(:booking_vip_customer_discounts) %>
+            <span class='badge bg-secondary'>
+              <span><%= booking_vip_customer_discounts.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="payments-tab" data-bs-toggle="tab" data-bs-target="#payments"
+            type="button" role="tab" aria-controls="payments" aria-selected="false">
+            <i class="bi bi-currency-dollar"></i> <%= Booking.human_attribute_name(:payments) %>
+            <span class='badge bg-secondary'>
+              <span><%= payments.count %></span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="discounts" role="tabpanel" aria-labelledby="discounts-tab">
+          <%= render 'bookings/booking_discounts', booking_discounts: booking_discounts %>
+        </div>
+        <div class="tab-pane fade" id="promotions" role="tabpanel" aria-labelledby="promotions-tab">
+          <%= render 'bookings/promotions', promotions: promotions %>
+        </div>
+        <div class="tab-pane fade" id="booking_vip_customer_discounts" role="tabpanel" aria-labelledby="booking_vip_customer_discounts-tab">
+          <%= render 'bookings/booking_vip_customer_discounts', booking_vip_customer_discounts: booking_vip_customer_discounts %>
+        </div>
+        <div class="tab-pane fade" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+          <%= render 'bookings/payments', payments: payments %>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  <% end %>
+<% end %>
