@@ -64,6 +64,10 @@ vi:
         note: "Ghi chú"
         discount_note: "Ghi chú giảm giá"
         card_title: "Id: #%{id} - Khách hàng: %{customer}"
+        applied_discounts: "Các giảm giá đã áp dụng"
+        booking_discounts: "Giảm giá hóa đơn"
+        promotions: "Khuyến mãi"
+        booking_vip_customer_discounts: "Ưu đãi khách hàng VIP"
 
       booking/status:
         pending: "Đang chờ"

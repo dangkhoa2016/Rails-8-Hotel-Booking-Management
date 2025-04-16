@@ -74,4 +74,8 @@ class Booking < ApplicationRecord
       customer: customer&.name
     })
   end
+
+  def total_discounts
+    booking_discounts.size + promotions.size + booking_vip_customer_discounts.size
+  end
 end
