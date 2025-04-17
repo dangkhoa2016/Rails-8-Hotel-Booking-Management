@@ -1,1 +1,21 @@
-<%= render 'shared/render_record_show', record: additional_service %>
+<%
+booking_additional_services = additional_service.booking_additional_services.to_a if is_show_action?
+%>
+
+<%= render 'shared/render_record_show', record: additional_service do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= AdditionalService.human_attribute_name(:booking_additional_services) %>
+        <span class='badge bg-secondary'>
+          <span><%= translate('base.total.text_with_count', count: booking_additional_services.count) %></span>
+        </span>
+      </h4>
+
+      <%= render 'additional_services/booking_additional_services', booking_additional_services: booking_additional_services %>
+      <hr />
+    </div>
+  <% end %>
+<% end %>

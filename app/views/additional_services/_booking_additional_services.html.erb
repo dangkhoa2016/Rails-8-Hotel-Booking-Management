@@ -1,0 +1,23 @@
+<% if booking_additional_services.empty? %>
+  <div class="flex-grow-1">
+    <div class="alert mb-0 alert-secondary hover-shadow">
+      <%= translate('base.no_records_found') %>
+    </div>
+  </div>
+<% else %>
+  <div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
+    <% booking_additional_services.each do |booking_additional_service| %>
+      <div class="col">
+        <div class="alert mb-0 alert-secondary hover-shadow">
+          <h5>
+            <i class="bi bi-currency-dollar"></i>
+            <%= render_text_field(booking_additional_service, :reservation) %>
+          </h5>
+          <p class='mb-0'>
+            <%= render_text_field(booking_additional_service, :summary).gsub("\n", '<br />').html_safe %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
