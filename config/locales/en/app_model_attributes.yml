@@ -118,6 +118,7 @@ en:
         address: "Address"
         note: "Note"
         customer_type: "Customer type"
+        vip_customers_benefits: "VIP customer benefits"
 
       customer/customer_type:
         normal: "Normal"

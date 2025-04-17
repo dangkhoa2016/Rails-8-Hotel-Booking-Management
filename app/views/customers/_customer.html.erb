@@ -1,1 +1,21 @@
-<%= render 'shared/render_record_show', record: customer %>
+<%
+vip_customers_benefits = customer.vip_customers_benefits.to_a if is_show_action?
+%>
+
+<%= render 'shared/render_record_show', record: customer do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= Customer.human_attribute_name(:vip_customers_benefits) %>
+        <span class='badge bg-secondary'>
+          <span><%= t('base.selected_text') %>: </span><span><%= vip_customers_benefits.count %></span>
+        </span>
+      </h4>
+
+      <%= render 'customers/vip_customers_benefits', vip_customers_benefits: vip_customers_benefits %>
+      <hr />
+    </div>
+  <% end %>
+<% end %>
