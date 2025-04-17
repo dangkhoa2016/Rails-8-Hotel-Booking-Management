@@ -167,6 +167,7 @@ vi:
         discount_percent: "Phần trăm giảm giá"
         discount_amount: "Số tiền giảm giá"
         card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - %{name}"
+        booking_discounts: "Các giảm giá hóa đơn đang áp dụng khuyến mãi này"
 
       review:
         customer_id: "Khách hàng"

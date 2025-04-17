@@ -167,6 +167,7 @@ en:
         discount_percent: "Discount percent"
         discount_amount: "Discount amount"
         card_title: "<i class='fs-5 text-danger bi bi-%{discount_icon}'></i> <span class='text-danger'>%{discount_value}</span> - %{name}"
+        booking_discounts: "Booking discounts are using this promotion"
 
       review:
         customer_id: "Customer"
