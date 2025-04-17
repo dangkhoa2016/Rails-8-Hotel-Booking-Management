@@ -54,6 +54,7 @@ en:
         summary: "Summary"
         price: "Price"
         unit: "Unit"
+        booking_additional_services: "Bookings with this additional service"
 
       booking:
         customer_id: "Customer"

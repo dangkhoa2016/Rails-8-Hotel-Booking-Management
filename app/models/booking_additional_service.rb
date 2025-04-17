@@ -18,4 +18,13 @@ class BookingAdditionalService < ApplicationRecord
   def to_s
     "Booking ##{booking_id} - Additional Service ##{additional_service_id}"
   end
+
+  def summary
+    [
+      BookingAdditionalService.human_attribute_name(:reservation) + ": #{reservation}",
+      BookingAdditionalService.human_attribute_name(:quantity) + ": #{quantity}",
+      BookingAdditionalService.human_attribute_name(:unit) + ": #{unit}",
+      BookingAdditionalService.human_attribute_name(:total_price) + ": #{total_price.display_as_money}"
+    ].join("\n")
+  end
 end
