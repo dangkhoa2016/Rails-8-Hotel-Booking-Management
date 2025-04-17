@@ -62,6 +62,9 @@ en:
     "false": "No"
     blank: "Blank"
     selected_text: "Selected"
+    total:
+      text: "Total"
+      text_with_count: "Total: %{count}"
     total_filtered_record_text: "Total filtered records"
     total_record_text: "Total records"
     no_records_found: "No records found"

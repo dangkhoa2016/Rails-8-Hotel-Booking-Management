@@ -117,6 +117,9 @@ vi:
         address: "Địa chỉ"
         note: "Ghi chú"
         customer_type: "Loại khách hàng"
+        vip_customer_benefits: "Ưu đãi khách hàng VIP"
+        associations: "Các liên kết"
+        bookings: "Các hóa đơn đã đặt"
 
       customer/customer_type:
         normal: "Khách hàng bình thường"
