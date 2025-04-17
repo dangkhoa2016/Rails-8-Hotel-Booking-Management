@@ -54,6 +54,7 @@ vi:
         summary: "Tóm tắt"
         price: "Giá"
         unit: "Đơn vị"
+        booking_additional_services: "Các hóa đơn đã dùng dịch vụ bổ sung này"
 
       booking:
         customer_id: "Khách hàng"

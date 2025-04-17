@@ -9,12 +9,21 @@ class BookingAdditionalService < ApplicationRecord
 
   class << self
     def display_at_index_page_columns
-      %w[booking_id additional_service_id reservation_id quantity total_price]
+      %w[additional_service_id reservation_id quantity total_price]
     end
   end
 
 
   def to_s
     "Reservation ##{reservation_id} - Additional Service ##{additional_service_id}"
+  end
+
+  def summary
+    [
+      BookingAdditionalService.human_attribute_name(:reservation) + ": #{reservation}",
+      BookingAdditionalService.human_attribute_name(:quantity) + ": #{quantity}",
+      BookingAdditionalService.human_attribute_name(:unit) + ": #{unit}",
+      BookingAdditionalService.human_attribute_name(:total_price) + ": #{total_price.display_as_money}"
+    ].join("\n")
   end
 end
