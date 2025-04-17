@@ -134,7 +134,8 @@ en:
         name: "Name"
         address: "Address"
         manager_name: "Manager name"
-        
+        rooms: "Rooms in this location"
+
       payment:
         booking_id: "Booking"
         booking: "Booking"
@@ -220,6 +221,7 @@ en:
         name: "Name"
         summary: "Summary"
         color: "Color"
+        rooms: "Rooms of this type"
 
       special_request:
         booking_id: "Booking"

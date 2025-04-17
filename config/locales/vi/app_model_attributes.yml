@@ -134,6 +134,7 @@ vi:
         name: "Tên"
         address: "Địa chỉ"
         manager_name: "Tên quản lý"
+        rooms: "Các phòng thuộc địa điểm này"
 
       payment:
         booking_id: "Hóa đơn"
@@ -220,6 +221,7 @@ vi:
         name: "Tên"
         summary: "Tóm tắt"
         color: "Màu sắc"
+        rooms: "Các phòng thuộc loại này"
 
       special_request:
         booking_id: "Hóa đơn"

@@ -1,1 +1,21 @@
-<%= render 'shared/render_record_show', record: hotel_location %>
+<%
+  rooms = hotel_location.rooms.reorder(name: :asc).to_a if is_show_action?
+%>
+
+<%= render 'shared/render_record_show', record: hotel_location do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= HotelLocation.human_attribute_name(:rooms) %>
+        <span class='badge bg-secondary'>
+          <span><%= t('base.selected_text') %>: </span><span><%= rooms.count %></span>
+        </span>
+      </h4>
+
+      <%= render 'hotel_locations/rooms', rooms: rooms %>
+      <hr />
+    </div>
+  <% end %>
+<% end %>
