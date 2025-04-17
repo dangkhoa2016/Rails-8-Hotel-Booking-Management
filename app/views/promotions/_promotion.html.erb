@@ -1,1 +1,21 @@
-<%= render 'shared/render_record_show', record: promotion %>
+<%
+  booking_discounts = promotion.booking_discounts.to_a if is_show_action?
+%>
+
+<%= render 'shared/render_record_show', record: promotion do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= Promotion.human_attribute_name(:booking_discounts) %>
+        <span class='badge bg-secondary'>
+          <span><%= translate('base.total.text_with_count', count: booking_discounts.count) %></span>
+        </span>
+      </h4>
+
+      <%= render 'promotions/booking_discounts', booking_discounts: booking_discounts %>
+      <hr />
+    </div>
+  <% end %>
+<% end %>

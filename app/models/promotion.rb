@@ -1,6 +1,7 @@
 class Promotion < ApplicationRecord
   enum :discount_type, { percent: 0, amount: 1 }
   enum :status, { inactive: 0, active: 1 }
+  has_many :booking_discounts
 
 
   validates :name, :status, :discount_type, :summary, :start_date, :end_date, presence: true

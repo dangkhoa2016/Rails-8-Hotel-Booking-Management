@@ -1,0 +1,23 @@
+<% if booking_discounts.empty? %>
+  <div class="flex-grow-1">
+    <div class="alert mb-0 alert-secondary hover-shadow">
+      <%= translate('base.no_records_found') %>
+    </div>
+  </div>
+<% else %>
+  <div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
+    <% booking_discounts.each do |booking_discount| %>
+      <div class="col">
+        <div class="alert mb-0 alert-secondary hover-shadow">
+          <h5>
+            <i class="bi bi-percent"></i>
+            <%= BookingDiscount.human_attribute_name(:discount_type) %>: <%= render_enum_field(booking_discount, :discount_type) %>
+          </h5>
+          <p class='mb-0'>
+            <%= render_text_field(booking_discount, :reason_for_discount) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
