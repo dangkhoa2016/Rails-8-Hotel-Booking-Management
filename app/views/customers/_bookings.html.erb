@@ -1,0 +1,24 @@
+<div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
+  <% if bookings.empty? %>
+    <div class="flex-grow-1">
+      <div class="alert mb-0 alert-secondary hover-shadow">
+        <%= translate('base.no_records_found') %>
+      </div>
+    </div>
+  <% else %>
+    <% bookings.each do |booking| %>
+      <div class="col">
+        <div class="alert mb-0 alert-secondary hover-shadow">
+          <h5>
+            <%= Booking.human_attribute_name(:id) %>: #<%= booking.id %>
+          </h5>
+          <p class='mb-0'>
+            <%= Booking.human_attribute_name(:total_price) %>: <%= booking.total_price.display_as_money %>
+            <br>
+            <%= Booking.human_attribute_name(:status) %>: <span class="badge bg-info"><%= booking.status %></span>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -62,6 +62,9 @@ vi:
     "false": "Không"
     blank: "Chưa có giá trị"
     selected_text: "Đã chọn"
+    total:
+      text: "Tổng số"
+      text_with_count: "Tổng số: %{count}"
     total_filtered_record_text: "Tổng số bản ghi đã lọc"
     total_record_text: "Tổng số bản ghi"
     no_records_found: "Không tìm thấy bản ghi nào"

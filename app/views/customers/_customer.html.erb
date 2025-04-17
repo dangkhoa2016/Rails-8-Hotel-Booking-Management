@@ -1,1 +1,50 @@
-<%= render 'shared/render_record_show', record: customer %>
+<%
+if is_show_action?
+  vip_customer_benefits = customer.vip_customer_benefits.to_a
+  bookings = customer.bookings.to_a
+end
+%>
+
+<%= render 'shared/render_record_show', record: customer do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= Customer.human_attribute_name(:associations) %>
+      </h4>
+
+      <ul class="nav nav-tabs" id="customerTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="vip-benefits-tab" data-bs-toggle="tab" data-bs-target="#vip-benefits"
+            type="button" role="tab" aria-controls="vip-benefits" aria-selected="true">
+            <i class="bi bi-person-badge"></i> <%= Customer.human_attribute_name(:vip_customer_benefits) %>
+            <span class='badge bg-secondary'>
+              <span><%= vip_customer_benefits.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings"
+            type="button" role="tab" aria-controls="bookings" aria-selected="false">
+            <i class="bi bi-currency-dollar"></i> <%= Customer.human_attribute_name(:bookings) %>
+            <span class='badge bg-secondary'>
+              <span><%= bookings.count %></span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="customerTabsContent">
+        <div class="tab-pane fade show active" id="vip-benefits" role="tabpanel" aria-labelledby="vip-benefits-tab">
+          <%= render 'customers/vip_customer_benefits', vip_customer_benefits: vip_customer_benefits %>
+        </div>
+        <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+          <%= render 'customers/bookings', bookings: bookings %>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  <% end %>
+<% end %>
