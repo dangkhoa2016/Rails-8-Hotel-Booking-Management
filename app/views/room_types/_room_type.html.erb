@@ -1,1 +1,21 @@
-<%= render 'shared/render_record_show', record: room_type %>
+<%
+  rooms = room_type.rooms.reorder(name: :asc).to_a if is_show_action?
+%>
+
+<%= render 'shared/render_record_show', record: room_type do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= RoomType.human_attribute_name(:rooms) %>
+        <span class='badge bg-secondary'>
+          <span><%= translate('base.selected_text') %>: </span><span><%= rooms.count %></span>
+        </span>
+      </h4>
+
+      <%= render 'room_types/rooms', rooms: rooms %>
+      <hr />
+    </div>
+  <% end %>
+<% end %>
