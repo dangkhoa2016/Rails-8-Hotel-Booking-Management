@@ -124,6 +124,8 @@ en:
         note: "Note"
         customer_type: "Customer type"
         vip_customers_benefits: "VIP customer benefits"
+        associations: "Associations"
+        bookings: "Bookings"
 
       customer/customer_type:
         normal: "Normal"
