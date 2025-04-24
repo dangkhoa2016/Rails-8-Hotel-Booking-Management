@@ -13,7 +13,7 @@
       <% if is_show_action? %>
         <div class="col-12">
           <p>
-            <strong><%= record.class.human_attribute_name(:id) %></strong> : 
+            <strong><%= record.class.human_attribute_name(:id) %></strong>: 
             <%= render_text_field(record, :id) %>
           </p>
         </div>
@@ -24,11 +24,11 @@
 
       <% if is_show_action? %>
         <div class="col-md-6">
-          <strong><%= record.class.human_attribute_name(:created_at) %></strong> : 
+          <strong><%= record.class.human_attribute_name(:created_at) %></strong>: 
           <%= render_datetime_field(record, :created_at) %>
         </div>
         <div class="col-md-6 mt-3 mt-md-0">
-          <strong><%= record.class.human_attribute_name(:updated_at) %></strong> : 
+          <strong><%= record.class.human_attribute_name(:updated_at) %></strong>: 
           <%= render_datetime_field(record, :updated_at) %>
         </div>
       <% end %>
