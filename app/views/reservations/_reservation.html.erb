@@ -1,1 +1,50 @@
-<%= render 'shared/render_record_show', record: reservation %>
+<%
+if is_show_action?
+  booking_additional_services = reservation.booking_additional_services.to_a
+  special_requests = reservation.special_requests.to_a
+end
+%>
+
+<%= render 'shared/render_record_show', record: reservation do %>
+  <% if is_show_action? %>
+    <div class="col-12">
+      <hr />
+
+      <h4 class='mb-3'>
+        <%= Reservation.human_attribute_name(:associations) %>
+      </h4>
+
+      <ul class="nav nav-tabs" id="reservationTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="additional-services-tab" data-bs-toggle="tab" data-bs-target="#additional-services"
+            type="button" role="tab" aria-controls="additional-services" aria-selected="true">
+            <i class="bi bi-tools"></i> <%= Reservation.human_attribute_name(:additional_services) %>
+            <span class='badge bg-secondary'>
+              <span><%= booking_additional_services.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="special-requests-tab" data-bs-toggle="tab" data-bs-target="#special-requests"
+            type="button" role="tab" aria-controls="special-requests" aria-selected="false">
+            <i class="bi bi-pencil-square"></i> <%= Reservation.human_attribute_name(:special_requests) %>
+            <span class='badge bg-secondary'>
+              <span><%= special_requests.count %></span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="reservationTabsContent">
+        <div class="tab-pane fade show active" id="additional-services" role="tabpanel" aria-labelledby="additional-services-tab">
+          <%= render 'reservations/booking_additional_services', booking_additional_services: booking_additional_services %>
+        </div>
+        <div class="tab-pane fade" id="special-requests" role="tabpanel" aria-labelledby="special-requests-tab">
+          <%= render 'reservations/special_requests', special_requests: special_requests %>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  <% end %>
+<% end %>
