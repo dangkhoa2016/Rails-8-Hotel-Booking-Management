@@ -1,5 +1,9 @@
 <%
-  facilities = room.facilities.reorder(name: :asc).to_a if is_show_action?
+if is_show_action?
+  facilities = room.facilities.reorder(name: :asc).to_a
+  reviews = room.reviews.to_a
+  reservations = room.reservations.to_a
+end
 %>
 
 <%= render 'shared/render_record_show', record: room do %>
@@ -8,26 +12,49 @@
       <hr />
 
       <h4 class='mb-3'>
-        <%= Room.human_attribute_name(:facilities) %>
-        <span class='badge bg-secondary'>
-          <span><%= t('base.selected_text') %>: </span><span><%= facilities.count %></span>
-        </span>
+        <%= Room.human_attribute_name(:associations) %>
       </h4>
 
-      <div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
-        <% facilities.each do |facility| %>
-          <div class="col">
-            <div class="alert mb-0 alert-secondary hover-shadow">
-              <h5>
-                <i class="bi bi-building"></i>
-                <%= render_text_field(facility, :name) %>
-              </h5>
-              <p class='mb-0'>
-                <%= render_text_field(facility, :summary) %>
-              </p>
-            </div>
-          </div>
-        <% end %>
+      <ul class="nav nav-tabs" id="roomTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="facilities-tab" data-bs-toggle="tab" data-bs-target="#facilities"
+            type="button" role="tab" aria-controls="facilities" aria-selected="true">
+            <i class="bi bi-building"></i> <%= Room.human_attribute_name(:facilities) %>
+            <span class='badge bg-secondary'>
+              <span><%= facilities.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+            type="button" role="tab" aria-controls="reviews" aria-selected="false">
+            <i class="bi bi-star"></i> <%= Room.human_attribute_name(:reviews) %>
+            <span class='badge bg-secondary'>
+              <span><%= reviews.count %></span>
+            </span>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reservations-tab" data-bs-toggle="tab" data-bs-target="#reservations"
+            type="button" role="tab" aria-controls="reservations" aria-selected="false">
+            <i class="bi bi-calendar-check"></i> <%= Room.human_attribute_name(:reservations) %>
+            <span class='badge bg-secondary'>
+              <span><%= reservations.count %></span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="roomTabsContent">
+        <div class="tab-pane fade show active" id="facilities" role="tabpanel" aria-labelledby="facilities-tab">
+          <%= render 'rooms/facilities', facilities: facilities %>
+        </div>
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+          <%= render 'rooms/reviews', reviews: reviews %>
+        </div>
+        <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
+          <%= render 'rooms/reservations', reservations: reservations %>
+        </div>
       </div>
 
       <hr />
