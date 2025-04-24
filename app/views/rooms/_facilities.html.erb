@@ -1,0 +1,23 @@
+<div class='row g-3 row-cols-1 row-cols-md-2 row-cols-xl-3'>
+  <% if facilities.empty? %>
+    <div class="flex-grow-1">
+      <div class="alert mb-0 alert-secondary hover-shadow">
+        <%= translate('base.no_records_found') %>
+      </div>
+    </div>
+  <% else %>
+    <% facilities.each do |facility| %>
+      <div class="col">
+        <div class="alert mb-0 alert-secondary hover-shadow">
+          <h5>
+            <i class="bi bi-building"></i>
+            <%= render_text_field(facility, :name) %>
+          </h5>
+          <p class='mb-0'>
+            <%= render_text_field(facility, :summary) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
