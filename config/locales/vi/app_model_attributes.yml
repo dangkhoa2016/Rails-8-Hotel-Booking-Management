@@ -93,6 +93,7 @@ vi:
         quantity: "Số lượng"
         unit: "Đơn vị"
         total_price: "Tổng giá"
+        card_title: "Đặt phòng: #%{reservation_id} - Dịch vụ bổ sung: %{additional_service_id}"
 
       booking_discount:
         booking_id: "Hóa đơn"

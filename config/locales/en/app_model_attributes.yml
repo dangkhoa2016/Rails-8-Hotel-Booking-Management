@@ -93,6 +93,7 @@ en:
         quantity: "Quantity"
         unit: "Unit"
         total_price: "Total price"
+        card_title: "Reservation: #%{reservation_id} - Additional service: %{additional_service_id}"
 
       booking_discount:
         booking_id: "Booking"

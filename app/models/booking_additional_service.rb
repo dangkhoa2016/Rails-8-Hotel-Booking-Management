@@ -15,12 +15,14 @@ class BookingAdditionalService < ApplicationRecord
 
 
   def to_s
-    "Reservation ##{reservation_id} - Additional Service ##{additional_service_id}"
+    self.class.human_attribute_name(:card_title, {
+      reservation_id: reservation_id,
+      additional_service_id: additional_service_id
+    })
   end
 
   def summary
     [
-      BookingAdditionalService.human_attribute_name(:reservation) + ": #{reservation}",
       BookingAdditionalService.human_attribute_name(:quantity) + ": #{quantity}",
       BookingAdditionalService.human_attribute_name(:unit) + ": #{unit}",
       BookingAdditionalService.human_attribute_name(:total_price) + ": #{total_price.display_as_money}"
