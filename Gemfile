@@ -68,4 +68,4 @@ gem "devise", "~> 4.9"
 
 gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
 
-gem "pagy", "~> 9.3"
+gem "pagy", "~> 9.4"
