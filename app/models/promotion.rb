@@ -1,4 +1,6 @@
 class Promotion < ApplicationRecord
+  alias_attribute :summary, :description
+
   enum :discount_type, { percent: 0, amount: 1 }
   enum :status, { inactive: 0, active: 1 }
   has_many :booking_discounts

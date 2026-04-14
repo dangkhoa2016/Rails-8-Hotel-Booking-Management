@@ -20,7 +20,7 @@ module RenderRecordFormHelper
   end
 
   def guess_form_field_type(form, record, column)
-    if column == "status"
+    if status_toggle_column?(record, column)
       render_boolean_form_field(form, record, column)
     elsif is_enum_column?(record, column)
       render_enum_form_field(form, record, column)
@@ -116,6 +116,12 @@ module RenderRecordFormHelper
     enum = record.class.defined_enums[column.to_s]
     collection = enum.keys.map { |key| [ record.class.human_attribute_name("#{column}.#{key}"), key ] }
     form.select(column, collection, { include_blank: true }, class: "form-select")
+  end
+
+  def status_toggle_column?(record, column)
+    return false unless column == "status"
+
+    record.class.defined_enums[column.to_s]&.keys == %w[inactive active]
   end
 
   def get_form_url(record)

@@ -1,4 +1,6 @@
 class RoomType < ApplicationRecord
+  alias_attribute :summary, :description
+
   default_scope { order(name: :asc) }
   has_many :rooms
 

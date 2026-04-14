@@ -22,7 +22,6 @@ class ReservationsTest < ApplicationSystemTestCase
     find("#reservation_room_id").find("option[value='#{@room2.id}']").select_option
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
-    fill_in "Total price", with: @reservation.total_price
     find("#reservation_status").find("option[value='#{@reservation.status}']").select_option
     click_on "Create Reservation"
 
@@ -41,7 +40,6 @@ class ReservationsTest < ApplicationSystemTestCase
     find("#reservation_room_id").find("option[value='#{@room2.id}']").select_option
     fill_in "Room occupant", with: @reservation.room_occupant
     fill_in "Room price", with: @reservation.room_price
-    fill_in "Total price", with: @reservation.total_price
     find("#reservation_status").find("option[value='#{@reservation.status}']").select_option
     click_on "Update Reservation"
 

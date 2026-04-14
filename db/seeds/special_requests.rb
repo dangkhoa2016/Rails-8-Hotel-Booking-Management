@@ -23,12 +23,10 @@ Reservation.all.each do |reservation|
 
     created_at = reservation.created_at + rand(10..10000).minutes
 
-    SpecialRequest.new(
-      reservation_id: reservation.id,
-      request: special_request,
-      price: rand(5..50),
-      created_at: created_at,
-      updated_at: created_at.since(rand(100..10000).minutes),
-    ).save!
+    SpecialRequest.find_or_create_by!(reservation_id: reservation.id, request: special_request) do |record|
+      record.price = rand(5..50)
+      record.created_at = created_at
+      record.updated_at = created_at.since(rand(100..10000).minutes)
+    end
   end
 end

@@ -1,127 +1,137 @@
-<% content_for :head do %>
-  <style>
-    body {
-      background-color: #fff !important;
-    }
-    .hero-section {
-      background-image: url('https://img.freepik.com/free-photo/full-shot-man-carrying-baggage_23-2149963942.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-text {
-      text-align: center;
-    }
-    .service-card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-    .service-card:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-<% end %>
-
-<!-- Header Section -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <%= link_to root_path, class: 'navbar-brand' do %>
-      Hotel Booking Management
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>``
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><%= translate('home.hero.nav') %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about"><%= translate('home.about.nav') %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#services"><%= translate('home.services.nav') %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact"><%= translate('home.contact.nav') %></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <%= image_tag("/locales/#{locale}.png", class: 'flag-icon') %>
-            <%= I18n.locale.to_s.upcase %>
-          </a>
-          <ul class="dropdown-menu locale-dropdown dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <% I18n.available_locales.each do |locale| %>
-              <li>
-                <%= link_to root_path(locale: locale), class: 'dropdown-item d-flex' do %>
-                  <%= image_tag("/locales/#{locale}.png", class: 'flag-icon me-2') %>
-                  <%= locale.to_s.upcase %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
+<div class="container-fluid">
+  <% if user_signed_in? %>
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Dashboard</h2>
+      <p class="text-secondary">Chào mừng trở lại, <%= current_user.full_name %>.</p>
     </div>
   </div>
-</nav>
 
-<!-- Hero Section -->
-<div class="hero-section">
-  <div class="hero-text alert alert-dark">
-    <h1><%= translate('home.hero.title').gsub("\n", '<br/>').html_safe %></h1>
-    <p><%= translate('home.hero.subtitle') %></p>
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card p-3 bg-white border-0 shadow-sm">
+        <div class="d-flex align-items-center">
+          <div class="rounded-circle bg-emerald-light p-3 me-3">
+            <i class="bi bi-door-open text-emerald fs-4"></i>
+          </div>
+          <div>
+            <h6 class="text-secondary mb-0">Tổng số phòng</h6>
+            <h4 class="fw-bold mb-0"><%= @total_rooms %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 bg-white border-0 shadow-sm">
+        <div class="d-flex align-items-center">
+          <div class="rounded-circle bg-blue-light p-3 me-3">
+            <i class="bi bi-check-circle text-blue fs-4"></i>
+          </div>
+          <div>
+            <h6 class="text-secondary mb-0">Phòng trống</h6>
+            <h4 class="fw-bold mb-0"><%= @available_rooms %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 bg-white border-0 shadow-sm">
+        <div class="d-flex align-items-center">
+          <div class="rounded-circle bg-purple-light p-3 me-3">
+            <i class="bi bi-graph-up text-purple fs-4"></i>
+          </div>
+          <div>
+            <h6 class="text-secondary mb-0">Tỷ lệ lấp đầy</h6>
+            <h4 class="fw-bold mb-0"><%= @occupancy_rate %>%</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 bg-white border-0 shadow-sm">
+        <div class="d-flex align-items-center">
+          <div class="rounded-circle bg-orange-light p-3 me-3">
+            <i class="bi bi-currency-dollar text-orange fs-4"></i>
+          </div>
+          <div>
+            <h6 class="text-secondary mb-0">Doanh thu 30 ngày</h6>
+            <h4 class="fw-bold mb-0"><%= number_to_currency(@revenue_by_day.values.sum) %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- About Section -->
-<div id='about' class="container my-5">
-  <h2 class="text-center mb-4"><%= translate('home.about.title') %></h2>
-  <p class="text-center">
-    <%= translate('home.about.description') %>
-  </p>
-</div>
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <div class="card p-4 border-0 shadow-sm h-100">
+        <h5 class="fw-bold mb-4">Doanh thu theo ngày</h5>
+        <%= line_chart @revenue_by_day, colors: ["#10b981"] %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-4 border-0 shadow-sm h-100">
+        <h5 class="fw-bold mb-4">Tỷ lệ loại phòng</h5>
+        <%= pie_chart @bookings_by_type, donut: true, colors: ["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b"] %>
+      </div>
+    </div>
+  </div>
 
-<!-- Services Section -->
-<div id='services' class="container my-5">
-  <h2 class="text-center mb-4"><%= translate('home.services.title') %></h2>
   <div class="row">
-    <div class="col-md-4">
-      <div class="service-card">
-        <h4><%= translate('home.services.luxury_rooms.title') %></h4>
-        <p><%= translate('home.services.luxury_rooms.description') %></p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="service-card">
-        <h4><%= translate('home.services.fine_dining.title') %></h4>
-        <p><%= translate('home.services.fine_dining.description') %></p>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="service-card">
-        <h4><%= translate('home.services.health_wellness.title') %></h4>
-        <p><%= translate('home.services.health_wellness.description') %></p>
+    <div class="col-12">
+      <div class="card p-4 border-0 shadow-sm">
+        <h5 class="fw-bold mb-4">Đặt phòng gần đây</h5>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Mã đơn</th>
+                <th>Khách hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Ngày tạo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @recent_bookings.each do |booking| %>
+                <tr>
+                  <td>#<%= booking.id %></td>
+                  <td><%= booking.customer&.name %></td>
+                  <td class="fw-bold"><%= number_to_currency(booking.total_price) %></td>
+                  <td>
+                    <span class="badge rounded-pill bg-<%= booking_status_color(booking.status) %>">
+                      <%= booking.status.titleize %>
+                    </span>
+                  </td>
+                  <td><%= booking.created_at.strftime("%d/%m/%Y") %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
+  <% else %>
+    <div class="row min-vh-100 align-items-center justify-content-center text-center bg-emerald text-white" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); margin: -2rem -1rem 0 -1rem;">
+      <div class="col-md-8">
+        <h1 class="display-3 fw-bold mb-4">Quản lý Khách sạn Thông minh</h1>
+        <p class="lead mb-5">Hệ thống tối ưu hiệu năng, bảo mật và trải nghiệm người dùng tuyệt vời.</p>
+        <div>
+          <%= link_to "Đăng nhập ngay", new_user_session_path, class: "btn btn-light btn-lg px-5 py-3 fw-bold text-emerald rounded-pill shadow" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
-<!-- Contact Section -->
-<div id='contact' class="container my-5">
-  <h2 class="text-center mb-4"><%= translate('home.contact.title') %></h2>
-  <p class="text-center"><%= translate('home.contact.description') %></p>
-  <div class="text-center">
-    <p><%= translate('home.contact.address_label') %>: <strong><%= translate('home.contact.address') %></strong></p>
-    <p><%= translate('home.contact.phone_label') %>: <strong><%= translate('home.contact.phone') %></strong></p>
-    <p><%= translate('home.contact.email_label') %>: <strong><%= translate('home.contact.email') %></strong></p>
-  </div>
-</div>
+<style>
+  .bg-emerald-light { background-color: rgba(16, 185, 129, 0.1); }
+  .text-emerald { color: #10b981; }
+  .bg-blue-light { background-color: rgba(59, 130, 246, 0.1); }
+  .text-blue { color: #3b82f6; }
+  .bg-purple-light { background-color: rgba(139, 92, 246, 0.1); }
+  .text-purple { color: #8b5cf6; }
+  .bg-orange-light { background-color: rgba(245, 158, 11, 0.1); }
+  .text-orange { color: #f59e0b; }
+</style>

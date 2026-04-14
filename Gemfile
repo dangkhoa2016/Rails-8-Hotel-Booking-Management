@@ -69,3 +69,6 @@ gem "devise", "~> 4.9"
 gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
 
 gem "pagy", "~> 9.3"
+gem "pundit", "~> 2.4"
+gem "groupdate", "~> 6.5"
+gem "chartkick", "~> 5.0"

@@ -4,6 +4,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="turbo-prefetch" content="false">
   <meta name="mobile-web-app-capable" content="yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js", defer: true %>
+  <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/chartkick@5.0.1/dist/chartkick.min.js", defer: true %>
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>

@@ -11,6 +11,15 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "normal users are redirected from index" do
+    sign_out users(:one)
+    sign_in users(:two)
+
+    get customers_url
+
+    assert_redirected_to root_url
+  end
+
   test "should get new" do
     get new_customer_url
     assert_response :success

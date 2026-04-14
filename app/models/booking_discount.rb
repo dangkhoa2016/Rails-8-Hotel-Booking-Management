@@ -1,6 +1,8 @@
 class BookingDiscount < ApplicationRecord
   belongs_to :booking
   belongs_to :promotion, optional: true
+  after_save :recalculate_booking_totals
+  after_destroy :recalculate_booking_totals
 
   enum :discount_type, { percent: 0, amount: 1 }
 
@@ -77,5 +79,9 @@ class BookingDiscount < ApplicationRecord
     if discount_percent.blank? && discount_amount.blank?
       errors.add(:base, :at_least_one_discount_present)
     end
+  end
+
+  def recalculate_booking_totals
+    booking&.recalculate_totals!
   end
 end

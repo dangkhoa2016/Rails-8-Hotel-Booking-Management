@@ -21,5 +21,7 @@ Seeds::UsNames::LIST.shuffle.each_with_index do |name, index|
     customer[:note] = "VIP customer on #{created_at.strftime('%Y-%m-%d')}"
   end
 
-  Customer.find_or_create_by!(customer)
+  Customer.find_or_create_by!(email: customer[:email]) do |record|
+    record.assign_attributes(customer)
+  end
 end

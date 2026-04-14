@@ -1,4 +1,7 @@
 class Reservation < ApplicationRecord
+  before_validation :set_default_prices
+  after_save :recalculate_booking_totals
+  after_destroy :recalculate_booking_totals
   belongs_to :room
   belongs_to :booking
   has_many :special_requests
@@ -20,9 +23,10 @@ class Reservation < ApplicationRecord
   validates :check_in_at, :check_out_at, :status, presence: true
   validates :room_price, presence: true, numericality: { greater_than: 0 }
   validates :check_in_at, comparison: { less_than_or_equal_to: :check_out_at }, if: -> { check_in_at.present? && check_out_at.present? }
-  validates :room_id, uniqueness: { scope: [ :check_in_at, :check_out_at ] }
-  validate :room_must_be_available
+  validates :room_id, presence: true
+  validate :room_must_be_available, on: :create
   validate :room_must_be_active
+  validate :no_overlap
 
 
   class << self
@@ -76,6 +80,32 @@ class Reservation < ApplicationRecord
     })
   end
 
+  def set_default_prices
+    self.room_price ||= room&.price
+    self.total_price = calculate_total_price
+  end
+
+  def calculate_total_price
+    return 0 unless room && check_in_at && check_out_at
+
+    duration_in_hours = (check_out_at - check_in_at) / 1.hour
+
+    if duration_in_hours <= 0
+      0
+    elsif duration_in_hours <= 4
+      # Giả định ở dưới 4 tiếng tính nửa ngày
+      if check_in_at.hour < 12
+        room.half_day_price_morning || (room.price / 2)
+      else
+        room.half_day_price_afternoon || (room.price / 2)
+      end
+    else
+      nights = ((check_out_at.to_date - check_in_at.to_date)).to_i
+      nights = 1 if nights == 0
+      nights * (room_price || room.price)
+    end
+  end
+
   private
 
   def room_must_be_available
@@ -88,5 +118,22 @@ class Reservation < ApplicationRecord
     if room.present? && !room.active?
       errors.add(:base, "Room must be active for reservation.")
     end
+  end
+
+  def no_overlap
+    return unless room && check_in_at && check_out_at
+
+    overlapping_reservations = Reservation.where(room_id: room_id)
+                                         .where.not(id: id)
+                                         .where.not(status: :canceled)
+                                         .where("check_in_at < ? AND check_out_at > ?", check_out_at, check_in_at)
+
+    if overlapping_reservations.exists?
+      errors.add(:base, "Room is already booked for this period.")
+    end
+  end
+
+  def recalculate_booking_totals
+    Booking.find_by(id: booking_id)&.recalculate_totals!
   end
 end

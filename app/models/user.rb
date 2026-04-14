@@ -44,4 +44,12 @@ class User < ApplicationRecord
   def to_s
     full_name
   end
+
+  def admin?
+    role == "admin"
+  end
+
+  def manager?
+    role == "manager"
+  end
 end

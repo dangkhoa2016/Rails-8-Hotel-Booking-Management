@@ -1,6 +1,8 @@
 class BookingVipCustomerDiscount < ApplicationRecord
   belongs_to :booking
   belongs_to :customer
+  after_save :recalculate_booking_totals
+  after_destroy :recalculate_booking_totals
 
   enum :discount_type, { percent: 0, amount: 1 }
 
@@ -48,5 +50,9 @@ class BookingVipCustomerDiscount < ApplicationRecord
         discount_amount_on_room_price.blank? && discount_amount_on_additional_services.blank?
       errors.add(:base, "At least one discount must be present")
     end
+  end
+
+  def recalculate_booking_totals
+    booking&.recalculate_totals!
   end
 end
