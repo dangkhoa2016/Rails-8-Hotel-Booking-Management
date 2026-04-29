@@ -74,6 +74,11 @@ en:
     light: "Light"
     auto: "Auto"
 
+  locales:
+    label: "Language"
+    en: "English"
+    vi: "Vietnamese"
+
   filters:
     from_name: "From %{name}"
     to_name: "To %{name}"

@@ -14,6 +14,19 @@ class BookingFlowTest < ApplicationSystemTestCase
     assert_selector "h2", text: "Bookings"
   end
 
+  test "signed in users can switch locale from the admin sidebar" do
+    visit bookings_url(locale: :en)
+
+    assert_selector "html[lang='en']"
+    assert_selector ".locale-current", text: "English"
+
+    find("a[href*='locale=vi']", visible: false).click
+
+    assert_selector "html[lang='vi']"
+    assert_selector ".locale-current", text: "Tiếng Việt"
+    assert_includes page.current_url, "locale=vi"
+  end
+
   test "signed in users can create a booking from the form" do
     visit new_booking_url
 

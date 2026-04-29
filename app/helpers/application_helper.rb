@@ -114,6 +114,23 @@ module ApplicationHelper
     I18n.translate("activerecord.models.#{key.to_s.singularize}").pluralize(I18n.locale)
   end
 
+  def locale_name(locale)
+    I18n.t("locales.#{locale}", default: locale.to_s.upcase)
+  end
+
+  def locale_switch_url(locale)
+    if request.get? || request.head?
+      query = request.query_parameters.except("locale").merge(locale: locale)
+      query_string = query.to_query
+
+      query_string.present? ? "#{request.path}?#{query_string}" : request.path
+    else
+      url_for(locale: locale)
+    end
+  rescue ActionController::UrlGenerationError
+    root_path(locale: locale)
+  end
+
   def translated_model_name(record)
     record.class.model_name.human
   end

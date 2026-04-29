@@ -74,6 +74,11 @@ vi:
     light: "Sáng"
     auto: "Tự động"
 
+  locales:
+    label: "Ngôn ngữ"
+    en: "Tiếng Anh"
+    vi: "Tiếng Việt"
+
   filters:
     from_name: "%{name} từ"
     to_name: "%{name} đến"
