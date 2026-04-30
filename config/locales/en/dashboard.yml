@@ -1,0 +1,17 @@
+en:
+  dashboard:
+    title: "Dashboard"
+    subtitle: "Welcome back. Manage your account and hotel booking data from here."
+    current_user: "Signed in as"
+    quick_links:
+      profile_title: "Your profile"
+      profile_desc: "Update your profile information and account settings."
+      bookings_title: "Bookings"
+      bookings_desc: "Review and manage booking records quickly."
+      home_title: "Public home page"
+      home_desc: "Open the guest-facing landing page at any time."
+    table_stats:
+      title: "Database tables"
+      subtitle: "Live row counts across your application tables."
+      total_rows: "Total rows: %{count}"
+      rows_label: "rows"

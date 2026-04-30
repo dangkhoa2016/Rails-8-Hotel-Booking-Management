@@ -1,0 +1,17 @@
+vi:
+  dashboard:
+    title: "Bảng điều khiển"
+    subtitle: "Chào mừng bạn quay lại. Quản lý tài khoản và dữ liệu đặt phòng tại đây."
+    current_user: "Đang đăng nhập với"
+    quick_links:
+      profile_title: "Hồ sơ của bạn"
+      profile_desc: "Cập nhật thông tin hồ sơ và cài đặt tài khoản."
+      bookings_title: "Đặt phòng"
+      bookings_desc: "Xem và quản lý nhanh các bản ghi đặt phòng."
+      home_title: "Trang chủ công khai"
+      home_desc: "Mở trang landing dành cho khách bất cứ lúc nào."
+    table_stats:
+      title: "Danh sách bảng dữ liệu"
+      subtitle: "Số lượng dòng theo thời gian thực của các bảng trong ứng dụng."
+      total_rows: "Tổng số dòng: %{count}"
+      rows_label: "dòng"

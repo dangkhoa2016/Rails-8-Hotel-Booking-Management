@@ -1,0 +1,51 @@
+<section class="py-4 py-lg-5">
+  <div class="card border-0 shadow-sm mb-4 mb-lg-5">
+    <div class="card-body p-4 p-lg-5">
+      <h1 class="h3 mb-2"><%= translate("dashboard.title") %></h1>
+      <p class="text-body-secondary mb-3"><%= translate("dashboard.subtitle") %></p>
+
+      <p class="d-inline-flex align-items-center gap-2 rounded-pill border px-3 py-2 mb-3 bg-body-tertiary">
+        <strong><%= translate("dashboard.current_user") %>:</strong>
+        <span><%= current_user&.email %></span>
+      </p>
+
+      <div class="d-flex flex-column flex-sm-row gap-2">
+        <%= link_to translate("buttons.update_profile"), edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to translate("buttons.view"), user_profile_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
+
+  <section class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h2 class="h5 mb-1"><%= translate("dashboard.table_stats.title") %></h2>
+          <p class="text-body-secondary mb-0"><%= translate("dashboard.table_stats.subtitle") %></p>
+        </div>
+        <span class="badge text-bg-primary fs-6">
+          <%= translate("dashboard.table_stats.total_rows", count: @total_rows) %>
+        </span>
+      </div>
+
+      <div class="row g-3">
+        <% @table_stats.each do |table_stat| %>
+          <div class="col-6 col-lg-4 col-xxl-3">
+            <article class="card h-100 border-primary-subtle bg-body-tertiary">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-2 d-flex align-items-center gap-2 text-break">
+                  <i class="bi bi-<%= model_icon_for_table(table_stat[:name]) %>"></i>
+                  <span><%= model_name_for_table(table_stat[:name]) %></span>
+                </p>
+                <p class="mb-0 d-flex align-items-end gap-2">
+                  <span class="fs-5 fw-semibold"><%= number_with_delimiter(table_stat[:row_count]) %></span>
+                  <span class="small text-uppercase text-body-secondary"><%= translate("dashboard.table_stats.rows_label") %></span>
+                </p>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</section>

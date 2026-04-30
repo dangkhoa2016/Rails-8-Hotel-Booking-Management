@@ -121,4 +121,19 @@ module ApplicationHelper
   def is_index_action?
     action_name == "index"
   end
+
+  def model_icon_for_table(table_name)
+    nav_list_item = nav_list.find do |item|
+      item[:model].present? && item[:model].to_s == table_name.to_s
+    end
+
+    nav_list_item&.dig(:icon) || "table"
+  end
+
+  def model_name_for_table(table_name)
+    model_class = table_name.to_s.classify.safe_constantize
+    return model_class.model_name.human(count: 2) if model_class
+
+    table_name.to_s.humanize
+  end
 end
