@@ -1,7 +1,7 @@
 promotions = [
   {
     name: 'Summer Promotion 2025',
-    summary: 'Summer promotion for 2025',
+    description: 'Summer promotion for 2025',
     discount_percent: 20,
     discount_type: 0,
     start_date: '2025-06-01',
@@ -9,7 +9,7 @@ promotions = [
   },
   {
     name: 'Winter Promotion 2025',
-    summary: 'Winter promotion for 2025',
+    description: 'Winter promotion for 2025',
     discount_percent: 15,
     discount_type: 0,
     start_date: '2025-12-01',
@@ -17,7 +17,7 @@ promotions = [
   },
   {
     name: 'Spring Promotion 2025',
-    summary: 'Spring promotion for 2025',
+    description: 'Spring promotion for 2025',
     discount_percent: 10,
     discount_type: 0,
     start_date: '2025-03-01',
@@ -25,7 +25,7 @@ promotions = [
   },
   {
     name: 'Autumn Promotion 2025',
-    summary: 'Autumn promotion for 2025',
+    description: 'Autumn promotion for 2025',
     discount_percent: 10,
     discount_type: 0,
     start_date: '2025-09-01',
@@ -33,7 +33,7 @@ promotions = [
   },
   {
     name: 'Christmas Promotion 2025',
-    summary: 'Christmas promotion for 2025',
+    description: 'Christmas promotion for 2025',
     discount_percent: 25,
     discount_type: 0,
     start_date: '2025-12-24',
@@ -41,7 +41,7 @@ promotions = [
   },
   {
     name: 'Independence Day Promotion 2025',
-    summary: 'Independence Day promotion for 2025',
+    description: 'Independence Day promotion for 2025',
     discount_amount: 100,
     discount_type: 1,
     start_date: '2025-07-04',
@@ -49,7 +49,7 @@ promotions = [
   },
   {
     name: 'Valentine\'s Day Promotion 2025',
-    summary: 'Valentine\'s Day promotion for 2025',
+    description: 'Valentine\'s Day promotion for 2025',
     discount_amount: 200,
     discount_type: 1,
     start_date: '2025-02-14',
@@ -57,7 +57,7 @@ promotions = [
   },
   {
     name: 'Black Friday Promotion 2025',
-    summary: 'Black Friday promotion for 2025',
+    description: 'Black Friday promotion for 2025',
     discount_amount: 200,
     discount_type: 1,
     start_date: '2025-11-28',
@@ -65,7 +65,7 @@ promotions = [
   },
   {
     name: 'Cyber Monday Promotion 2025',
-    summary: 'Cyber Monday promotion for 2025',
+    description: 'Cyber Monday promotion for 2025',
     discount_amount: 250,
     discount_type: 1,
     start_date: '2025-12-01',
@@ -73,7 +73,7 @@ promotions = [
   },
   {
     name: 'Halloween Promotion 2025',
-    summary: 'Halloween promotion for 2025',
+    description: 'Halloween promotion for 2025',
     discount_amount: 150,
     discount_type: 1,
     start_date: '2025-10-31',
@@ -81,7 +81,7 @@ promotions = [
   },
   {
     name: 'Easter Promotion 2025',
-    summary: 'Easter promotion for 2025',
+    description: 'Easter promotion for 2025',
     discount_amount: 400,
     discount_type: 1,
     start_date: '2025-04-12',
@@ -89,7 +89,7 @@ promotions = [
   },
   {
     name: 'Mother\'s Day Promotion 2025',
-    summary: 'Mother\'s Day promotion for 2025',
+    description: 'Mother\'s Day promotion for 2025',
     discount_amount: 100,
     discount_type: 1,
     start_date: '2025-05-11',

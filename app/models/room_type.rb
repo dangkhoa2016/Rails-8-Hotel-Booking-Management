@@ -6,13 +6,13 @@ class RoomType < ApplicationRecord
   enum :status, { inactive: 0, active: 1 }
 
 
-  validates :name, :status, :summary, presence: true
+  validates :name, :status, :description, presence: true
   validates :name, uniqueness: true
 
 
   class << self
     def display_at_index_page_columns
-      %w[name summary color status]
+      %w[name description color status]
     end
 
     def display_at_show_page_and_form_columns
@@ -26,7 +26,7 @@ class RoomType < ApplicationRecord
           css_class: "col-md-4"
         },
         {
-          name: :summary,
+          name: :description,
           css_class: "col-12"
         },
         {

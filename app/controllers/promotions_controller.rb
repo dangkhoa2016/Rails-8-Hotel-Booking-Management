@@ -66,6 +66,6 @@ class PromotionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def promotion_params
-      params.expect(promotion: [ :name, :summary, :start_date, :end_date, :discount_type, :discount_percent, :discount_amount, :status ])
+      params.expect(promotion: [ :name, :description, :start_date, :end_date, :discount_type, :discount_percent, :discount_amount, :status ])
     end
 end

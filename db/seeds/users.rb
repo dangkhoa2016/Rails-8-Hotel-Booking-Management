@@ -51,23 +51,21 @@ else
 end
 
 # add some normal users
-5.times do
-  User.create!(
-    email: "user#{rand(1000..9999)}@example.com",
-    password: 'password',
-    role: :normal,
-    full_name: "User #{rand(1000..9999)}",
-  )
+5.times do |index|
+  User.find_or_create_by!(email: "user#{index + 1}@example.com") do |user_record|
+    user_record.password = 'password'
+    user_record.role = :normal
+    user_record.full_name = "User #{index + 1}"
+  end
 end
 
 puts "5 normal users created at #{Time.now}"
 
 # add some manager users
-2.times do
-  User.create!(
-    email: "admin#{rand(1000..9999)}@example.com",
-    password: 'password',
-    role: :manager,
-    full_name: "Manager #{rand(1000..9999)}",
-  )
+2.times do |index|
+  User.find_or_create_by!(email: "manager#{index + 1}@example.com") do |user_record|
+    user_record.password = 'password'
+    user_record.role = :manager
+    user_record.full_name = "Manager #{index + 1}"
+  end
 end

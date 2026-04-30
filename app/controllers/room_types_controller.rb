@@ -66,6 +66,6 @@ class RoomTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def room_type_params
-      params.expect(room_type: [ :name, :summary, :color, :status ])
+      params.expect(room_type: [ :name, :description, :color, :status ])
     end
 end

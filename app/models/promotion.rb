@@ -4,7 +4,7 @@ class Promotion < ApplicationRecord
   has_many :booking_discounts
 
 
-  validates :name, :status, :discount_type, :summary, :start_date, :end_date, presence: true
+  validates :name, :status, :discount_type, :description, :start_date, :end_date, presence: true
   validates :start_date, comparison: { less_than_or_equal_to: :end_date }, if: -> { start_date.present? && end_date.present? }
   validates :discount_percent, numericality: { greater_than: 0, less_than_or_equal_to: 100 }, allow_blank: true, if: -> { discount_type == "percent" }
   validates :discount_amount, numericality: { greater_than: 0 }, allow_blank: true, if: -> { discount_type == "amount" }
@@ -14,7 +14,7 @@ class Promotion < ApplicationRecord
 
   class << self
     def display_at_index_page_columns
-      %w[name summary start_date end_date status]
+      %w[name description start_date end_date status]
     end
 
     def display_at_show_page_and_form_columns
@@ -36,7 +36,7 @@ class Promotion < ApplicationRecord
           css_class: "col-md-6"
         },
         {
-          name: :summary,
+          name: :description,
           css_class: "col-md-12"
         },
         {
