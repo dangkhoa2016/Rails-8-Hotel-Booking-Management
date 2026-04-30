@@ -25,6 +25,40 @@
     .service-card:hover {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .navbar .navbar-nav {
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .navbar .nav-link {
+      white-space: nowrap;
+    }
+    .navbar .login-nav-item {
+      margin-left: 0.5rem;
+    }
+    .navbar .login-nav-link {
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      line-height: 1.2;
+    }
+    @media (max-width: 991.98px) {
+      .navbar .navbar-nav {
+        align-items: stretch;
+        gap: 0;
+        margin-top: 0.75rem;
+      }
+      .navbar .nav-item {
+        margin-bottom: 0.25rem;
+      }
+      .navbar .login-nav-item {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+      .navbar .login-nav-link {
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+    }
   </style>
 <% end %>
 
@@ -37,7 +71,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>``
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -68,6 +102,9 @@
               </li>
             <% end %>
           </ul>
+        </li>
+        <li class="nav-item login-nav-item">
+          <%= link_to translate('buttons.login'), new_user_session_path, class: 'btn btn-primary login-nav-link' %>
         </li>
       </ul>
     </div>
