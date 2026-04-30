@@ -1,3 +1,96 @@
-<h1>Welcome, <%= current_user.email %></h1>
+<% profile_name    = current_user.full_name.presence || current_user.email.to_s.split("@").first %>
+<% profile_initial = profile_name.to_s.first.to_s.upcase %>
+<% status_badge    = current_user.active? ? "bg-success" : "bg-secondary" %>
 
-<p>Your profile information</p>
+<div class="row justify-content-center py-3 py-lg-4">
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <div class="card px-0 shadow-sm overflow-hidden">
+
+    <%# Header: dark panel ─────────────────────────────────────────── %>
+    <div class="card-header profile-card-header py-4 px-4">
+      <div class="d-flex align-items-center gap-3">
+        <div class="profile-avatar flex-shrink-0">
+          <%= profile_initial %>
+        </div>
+        <div class="overflow-hidden">
+          <p class="fw-semibold fs-5 mb-0 text-white text-truncate">
+            <%= current_user.full_name.presence || profile_name %>
+          </p>
+          <p class="text-white-50 small mb-0 text-break">
+            <%= current_user.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%# Body: info tiles ───────────────────────────────────────────── %>
+    <div class="card-body p-4">
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="profile-tile h-100">
+            <p class="profile-tile-label">
+              <%= translate("activerecord.attributes.user.full_name", default: "Full name") %>
+            </p>
+            <p class="profile-tile-value mb-0 text-break">
+              <%= current_user.full_name.presence || "—" %>
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="profile-tile h-100">
+            <p class="profile-tile-label">
+              <%= translate("activerecord.attributes.user.email", default: "Email") %>
+            </p>
+            <p class="profile-tile-value mb-0 text-break" style="font-size:.875rem">
+              <%= current_user.email %>
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="profile-tile h-100">
+            <p class="profile-tile-label">
+              <%= translate("activerecord.attributes.user.role", default: "Role") %>
+            </p>
+            <p class="profile-tile-value mb-0">
+              <%= current_user.role.to_s.humanize %>
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="profile-tile h-100">
+            <p class="profile-tile-label">
+              <%= translate("activerecord.attributes.user.status", default: "Status") %>
+            </p>
+            <p class="profile-tile-value mb-0">
+              <span class="badge <%= status_badge %>">
+                <%= current_user.status.to_s.humanize %>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# Footer: action bar ─────────────────────────────────────────── %>
+    <div class="card-footer d-flex flex-wrap gap-2 px-4 py-3">
+      <%= link_to translate("buttons.update_profile", default: "Update profile"),
+            edit_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to translate("dashboard.title", default: "Dashboard"),
+            dashboard_path, class: "btn btn-outline-secondary" %>
+      <%= button_to translate("buttons.sign_out", default: "Sign out"),
+            destroy_user_session_path, method: :delete,
+            class: "btn btn-outline-danger ms-auto",
+            form: { style: "margin:0" } %>
+    </div>
+
+  </div>
+</div>

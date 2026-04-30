@@ -73,3 +73,45 @@ body {
 .record-form strong i, .record-form strong span {
   display: none;
 }
+
+/* ── Profile card ──────────────────────────────────────────────────── */
+.profile-card-header {
+  background: #1e293b;
+}
+
+[data-bs-theme=dark] .profile-card-header {
+  background: #0f172a;
+}
+
+.profile-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, .3);
+  flex-shrink: 0;
+}
+
+.profile-tile {
+  background: var(--bs-secondary-bg);
+  border-radius: .625rem;
+  padding: .875rem 1rem;
+}
+
+.profile-tile-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--bs-secondary-color);
+  margin-bottom: .25rem;
+}
+
+.profile-tile-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
