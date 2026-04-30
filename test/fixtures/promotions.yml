@@ -2,7 +2,7 @@
 
 one:
   name: Spring Sale
-  summary: 10% off for all bookings
+  description: 10% off for all bookings
   start_date: 2025-03-01
   end_date: 2025-03-31
   discount_type: 0
@@ -12,7 +12,7 @@ one:
 
 two:
   name: Summer Special
-  summary: $20 off for bookings over $200
+  description: $20 off for bookings over $200
   start_date: 2025-06-01
   end_date: 2025-06-30
   discount_type: 1

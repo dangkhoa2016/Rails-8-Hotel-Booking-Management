@@ -20,7 +20,7 @@ class RoomTypesControllerTest < ActionDispatch::IntegrationTest
     assert_difference("RoomType.count") do
       post room_types_url, params: { room_type: {
         color: @room_type.color, name: @room_type.name + " test",
-          status: @room_type.status, summary: @room_type.summary
+          status: @room_type.status, description: @room_type.description
         }
       }
     end
@@ -41,7 +41,7 @@ class RoomTypesControllerTest < ActionDispatch::IntegrationTest
   test "should update room_type" do
     patch room_type_url(@room_type), params: { room_type: {
         color: @room_type.color, name: @room_type.name + " test",
-        status: @room_type.status, summary: @room_type.summary
+        status: @room_type.status, description: @room_type.description
       }
     }
     assert_redirected_to room_type_url(@room_type)

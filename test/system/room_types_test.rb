@@ -18,7 +18,7 @@ class RoomTypesTest < ApplicationSystemTestCase
     fill_in "Name", with: @room_type.name + " new"
     chk = find("#room_type_status")
     chk.click if chk.value != @room_type.status && chk.checked?
-    fill_in "Summary", with: @room_type.summary
+    fill_in "Description", with: @room_type.description
     click_on "Create Room Type"
 
     assert_text "Room type was successfully created"
@@ -33,7 +33,7 @@ class RoomTypesTest < ApplicationSystemTestCase
     fill_in "Name", with: @room_type.name + " updated"
     chk = find("#room_type_status")
     chk.click if chk.value != @room_type.status && chk.checked?
-    fill_in "Summary", with: @room_type.summary
+    fill_in "Description", with: @room_type.description
     click_on "Update Room Type"
 
     assert_text "Room type was successfully updated"

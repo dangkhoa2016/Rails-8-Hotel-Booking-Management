@@ -23,7 +23,7 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
           discount_percent: @promotion.discount_percent,
           discount_type: @promotion.discount_type, end_date: @promotion.end_date,
           name: @promotion.name + " test", start_date: @promotion.start_date,
-          status: @promotion.status, summary: @promotion.summary
+          status: @promotion.status, description: @promotion.description
         }
       }
     end
@@ -47,7 +47,7 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
         discount_percent: @promotion.discount_percent,
         discount_type: @promotion.discount_type, end_date: @promotion.end_date,
         name: @promotion.name + " test", start_date: @promotion.start_date,
-        status: @promotion.status, summary: @promotion.summary
+        status: @promotion.status, description: @promotion.description
       }
     }
     assert_redirected_to promotion_url(@promotion)

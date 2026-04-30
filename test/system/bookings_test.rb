@@ -7,6 +7,8 @@ class BookingsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit bookings_url
+
+    assert_selector ".sidebar"
     assert_selector "h2", text: "Bookings"
   end
 

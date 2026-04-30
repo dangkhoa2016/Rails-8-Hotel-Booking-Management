@@ -22,7 +22,7 @@ class PromotionsTest < ApplicationSystemTestCase
     fill_in "Start date", with: @promotion.start_date
     chk = find("#promotion_status")
     chk.click if chk.value != @promotion.status && chk.checked?
-    fill_in "Summary", with: @promotion.summary
+    fill_in "Description", with: @promotion.description
     click_on "Create Promotion"
 
     assert_text "Promotion was successfully created"
@@ -41,9 +41,9 @@ class PromotionsTest < ApplicationSystemTestCase
     fill_in "Start date", with: @promotion.start_date
     chk = find("#promotion_status")
     chk.click if chk.value != @promotion.status && chk.checked?
-    fill_in "Summary", with: @promotion.summary
+    fill_in "Description", with: @promotion.description
     click_on "Update Promotion"
-    puts "@promotion.reload.status: #{@promotion.reload.status}"
+
     assert_text "Promotion was successfully updated"
     click_on "Back", match: :first
   end
