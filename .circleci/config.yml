@@ -1,0 +1,77 @@
+version: 2.1
+
+# Declare Orbs (pre-configured packages provided by CircleCI)
+orbs:
+  ruby: circleci/ruby@2.1.1
+  browser-tools: circleci/browser-tools@1.4.8 # Necessary for installing Chrome for system tests
+
+# Define a common execution environment (Executor) to be reused across jobs
+executors:
+  rails-env:
+    docker:
+      # NOTE: Change "3.3" to the exact version in your .ruby-version file
+      # The "-browser" suffix provides a pre-installed environment with necessary libraries for UI testing
+      - image: cimg/ruby:3.3-browsers
+        environment:
+          RAILS_ENV: test
+
+jobs:
+  scan_ruby:
+    executor: rails-env
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Scan for common Rails security vulnerabilities
+          command: bin/brakeman --no-pager
+
+  scan_js:
+    executor: rails-env
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Scan for security vulnerabilities in JS dependencies
+          command: bin/importmap audit
+
+  lint:
+    executor: rails-env
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Lint code for consistent style
+          command: bin/rubocop
+
+  test:
+    executor: rails-env
+    steps:
+      - checkout
+      # Install Chrome and ChromeDriver for System Tests
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - ruby/install-deps
+      - run:
+          name: Run tests (Unit & System)
+          command: |
+            bin/rails db:test:prepare
+            PARALLEL_WORKERS=1 bin/rails test:all
+      # Save screenshots if system tests fail (similar to actions/upload-artifact)
+      - store_artifacts:
+          path: tmp/screenshots
+          destination: screenshots
+
+# Orchestrate jobs: Manage the flow of job execution
+workflows:
+  ci-workflow:
+    jobs:
+      - scan_ruby
+      - scan_js
+      - lint
+      - test:
+          # Optional: Uncomment the line below to make 'test' depend on the success of the previous jobs
+          # if you want to run all jobs in parallel, simply remove the 'requires' line below
+          requires:
+            - scan_ruby
+            - scan_js
+            - lint
