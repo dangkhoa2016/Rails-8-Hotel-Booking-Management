@@ -1,5 +1,10 @@
 # Rails 8 Hotel Booking Management
 
+[![Ruby 3.4.1](https://img.shields.io/badge/Ruby-3.4.1-red?style=flat&logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
+[![Rails 8.0.2](https://img.shields.io/badge/Rails-8.0.2-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > 🌐 Language / Ngôn ngữ: **English** | [Tiếng Việt](README.vi.md)
 
 `Rails 8 Hotel Booking Management` is a Rails 8 application for managing hotel operations through a public landing page and an authenticated back-office area. The system covers the core business domains for hotel locations, rooms, room types, customers, bookings, reservations, payments, promotions, VIP benefits, reviews, additional services, and internal users.
