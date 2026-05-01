@@ -1,7 +1,7 @@
 # Rails 8 Hotel Booking Management
 
 [![Ruby 3.4.1](https://img.shields.io/badge/Ruby-3.4.1-red?style=flat&logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
-[![Rails 8.0.2](https://img.shields.io/badge/Rails-8.0.2-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![Rails 8.1.3](https://img.shields.io/badge/Rails-8.1.3-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -25,7 +25,7 @@
 ## Technologies used
 
 - Ruby `3.4.1` from [.ruby-version](.ruby-version)
-- Rails `8.0.2`
+- Rails `8.1.3`
 - SQLite for development/test, and SQLite-backed split production databases for primary/cache/queue/cable
 - Hotwire: Turbo + Stimulus
 - Importmap + Propshaft, with no Node-based frontend build required to run the app
