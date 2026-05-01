@@ -1,7 +1,7 @@
 # Rails 8 Hotel Booking Management
 
 [![Ruby 3.4.1](https://img.shields.io/badge/Ruby-3.4.1-red?style=flat&logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
-[![Rails 8.0.2](https://img.shields.io/badge/Rails-8.0.2-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![Rails 8.1.3](https://img.shields.io/badge/Rails-8.1.3-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dangkhoa2016/Rails-8-Hotel-Booking-Management/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -25,7 +25,7 @@
 ## Công nghệ sử dụng
 
 - Ruby `3.4.1` theo [.ruby-version](.ruby-version)
-- Rails `8.0.2`
+- Rails `8.1.3`
 - SQLite cho development/test, và production dùng các SQLite database tách riêng cho primary/cache/queue/cable
 - Hotwire: Turbo + Stimulus
 - Importmap + Propshaft, không cần pipeline build frontend bằng Node để chạy app
