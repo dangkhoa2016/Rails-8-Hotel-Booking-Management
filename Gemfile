@@ -66,7 +66,7 @@ gem "schema_to_scaffold", "~> 0.8.0"
 
 gem "devise", "~> 4.9"
 
-gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
+gem "dotenv-rails", "~> 3.2", groups: [ :development, :test ]
 
 gem "pagy", "~> 43.5"
 
