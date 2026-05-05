@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  rate_limit to: 3, within: 1.hour, only: :create, with: -> { redirect_to new_user_registration_path, alert: t("devise.failure.rate_limited_sign_up") }
+
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [ :update ]
 

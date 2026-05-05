@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  rate_limit to: 5, within: 1.minute, only: :create, with: -> { redirect_to new_user_session_path, alert: t("devise.failure.rate_limited_sign_in") }
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
