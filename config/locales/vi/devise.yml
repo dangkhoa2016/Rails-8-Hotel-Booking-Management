@@ -16,6 +16,8 @@ vi:
       timeout: "Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại để tiếp tục."
       unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục."
       unconfirmed: "Bạn cần xác nhận địa chỉ email của mình trước khi tiếp tục."
+      rate_limited_sign_in: "Bạn đã vượt quá số lần thực hiện đăng nhập trong 1 phút."
+      rate_limited_sign_up: "Bạn đã vượt quá số lần thực hiện đăng ký trong 1 giờ."
     mailer:
       confirmation_instructions:
         subject: "Hướng dẫn xác nhận"

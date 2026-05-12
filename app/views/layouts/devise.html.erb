@@ -26,6 +26,26 @@
 
           <%= image_tag "/logo.svg", class: "w-50 mx-auto d-block", alt: "Logo" %>
 
+          <% if flash[:notice] %>
+            <div class="alert alert-success mt-3 d-flex align-items-center" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              <div><%= flash[:notice] %></div>
+            </div>
+          <% end %>
+
+          <% if flash[:alert] %>
+            <div class="alert alert-danger mt-3 d-flex align-items-center" role="alert">
+              <% if request.path == new_user_session_path %>
+                <i class="bi bi-shield-lock-fill me-2"></i>
+              <% elsif request.path == new_user_registration_path %>
+                <i class="bi bi-person-fill-exclamation me-2"></i>
+              <% else %>
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              <% end %>
+              <div><%= flash[:alert] %></div>
+            </div>
+          <% end %>
+
           <%= yield %>
         </div>
         </div>
